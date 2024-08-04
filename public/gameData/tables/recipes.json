@@ -1,0 +1,478 @@
+{
+    "Wooden Axe": {
+        "lvl": 0,
+        "actions": 8,
+        "xpReward": 4,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Pine Log",
+                "quantity": 10
+            }
+        ]
+    },
+    "Wooden Pickaxe": {
+        "lvl": 0,
+        "actions": 8,
+        "xpReward": 4,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Pine Log",
+                "quantity": 10
+            }
+        ]
+    },
+    "Flint Axe": {
+        "lvl": 1,
+        "actions": 16,
+        "xpReward": 12,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Flint",
+                "quantity": 10
+            },
+            {
+                "id": "Pine Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Flint Pickaxe": {
+        "lvl": 1,
+        "actions": 16,
+        "xpReward": 12,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Flint",
+                "quantity": 10
+            },
+            {
+                "id": "Pine Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Bronze Ingot": {
+        "lvl": 5,
+        "actions": 4,
+        "xpReward": 4,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Copper Ore",
+                "quantity": 1
+            },
+            {
+                "id": "Tin Ore",
+                "quantity": 1
+            }
+        ]
+    },
+    "Bronze Axe": {
+        "lvl": 6,
+        "actions": 32,
+        "xpReward": 20,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Bronze Ingot",
+                "quantity": 10
+            },
+            {
+                "id": "Oak Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Bronze Pickaxe": {
+        "lvl": 6,
+        "actions": 32,
+        "xpReward": 20,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Bronze Ingot",
+                "quantity": 10
+            },
+            {
+                "id": "Oak Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Silver Ingot": {
+        "lvl": 10,
+        "actions": 8,
+        "xpReward": 15,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Silver Ore",
+                "quantity": 2
+            }
+        ]
+    },
+    "Silver Ring": {
+        "lvl": 10,
+        "actions": 64,
+        "xpReward": 60,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Silver Ingot",
+                "quantity": 2
+            }
+        ]
+    },
+    "Lesser Ring of Woodcutting": {
+        "lvl": 11,
+        "actions": 256,
+        "xpReward": 200,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Rough Sap Crystal",
+                "quantity": 1
+            },
+            {
+                "id": "Silver Ring",
+                "quantity": 1
+            }
+        ]
+    },
+    "Lesser Ring of Mining": {
+        "lvl": 11,
+        "actions": 256,
+        "xpReward": 200,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Common Ancient Fossil",
+                "quantity": 1
+            },
+            {
+                "id": "Silver Ring",
+                "quantity": 1
+            }
+        ]
+    },
+    "Iron Ingot": {
+        "lvl": 12,
+        "actions": 8,
+        "xpReward": 10,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Iron Ore",
+                "quantity": 2
+            }
+        ]
+    },
+    "Iron Axe": {
+        "lvl": 14,
+        "actions": 32,
+        "xpReward": 40,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Iron Ingot",
+                "quantity": 10
+            },
+            {
+                "id": "Maple Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Iron Pickaxe": {
+        "lvl": 14,
+        "actions": 32,
+        "xpReward": 40,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Iron Ingot",
+                "quantity": 10
+            },
+            {
+                "id": "Maple Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Gold Ingot": {
+        "lvl": 16,
+        "actions": 16,
+        "xpReward": 30,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Gold Ore",
+                "quantity": 2
+            }
+        ]
+    },
+    "Gold Ring": {
+        "lvl": 16,
+        "actions": 128,
+        "xpReward": 120,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Gold Ingot",
+                "quantity": 2
+            }
+        ]
+    },
+    "Ring of Woodcutting": {
+        "lvl": 17,
+        "actions": 512,
+        "xpReward": 400,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Cloudy Sap Crystal",
+                "quantity": 1
+            },
+            {
+                "id": "Rough Sap Crystal",
+                "quantity": 1
+            },
+            {
+                "id": "Gold Ring",
+                "quantity": 1
+            }
+        ]
+    },
+    "Ring of Mining": {
+        "lvl": 17,
+        "actions": 512,
+        "xpReward": 400,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Uncommon Ancient Fossil",
+                "quantity": 1
+            },
+            {
+                "id": "Common Ancient Fossil",
+                "quantity": 1
+            },
+            {
+                "id": "Gold Ring",
+                "quantity": 1
+            }
+        ]
+    },
+    "Steel Ingot": {
+        "lvl": 18,
+        "actions": 16,
+        "xpReward": 20,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Iron Ore",
+                "quantity": 2
+            },
+            {
+                "id": "Coal",
+                "quantity": 2
+            }
+        ]
+    },
+    "Steel Axe": {
+        "lvl": 20,
+        "actions": 64,
+        "xpReward": 80,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Steel Ingot",
+                "quantity": 10
+            },
+            {
+                "id": "Mahogany Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Steel Pickaxe": {
+        "lvl": 20,
+        "actions": 64,
+        "xpReward": 80,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Steel Ingot",
+                "quantity": 10
+            },
+            {
+                "id": "Mahogany Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Platinum Ingot": {
+        "lvl": 24,
+        "actions": 32,
+        "xpReward": 60,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Platinum Ore",
+                "quantity": 2
+            }
+        ]
+    },
+    "Platinum Ring": {
+        "lvl": 24,
+        "actions": 256,
+        "xpReward": 240,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Platinum Ingot",
+                "quantity": 2
+            }
+        ]
+    },
+    "Greater Ring of Woodcutting": {
+        "lvl": 25,
+        "actions": 1024,
+        "xpReward": 800,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Vibrant Sap Crystal",
+                "quantity": 1
+            },
+            {
+                "id": "Cloudy Sap Crystal",
+                "quantity": 1
+            },
+            {
+                "id": "Rough Sap Crystal",
+                "quantity": 1
+            },
+            {
+                "id": "Platinum Ring",
+                "quantity": 1
+            }
+        ]
+    },
+    "Greater Ring of Mining": {
+        "lvl": 25,
+        "actions": 1024,
+        "xpReward": 800,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Rare Ancient Fossil",
+                "quantity": 1
+            },
+            {
+                "id": "Uncommon Ancient Fossil",
+                "quantity": 1
+            },
+            {
+                "id": "Common Ancient Fossil",
+                "quantity": 1
+            },
+            {
+                "id": "Platinum Ring",
+                "quantity": 1
+            }
+        ]
+    },
+    "Titanium Ingot": {
+        "lvl": 26,
+        "actions": 32,
+        "xpReward": 40,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Titanium Ore",
+                "quantity": 2
+            },
+            {
+                "id": "Coal",
+                "quantity": 4
+            }
+        ]
+    },
+    "Titanium Axe": {
+        "lvl": 28,
+        "actions": 128,
+        "xpReward": 160,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Titanium Ingot",
+                "quantity": 10
+            },
+            {
+                "id": "Redwood Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Titanium Pickaxe": {
+        "lvl": 28,
+        "actions": 128,
+        "xpReward": 160,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Titanium Ingot",
+                "quantity": 10
+            },
+            {
+                "id": "Redwood Log",
+                "quantity": 20
+            }
+        ]
+    },
+    "Imbued Ring of Woodcutting": {
+        "lvl": 30,
+        "actions": 4096,
+        "xpReward": 1600,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Greater Ring of Woodcutting",
+                "quantity": 1
+            },
+            {
+                "id": "Ring of Woodcutting",
+                "quantity": 1
+            },
+            {
+                "id": "Lesser Ring of Woodcutting",
+                "quantity": 1
+            }
+        ]
+    },
+    "Imbued Ring of Mining": {
+        "lvl": 30,
+        "actions": 4096,
+        "xpReward": 1600,
+        "quantity": 1,
+        "ingredients": [
+            {
+                "id": "Greater Ring of Mining",
+                "quantity": 1
+            },
+            {
+                "id": "Ring of Mining",
+                "quantity": 1
+            },
+            {
+                "id": "Lesser Ring of Mining",
+                "quantity": 1
+            }
+        ]
+    }
+}

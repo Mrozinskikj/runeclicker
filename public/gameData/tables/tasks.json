@@ -1,0 +1,332 @@
+{
+    "Woodcutting": {
+        "Pine Tree": {
+            "lvl": 0,
+            "actionName": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 4,
+            "xpReward": 1,
+            "items": [
+                {
+                    "id": "Pine Log",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Rough Sap Crystal",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 512
+                }
+            ]
+        },
+        "Oak Tree": {
+            "lvl": 10,
+            "actionName": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 14,
+            "xpReward": 6,
+            "items": [
+                {
+                    "id": "Oak Log",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Rough Sap Crystal",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 256
+                }
+            ]
+        },
+        "Maple Tree": {
+            "lvl": 20,
+            "actionName": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 50,
+            "xpReward": 31,
+            "items": [
+                {
+                    "id": "Maple Log",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Cloudy Sap Crystal",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 512
+                }
+            ]
+        },
+        "Mahogany Tree": {
+            "lvl": 30,
+            "actionName": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 172,
+            "xpReward": 140,
+            "items": [
+                {
+                    "id": "Mahogany Log",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Cloudy Sap Crystal",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 256
+                }
+            ]
+        },
+        "Redwood Tree": {
+            "lvl": 40,
+            "actionName": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 600,
+            "xpReward": 600,
+            "items": [
+                {
+                    "id": "Redwood Log",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Vibrant Sap Crystal",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 384
+                }
+            ]
+        }
+    },
+    "Mining": {
+        "Flint Deposit": {
+            "lvl": 0,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 8,
+            "xpReward": 2,
+            "items": [
+                {
+                    "id": "Flint",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Common Ancient Fossil",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 256
+                }
+            ]
+        },
+        "Copper Deposit": {
+            "lvl": 10,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 28,
+            "xpReward": 12,
+            "items": [
+                {
+                    "id": "Copper Ore",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Common Ancient Fossil",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 128
+                }
+            ]
+        },
+        "Tin Deposit": {
+            "lvl": 10,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 28,
+            "xpReward": 12,
+            "items": [
+                {
+                    "id": "Tin Ore",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Common Ancient Fossil",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 128
+                }
+            ]
+        },
+        "Silver Deposit": {
+            "lvl": 15,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 64,
+            "xpReward": 12,
+            "items": [
+                {
+                    "id": "Silver Ore",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 2
+                }
+            ]
+        },
+        "Iron Deposit": {
+            "lvl": 20,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 100,
+            "xpReward": 62,
+            "items": [
+                {
+                    "id": "Iron Ore",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Uncommon Ancient Fossil",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 256
+                }
+            ]
+        },
+        "Gold Deposit": {
+            "lvl": 25,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 256,
+            "xpReward": 72,
+            "items": [
+                {
+                    "id": "Gold Ore",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 2
+                }
+            ]
+        },
+        "Coal Deposit": {
+            "lvl": 30,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 344,
+            "xpReward": 280,
+            "items": [
+                {
+                    "id": "Coal",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Uncommon Ancient Fossil",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 128
+                }
+            ]
+        },
+        "Platinum Deposit": {
+            "lvl": 35,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 1024,
+            "xpReward": 432,
+            "items": [
+                {
+                    "id": "Platinum Ore",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 2
+                }
+            ]
+        },
+        "Titanium Deposit": {
+            "lvl": 40,
+            "actionName": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 1200,
+            "xpReward": 1200,
+            "items": [
+                {
+                    "id": "Titanium Ore",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                },
+                {
+                    "id": "Rare Ancient Fossil",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 192
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,287 @@
+{
+    "Pine Log": {
+        "image": "Pine Log.png"
+    },
+    "Oak Log": {
+        "image": "Oak Log.png"
+    },
+    "Maple Log": {
+        "image": "Maple Log.png"
+    },
+    "Mahogany Log": {
+        "image": "Mahogany Log.png"
+    },
+    "Redwood Log": {
+        "image": "Redwood Log.png"
+    },
+    "Rough Sap Crystal": {
+        "image": "Rough Sap Crystal.png"
+    },
+    "Cloudy Sap Crystal": {
+        "image": "Cloudy Sap Crystal.png"
+    },
+    "Vibrant Sap Crystal": {
+        "image": "Vibrant Sap Crystal.png"
+    },
+    "Common Ancient Fossil": {
+        "image": "Common Ancient Fossil.png"
+    },
+    "Uncommon Ancient Fossil": {
+        "image": "Uncommon Ancient Fossil.png"
+    },
+    "Rare Ancient Fossil": {
+        "image": "Rare Ancient Fossil.png"
+    },
+    "Flint": {
+        "image": "Flint.png"
+    },
+    "Copper Ore": {
+        "image": "Copper Ore.png"
+    },
+    "Tin Ore": {
+        "image": "Tin Ore.png"
+    },
+    "Iron Ore": {
+        "image": "Iron Ore.png"
+    },
+    "Coal": {
+        "image": "Coal.png"
+    },
+    "Titanium Ore": {
+        "image": "Titanium Ore.png"
+    },
+    "Bronze Ingot": {
+        "image": "Bronze Ingot.png"
+    },
+    "Iron Ingot": {
+        "image": "Iron Ingot.png"
+    },
+    "Steel Ingot": {
+        "image": "Steel Ingot.png"
+    },
+    "Titanium Ingot": {
+        "image": "Titanium Ingot.png"
+    },
+    "Silver Ore": {
+        "image": "Silver Ore.png"
+    },
+    "Gold Ore": {
+        "image": "Gold Ore.png"
+    },
+    "Platinum Ore": {
+        "image": "Platinum Ore.png"
+    },
+    "Silver Ingot": {
+        "image": "Silver Ingot.png"
+    },
+    "Gold Ingot": {
+        "image": "Gold Ingot.png"
+    },
+    "Platinum Ingot": {
+        "image": "Platinum Ingot.png"
+    },
+    "Wooden Axe": {
+        "image": "woodenaxe.png",
+        "slot": "axe",
+        "bonus": {
+            "Woodcutting": {
+                "speed": 1
+            }
+        }
+    },
+    "Flint Axe": {
+        "image": "Flint Axe.png",
+        "slot": "axe",
+        "bonus": {
+            "Woodcutting": {
+                "speed": 2,
+                "click": 1
+            }
+        }
+    },
+    "Bronze Axe": {
+        "image": "Bronze Axe.png",
+        "slot": "axe",
+        "bonus": {
+            "Woodcutting": {
+                "speed": 4,
+                "click": 2
+            }
+        }
+    },
+    "Iron Axe": {
+        "image": "Iron Axe.png",
+        "slot": "axe",
+        "bonus": {
+            "Woodcutting": {
+                "speed": 6,
+                "click": 3
+            }
+        }
+    },
+    "Steel Axe": {
+        "image": "Steel Axe.png",
+        "slot": "axe",
+        "bonus": {
+            "Woodcutting": {
+                "speed": 10,
+                "click": 4
+            }
+        }
+    },
+    "Titanium Axe": {
+        "image": "Titanium Axe.png",
+        "slot": "axe",
+        "bonus": {
+            "Woodcutting": {
+                "speed": 16,
+                "click": 5
+            }
+        }
+    },
+    "Wooden Pickaxe": {
+        "image": "woodenpickaxe.png",
+        "slot": "pickaxe",
+        "bonus": {
+            "Mining": {
+                "speed": 1
+            }
+        }
+    },
+    "Flint Pickaxe": {
+        "image": "Flint Pickaxe.png",
+        "slot": "pickaxe",
+        "bonus": {
+            "Mining": {
+                "speed": 2,
+                "click": 1
+            }
+        }
+    },
+    "Bronze Pickaxe": {
+        "image": "Bronze Pickaxe.png",
+        "slot": "pickaxe",
+        "bonus": {
+            "Mining": {
+                "speed": 4,
+                "click": 2
+            }
+        }
+    },
+    "Iron Pickaxe": {
+        "image": "Iron Pickaxe.png",
+        "slot": "pickaxe",
+        "bonus": {
+            "Mining": {
+                "speed": 6,
+                "click": 3
+            }
+        }
+    },
+    "Steel Pickaxe": {
+        "image": "Steel Pickaxe.png",
+        "slot": "pickaxe",
+        "bonus": {
+            "Mining": {
+                "speed": 10,
+                "click": 4
+            }
+        }
+    },
+    "Titanium Pickaxe": {
+        "image": "Titanium Pickaxe.png",
+        "slot": "pickaxe",
+        "bonus": {
+            "Mining": {
+                "speed": 16,
+                "click": 5
+            }
+        }
+    },
+    "Silver Ring": {
+        "image": "Silver Ring.png",
+        "slot": "ring"
+    },
+    "Gold Ring": {
+        "image": "Gold Ring.png",
+        "slot": "ring"
+    },
+    "Platinum Ring": {
+        "image": "Platinum Ring.png",
+        "slot": "ring"
+    },
+    "Lesser Ring of Woodcutting": {
+        "image": "Lesser Ring of Woodcutting.png",
+        "slot": "ring",
+        "bonus": {
+            "Woodcutting": {
+                "speedPercent": 25
+            }
+        }
+    },
+    "Ring of Woodcutting": {
+        "image": "Ring of Woodcutting.png",
+        "slot": "ring",
+        "bonus": {
+            "Woodcutting": {
+                "speedPercent": 50
+            }
+        }
+    },
+    "Greater Ring of Woodcutting": {
+        "image": "Greater Ring of Woodcutting.png",
+        "slot": "ring",
+        "bonus": {
+            "Woodcutting": {
+                "speedPercent": 75
+            }
+        }
+    },
+    "Imbued Ring of Woodcutting": {
+        "image": "Imbued Ring of Woodcutting.png",
+        "slot": "ring",
+        "bonus": {
+            "Woodcutting": {
+                "speedPercent": -100,
+                "clickPercent": 400
+            }
+        }
+    },
+    "Lesser Ring of Mining": {
+        "image": "Lesser Ring of Mining.png",
+        "slot": "ring",
+        "bonus": {
+            "Mining": {
+                "speedPercent": 25
+            }
+        }
+    },
+    "Ring of Mining": {
+        "image": "Ring of Mining.png",
+        "slot": "ring",
+        "bonus": {
+            "Mining": {
+                "speedPercent": 50
+            }
+        }
+    },
+    "Greater Ring of Mining": {
+        "image": "Greater Ring of Mining.png",
+        "slot": "ring",
+        "bonus": {
+            "Mining": {
+                "speedPercent": 75
+            }
+        }
+    },
+    "Imbued Ring of Mining": {
+        "image": "Imbued Ring of Mining.png",
+        "slot": "ring",
+        "bonus": {
+            "Mining": {
+                "speedPercent": -100,
+                "clickPercent": 400
+            }
+        }
+    }
+}
