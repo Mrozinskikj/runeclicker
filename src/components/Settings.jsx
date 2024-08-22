@@ -30,7 +30,7 @@ const Settings = ({ version, saveFile, setSaveFile, newSaveFile, loadSave, addMe
 
             <Box sx={{ mb: 2 }}>
                 <Typography variant="body1" sx={{ fontFamily: 'monospace', fontWeight: 'bold' }}> changelog </Typography>
-                <Box sx={{ maxHeight: 100, border: 1, p: 0.5, overflowY:'auto' }}>
+                <Box sx={{ maxHeight: 160, border: 1, p: 0.5, overflowY:'auto' }}>
                     <Changelog />
                 </Box>
             </Box>

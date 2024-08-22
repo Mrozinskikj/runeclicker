@@ -11,7 +11,7 @@ import axeslot from "../images/interface/axeslot.png";
 import pickaxeslot from "../images/interface/pickaxeslot.png";
 import ringslot from "../images/interface/ringslot.png";
 
-const EquipmentSlot = ({ top, left, slot, icon, equipment, items, inventory, sourceIndex, grabItem, placeItem }) => {
+const EquipmentSlot = ({ top, left, slot, icon, equipment, items, inventory, stats, sourceIndex, grabItem, placeItem }) => {
     const item = equipment[slot];
 
     let border = '';
@@ -48,7 +48,7 @@ const EquipmentSlot = ({ top, left, slot, icon, equipment, items, inventory, sou
             {item != null ? (
                 // Display item if not currently being dragged
                 sourceIndex !== slot ? (
-                    <Item itemData={items[item]} itemName={item} quantity={1} updated={false} />
+                    <Item itemData={items[item]} itemName={item} quantity={1} stats={stats} updated={false} />
                 ) : (
                     // Display placeholder if currently being dragged
                     <img src={inventoryplaceholder} alt="" style={{ userSelect: 'none', pointerEvents: 'none' }} />
@@ -58,7 +58,7 @@ const EquipmentSlot = ({ top, left, slot, icon, equipment, items, inventory, sou
     );
 }
 
-const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, setNeedToSave, updatedItemIndices, updatedItemOverlay, removeItems, addItems }) => {
+const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, stats, setNeedToSave, updatedItemIndices, updatedItemOverlay, removeItems, addItems }) => {
 
     const [sourceIndex, setSourceIndex] = useState(null);
 
@@ -84,7 +84,7 @@ const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, se
             }
             // from equipment to inventory - remove from equipment, add to inventory
             else {
-                addItems([{ id: equipment[sourceIndex], quantity: [1, 1], probability: 1, index: destinationIndex }]);
+                addItems([{ id: equipment[sourceIndex], quantity: [1, 1], probability: 1, index: destinationIndex }], 1);
                 setEquipment((prevItems) => ({
                     ...prevItems,
                     [sourceIndex]: null
@@ -99,7 +99,7 @@ const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, se
             if (items[selectedItem]?.slot === destinationIndex) {
                 // Replace item if equipment slot filled
                 if (equipment[destinationIndex] !== null) {
-                    addItems([{ id: equipment[destinationIndex], quantity: [1, 1], probability: 1 }]);
+                    addItems([{ id: equipment[destinationIndex], quantity: [1, 1], probability: 1 }], 1);
                 }
 
                 // Place item into equipment slot
@@ -107,7 +107,7 @@ const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, se
                     ...prevItems,
                     [destinationIndex]: selectedItem
                 }));
-                removeItems([{ id: selectedItem, quantity: 1 }]);
+                removeItems([{ id: selectedItem, quantity: 1 }], 1);
             }
         }
 
@@ -149,7 +149,7 @@ const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, se
                     {item != null ? (
                         // Display item if not currently being dragged
                         sourceIndex !== index ? (
-                            <Item itemData={items[item.id]} itemName={item.id} quantity={item.quantity} updated={updatedItemIndices.includes(index) && updatedItemOverlay} />
+                            <Item itemData={items[item.id]} itemName={item.id} quantity={item.quantity} stats={stats} updated={updatedItemIndices.includes(index) && updatedItemOverlay} />
                         ) : (
                             // Display placeholder if currently being dragged
                             <img src={inventoryplaceholder} alt="" style={{ userSelect: 'none', pointerEvents: 'none' }} />
@@ -171,9 +171,9 @@ const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, se
             position: 'relative'
         }}>
 
-            <EquipmentSlot top={6} left={34} slot={"axe"} icon={axeslot} equipment={equipment} items={items} inventory={inventory} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
-            <EquipmentSlot top={6} left={110} slot={"pickaxe"} icon={pickaxeslot} equipment={equipment} items={items} inventory={inventory} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
-            <EquipmentSlot top={6} left={186} slot={"ring"} icon={ringslot} equipment={equipment} items={items} inventory={inventory} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot top={6} left={34} slot={"axe"} icon={axeslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot top={6} left={110} slot={"pickaxe"} icon={pickaxeslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot top={6} left={186} slot={"ring"} icon={ringslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
 
         </Box>
     );

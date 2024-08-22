@@ -6,7 +6,7 @@
             "message": "You chop down the tree.",
             "actions": 4,
             "xpReward": 1,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Pine Log",
                     "quantity": [
@@ -31,7 +31,7 @@
             "message": "You chop down the tree.",
             "actions": 14,
             "xpReward": 6,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Oak Log",
                     "quantity": [
@@ -56,7 +56,7 @@
             "message": "You chop down the tree.",
             "actions": 50,
             "xpReward": 31,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Maple Log",
                     "quantity": [
@@ -81,7 +81,7 @@
             "message": "You chop down the tree.",
             "actions": 172,
             "xpReward": 140,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Mahogany Log",
                     "quantity": [
@@ -106,7 +106,7 @@
             "message": "You chop down the tree.",
             "actions": 600,
             "xpReward": 600,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Redwood Log",
                     "quantity": [
@@ -133,7 +133,7 @@
             "message": "You mine the rocks.",
             "actions": 8,
             "xpReward": 2,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Flint",
                     "quantity": [
@@ -158,7 +158,7 @@
             "message": "You mine the rocks.",
             "actions": 28,
             "xpReward": 12,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Copper Ore",
                     "quantity": [
@@ -183,7 +183,7 @@
             "message": "You mine the rocks.",
             "actions": 28,
             "xpReward": 12,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Tin Ore",
                     "quantity": [
@@ -208,7 +208,7 @@
             "message": "You mine the rocks.",
             "actions": 64,
             "xpReward": 12,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Silver Ore",
                     "quantity": [
@@ -225,7 +225,7 @@
             "message": "You mine the rocks.",
             "actions": 100,
             "xpReward": 62,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Iron Ore",
                     "quantity": [
@@ -250,7 +250,7 @@
             "message": "You mine the rocks.",
             "actions": 256,
             "xpReward": 72,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Gold Ore",
                     "quantity": [
@@ -267,7 +267,7 @@
             "message": "You mine the rocks.",
             "actions": 344,
             "xpReward": 280,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Coal",
                     "quantity": [
@@ -292,7 +292,7 @@
             "message": "You mine the rocks.",
             "actions": 1024,
             "xpReward": 432,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Platinum Ore",
                     "quantity": [
@@ -309,7 +309,7 @@
             "message": "You mine the rocks.",
             "actions": 1200,
             "xpReward": 1200,
-            "items": [
+            "itemReward": [
                 {
                     "id": "Titanium Ore",
                     "quantity": [
@@ -328,5 +328,815 @@
                 }
             ]
         }
-    }
+    },
+    "Processing": {
+        "Wooden Axe": {
+            "lvl": 0,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 8,
+            "xpReward": 4,
+            "itemCost": [
+                {
+                    "id": "Pine Log",
+                    "quantity": 10
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Wooden Axe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Wooden Pickaxe": {
+            "lvl": 0,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 8,
+            "xpReward": 4,
+            "itemCost": [
+                {
+                    "id": "Pine Log",
+                    "quantity": 10
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Wooden Pickaxe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Flint Axe": {
+            "lvl": 1,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 12,
+            "itemCost": [
+                {
+                    "id": "Flint",
+                    "quantity": 10
+                },
+                {
+                    "id": "Pine Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Flint Axe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Flint Pickaxe": {
+            "lvl": 1,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 12,
+            "itemCost": [
+                {
+                    "id": "Flint",
+                    "quantity": 10
+                },
+                {
+                    "id": "Pine Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Flint Pickaxe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Bronze Ingot": {
+            "lvl": 7,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 4,
+            "xpReward": 4,
+            "itemCost": [
+                {
+                    "id": "Copper Ore",
+                    "quantity": 1
+                },
+                {
+                    "id": "Tin Ore",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Bronze Ingot",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Bronze Axe": {
+            "lvl": 8,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 32,
+            "xpReward": 20,
+            "itemCost": [
+                {
+                    "id": "Bronze Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Oak Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Bronze Axe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Bronze Pickaxe": {
+            "lvl": 8,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 32,
+            "xpReward": 20,
+            "itemCost": [
+                {
+                    "id": "Bronze Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Oak Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Bronze Pickaxe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Silver Ingot": {
+            "lvl": 10,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 8,
+            "xpReward": 15,
+            "itemCost": [
+                {
+                    "id": "Silver Ore",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Silver Ingot",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Silver Ring": {
+            "lvl": 10,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 64,
+            "xpReward": 60,
+            "itemCost": [
+                {
+                    "id": "Silver Ingot",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Silver Ring",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Lesser Ring of Woodcutting": {
+            "lvl": 11,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 256,
+            "xpReward": 200,
+            "itemCost": [
+                {
+                    "id": "Rough Sap Crystal",
+                    "quantity": 1
+                },
+                {
+                    "id": "Silver Ring",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Lesser Ring of Woodcutting",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Lesser Ring of Mining": {
+            "lvl": 11,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 256,
+            "xpReward": 200,
+            "itemCost": [
+                {
+                    "id": "Common Ancient Fossil",
+                    "quantity": 1
+                },
+                {
+                    "id": "Silver Ring",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Lesser Ring of Mining",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Iron Ingot": {
+            "lvl": 14,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 8,
+            "xpReward": 10,
+            "itemCost": [
+                {
+                    "id": "Iron Ore",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Iron Ingot",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Iron Axe": {
+            "lvl": 15,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 32,
+            "xpReward": 40,
+            "itemCost": [
+                {
+                    "id": "Iron Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Maple Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Iron Axe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Iron Pickaxe": {
+            "lvl": 15,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 32,
+            "xpReward": 40,
+            "itemCost": [
+                {
+                    "id": "Iron Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Maple Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Iron Pickaxe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Gold Ingot": {
+            "lvl": 16,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 30,
+            "itemCost": [
+                {
+                    "id": "Gold Ore",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Gold Ingot",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Gold Ring": {
+            "lvl": 16,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 120,
+            "itemCost": [
+                {
+                    "id": "Gold Ingot",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Gold Ring",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Ring of Woodcutting": {
+            "lvl": 17,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 512,
+            "xpReward": 400,
+            "itemCost": [
+                {
+                    "id": "Cloudy Sap Crystal",
+                    "quantity": 1
+                },
+                {
+                    "id": "Rough Sap Crystal",
+                    "quantity": 1
+                },
+                {
+                    "id": "Gold Ring",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Ring of Woodcutting",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Ring of Mining": {
+            "lvl": 17,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 512,
+            "xpReward": 400,
+            "itemCost": [
+                {
+                    "id": "Uncommon Ancient Fossil",
+                    "quantity": 1
+                },
+                {
+                    "id": "Common Ancient Fossil",
+                    "quantity": 1
+                },
+                {
+                    "id": "Gold Ring",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Ring of Mining",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Steel Ingot": {
+            "lvl": 21,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 20,
+            "itemCost": [
+                {
+                    "id": "Iron Ore",
+                    "quantity": 2
+                },
+                {
+                    "id": "Coal",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Steel Ingot",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Steel Axe": {
+            "lvl": 22,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 64,
+            "xpReward": 80,
+            "itemCost": [
+                {
+                    "id": "Steel Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Mahogany Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Steel Axe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Steel Pickaxe": {
+            "lvl": 22,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 64,
+            "xpReward": 80,
+            "itemCost": [
+                {
+                    "id": "Steel Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Mahogany Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Steel Pickaxe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Platinum Ingot": {
+            "lvl": 24,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 32,
+            "xpReward": 60,
+            "itemCost": [
+                {
+                    "id": "Platinum Ore",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Platinum Ingot",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Platinum Ring": {
+            "lvl": 24,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 256,
+            "xpReward": 240,
+            "itemCost": [
+                {
+                    "id": "Platinum Ingot",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Platinum Ring",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Greater Ring of Woodcutting": {
+            "lvl": 25,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 1024,
+            "xpReward": 800,
+            "itemCost": [
+                {
+                    "id": "Vibrant Sap Crystal",
+                    "quantity": 1
+                },
+                {
+                    "id": "Cloudy Sap Crystal",
+                    "quantity": 1
+                },
+                {
+                    "id": "Rough Sap Crystal",
+                    "quantity": 1
+                },
+                {
+                    "id": "Platinum Ring",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Greater Ring of Woodcutting",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Greater Ring of Mining": {
+            "lvl": 25,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 1024,
+            "xpReward": 800,
+            "itemCost": [
+                {
+                    "id": "Rare Ancient Fossil",
+                    "quantity": 1
+                },
+                {
+                    "id": "Uncommon Ancient Fossil",
+                    "quantity": 1
+                },
+                {
+                    "id": "Common Ancient Fossil",
+                    "quantity": 1
+                },
+                {
+                    "id": "Platinum Ring",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Greater Ring of Mining",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Titanium Ingot": {
+            "lvl": 29,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 32,
+            "xpReward": 40,
+            "itemCost": [
+                {
+                    "id": "Titanium Ore",
+                    "quantity": 2
+                },
+                {
+                    "id": "Coal",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Titanium Ingot",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Titanium Axe": {
+            "lvl": 30,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 160,
+            "itemCost": [
+                {
+                    "id": "Titanium Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Redwood Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Titanium Axe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Titanium Pickaxe": {
+            "lvl": 30,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 160,
+            "itemCost": [
+                {
+                    "id": "Titanium Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Redwood Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Titanium Pickaxe",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Imbued Ring of Woodcutting": {
+            "lvl": 32,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 4096,
+            "xpReward": 1600,
+            "itemCost": [
+                {
+                    "id": "Greater Ring of Woodcutting",
+                    "quantity": 1
+                },
+                {
+                    "id": "Ring of Woodcutting",
+                    "quantity": 1
+                },
+                {
+                    "id": "Lesser Ring of Woodcutting",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Imbued Ring of Woodcutting",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Imbued Ring of Mining": {
+            "lvl": 32,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 4096,
+            "xpReward": 1600,
+            "itemCost": [
+                {
+                    "id": "Greater Ring of Mining",
+                    "quantity": 1
+                },
+                {
+                    "id": "Ring of Mining",
+                    "quantity": 1
+                },
+                {
+                    "id": "Lesser Ring of Mining",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Imbued Ring of Mining",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        }
+    },
+    "Merchanting": {},
+    "Energy": {}
 }

@@ -1,88 +1,116 @@
 {
     "Pine Log": {
-        "image": "Pine Log.png"
+        "image": "Pine Log.png",
+        "value": 1
     },
     "Oak Log": {
-        "image": "Oak Log.png"
+        "image": "Oak Log.png",
+        "value": 6
     },
     "Maple Log": {
-        "image": "Maple Log.png"
+        "image": "Maple Log.png",
+        "value": 31
     },
     "Mahogany Log": {
-        "image": "Mahogany Log.png"
+        "image": "Mahogany Log.png",
+        "value": 140
     },
     "Redwood Log": {
-        "image": "Redwood Log.png"
+        "image": "Redwood Log.png",
+        "value": 600
     },
     "Rough Sap Crystal": {
-        "image": "Rough Sap Crystal.png"
+        "image": "Rough Sap Crystal.png",
+        "value": 100
     },
     "Cloudy Sap Crystal": {
-        "image": "Cloudy Sap Crystal.png"
+        "image": "Cloudy Sap Crystal.png",
+        "value": 1000
     },
     "Vibrant Sap Crystal": {
-        "image": "Vibrant Sap Crystal.png"
+        "image": "Vibrant Sap Crystal.png",
+        "value": 10000
     },
     "Common Ancient Fossil": {
-        "image": "Common Ancient Fossil.png"
+        "image": "Common Ancient Fossil.png",
+        "value": 100
     },
     "Uncommon Ancient Fossil": {
-        "image": "Uncommon Ancient Fossil.png"
+        "image": "Uncommon Ancient Fossil.png",
+        "value": 1000
     },
     "Rare Ancient Fossil": {
-        "image": "Rare Ancient Fossil.png"
+        "image": "Rare Ancient Fossil.png",
+        "value": 10000
     },
     "Flint": {
-        "image": "Flint.png"
+        "image": "Flint.png",
+        "value": 2
     },
     "Copper Ore": {
-        "image": "Copper Ore.png"
+        "image": "Copper Ore.png",
+        "value": 12
     },
     "Tin Ore": {
-        "image": "Tin Ore.png"
+        "image": "Tin Ore.png",
+        "value": 12
     },
     "Iron Ore": {
-        "image": "Iron Ore.png"
+        "image": "Iron Ore.png",
+        "value": 62
     },
     "Coal": {
-        "image": "Coal.png"
+        "image": "Coal.png",
+        "value": 280
     },
     "Titanium Ore": {
-        "image": "Titanium Ore.png"
+        "image": "Titanium Ore.png",
+        "value": 1200
     },
     "Bronze Ingot": {
-        "image": "Bronze Ingot.png"
+        "image": "Bronze Ingot.png",
+        "value": 24
     },
     "Iron Ingot": {
-        "image": "Iron Ingot.png"
+        "image": "Iron Ingot.png",
+        "value": 124
     },
     "Steel Ingot": {
-        "image": "Steel Ingot.png"
+        "image": "Steel Ingot.png",
+        "value": 560
     },
     "Titanium Ingot": {
-        "image": "Titanium Ingot.png"
+        "image": "Titanium Ingot.png",
+        "value": 2400
     },
     "Silver Ore": {
-        "image": "Silver Ore.png"
+        "image": "Silver Ore.png",
+        "value": 100
     },
     "Gold Ore": {
-        "image": "Gold Ore.png"
+        "image": "Gold Ore.png",
+        "value": 300
     },
     "Platinum Ore": {
-        "image": "Platinum Ore.png"
+        "image": "Platinum Ore.png",
+        "value": 900
     },
     "Silver Ingot": {
-        "image": "Silver Ingot.png"
+        "image": "Silver Ingot.png",
+        "value": 200
     },
     "Gold Ingot": {
-        "image": "Gold Ingot.png"
+        "image": "Gold Ingot.png",
+        "value": 600
     },
     "Platinum Ingot": {
-        "image": "Platinum Ingot.png"
+        "image": "Platinum Ingot.png",
+        "value": 1800
     },
     "Wooden Axe": {
         "image": "woodenaxe.png",
         "slot": "axe",
+        "value": 10,
         "bonus": {
             "Woodcutting": {
                 "speed": 1
@@ -92,6 +120,7 @@
     "Flint Axe": {
         "image": "Flint Axe.png",
         "slot": "axe",
+        "value": 30,
         "bonus": {
             "Woodcutting": {
                 "speed": 2,
@@ -102,6 +131,7 @@
     "Bronze Axe": {
         "image": "Bronze Axe.png",
         "slot": "axe",
+        "value": 60,
         "bonus": {
             "Woodcutting": {
                 "speed": 4,
@@ -112,6 +142,7 @@
     "Iron Axe": {
         "image": "Iron Axe.png",
         "slot": "axe",
+        "value": 120,
         "bonus": {
             "Woodcutting": {
                 "speed": 6,
@@ -122,6 +153,7 @@
     "Steel Axe": {
         "image": "Steel Axe.png",
         "slot": "axe",
+        "value": 240,
         "bonus": {
             "Woodcutting": {
                 "speed": 10,
@@ -132,6 +164,7 @@
     "Titanium Axe": {
         "image": "Titanium Axe.png",
         "slot": "axe",
+        "value": 480,
         "bonus": {
             "Woodcutting": {
                 "speed": 16,
@@ -142,6 +175,7 @@
     "Wooden Pickaxe": {
         "image": "woodenpickaxe.png",
         "slot": "pickaxe",
+        "value": 10,
         "bonus": {
             "Mining": {
                 "speed": 1
@@ -151,6 +185,7 @@
     "Flint Pickaxe": {
         "image": "Flint Pickaxe.png",
         "slot": "pickaxe",
+        "value": 30,
         "bonus": {
             "Mining": {
                 "speed": 2,
@@ -161,6 +196,7 @@
     "Bronze Pickaxe": {
         "image": "Bronze Pickaxe.png",
         "slot": "pickaxe",
+        "value": 60,
         "bonus": {
             "Mining": {
                 "speed": 4,
@@ -171,6 +207,7 @@
     "Iron Pickaxe": {
         "image": "Iron Pickaxe.png",
         "slot": "pickaxe",
+        "value": 120,
         "bonus": {
             "Mining": {
                 "speed": 6,
@@ -181,6 +218,7 @@
     "Steel Pickaxe": {
         "image": "Steel Pickaxe.png",
         "slot": "pickaxe",
+        "value": 240,
         "bonus": {
             "Mining": {
                 "speed": 10,
@@ -191,6 +229,7 @@
     "Titanium Pickaxe": {
         "image": "Titanium Pickaxe.png",
         "slot": "pickaxe",
+        "value": 480,
         "bonus": {
             "Mining": {
                 "speed": 16,
@@ -200,19 +239,23 @@
     },
     "Silver Ring": {
         "image": "Silver Ring.png",
-        "slot": "ring"
+        "slot": "ring",
+        "value": 500
     },
     "Gold Ring": {
         "image": "Gold Ring.png",
-        "slot": "ring"
+        "slot": "ring",
+        "value": 1500
     },
     "Platinum Ring": {
         "image": "Platinum Ring.png",
-        "slot": "ring"
+        "slot": "ring",
+        "value": 4000
     },
     "Lesser Ring of Woodcutting": {
         "image": "Lesser Ring of Woodcutting.png",
         "slot": "ring",
+        "value": 1000,
         "bonus": {
             "Woodcutting": {
                 "speedPercent": 25
@@ -222,6 +265,7 @@
     "Ring of Woodcutting": {
         "image": "Ring of Woodcutting.png",
         "slot": "ring",
+        "value": 3000,
         "bonus": {
             "Woodcutting": {
                 "speedPercent": 50
@@ -231,6 +275,7 @@
     "Greater Ring of Woodcutting": {
         "image": "Greater Ring of Woodcutting.png",
         "slot": "ring",
+        "value": 8000,
         "bonus": {
             "Woodcutting": {
                 "speedPercent": 75
@@ -240,6 +285,7 @@
     "Imbued Ring of Woodcutting": {
         "image": "Imbued Ring of Woodcutting.png",
         "slot": "ring",
+        "value": 16000,
         "bonus": {
             "Woodcutting": {
                 "speedPercent": -100,
@@ -250,6 +296,7 @@
     "Lesser Ring of Mining": {
         "image": "Lesser Ring of Mining.png",
         "slot": "ring",
+        "value": 1000,
         "bonus": {
             "Mining": {
                 "speedPercent": 25
@@ -259,6 +306,7 @@
     "Ring of Mining": {
         "image": "Ring of Mining.png",
         "slot": "ring",
+        "value": 3000,
         "bonus": {
             "Mining": {
                 "speedPercent": 50
@@ -268,6 +316,7 @@
     "Greater Ring of Mining": {
         "image": "Greater Ring of Mining.png",
         "slot": "ring",
+        "value": 8000,
         "bonus": {
             "Mining": {
                 "speedPercent": 75
@@ -277,11 +326,15 @@
     "Imbued Ring of Mining": {
         "image": "Imbued Ring of Mining.png",
         "slot": "ring",
+        "value": 16000,
         "bonus": {
             "Mining": {
                 "speedPercent": -100,
                 "clickPercent": 400
             }
         }
+    },
+    "Coins": {
+        "image": "Coins.png"
     }
 }

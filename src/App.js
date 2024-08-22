@@ -9,16 +9,16 @@ function App() {
   const [fetched, setFetched] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  const version = "1.0";
-  const skills = useMemo(() => ['Woodcutting', 'Mining', 'Processing'], []);
+  const version = "1.1";
+  const skills = useMemo(() => ['Woodcutting', 'Mining', 'Processing', 'Merchanting', 'Energy'], []);
   const equipmentSlots = ['pickaxe', 'axe', 'ring'];
-  const inventorySize = 54;
+  const inventorySize = 36;
 
   const [lvlTable, setLvlTable] = useState(null);
   const [speedTable, setSpeedTable] = useState(null);
   const [tasks, setTasks] = useState(null);
   const [items, setItems] = useState(null);
-  const [recipes, setRecipes] = useState(null);
+  const [energyTable, setEnergyTable] = useState(null);
 
   const [xp, setXp] = useState(null);
   const [inventory, setInventory] = useState(null);
@@ -27,6 +27,14 @@ function App() {
 
   const [lvl, setLvl] = useState(null);
   const [stats, setStats] = useState(null);
+  const [maxEnergy, setMaxEnergy] = useState(null);
+
+  const [autoTask, setAutoTask] = useState(null);
+
+  const [timeElapsed, setTimeElapsed] = useState(0);
+
+  const [skillSelected, setSkillSelected] = useState(null);
+  const [taskSelected, setTaskSelected] = useState(null);
 
   // SAVE FILE LOGIC
   // Blank new game save file
@@ -38,7 +46,11 @@ function App() {
     equipmentSlots.forEach(slot => { equipment[slot] = null });
 
     return JSON.stringify({
+      time: new Date(),
+      skill: skills[0],
+      task: null,
       xp: xp,
+      autoTask: false,
       inventory: Array(inventorySize).fill(null),
       equipment: equipment,
       unlocked: []
@@ -63,7 +75,7 @@ function App() {
 
   const fetchData = useCallback(async (path) => {
     try {
-      const response = await fetch(path);
+      const response = await fetch(`${process.env.PUBLIC_URL}${path}`);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -76,7 +88,7 @@ function App() {
     const speedData = await fetchData('/gameData/tables/speedTable.json');
     const taskData = await fetchData('/gameData/tables/tasks.json');
     const itemData = await fetchData('/gameData/tables/items.json');
-    const recipeData = await fetchData('/gameData/tables/recipes.json');
+    const energyData = await fetchData('/gameData/tables/energyTable.json');
 
     // Set number of actions for all tasks and recipes to 1 if fast mode enabled
     if (fast) {
@@ -85,17 +97,14 @@ function App() {
           taskData[skill][task].actions = 1;
         });
       });
-      Object.keys(recipeData).forEach(recipe => {
-        recipeData[recipe].actions = 1;
-      })
     }
 
     // Determine whether each item is a crafting material based on whether it appears in any recipe
     Object.keys(itemData).forEach((item) => {
       itemData[item].crafting = false;
     })
-    Object.keys(recipeData).forEach((recipe) => {
-      recipeData[recipe].ingredients.forEach((ingredient => {
+    Object.keys(taskData['Processing']).forEach((recipe) => {
+      taskData['Processing'][recipe].itemCost.forEach((ingredient => {
         itemData[ingredient.id].crafting = true;
       }))
     })
@@ -104,7 +113,7 @@ function App() {
     setSpeedTable(speedData);
     setTasks(taskData);
     setItems(itemData);
-    setRecipes(recipeData);
+    setEnergyTable(energyData);
 
     setFetched(true);
   }, [fetchData]);
@@ -133,6 +142,8 @@ function App() {
     skills.forEach(skill => {
       stats[skill] = { 'baseSpeed': speedTable[lvl[skill]], 'bonusSpeed': 0, 'baseClick': 1, 'bonusClick': 0, 'bonusSpeedPercent': 0, 'bonusClickPercent': 0 };
     });
+    // Merchanting also has a multiplier
+    stats['Merchanting'] = { 'baseSpeed': speedTable[lvl['Merchanting']], 'bonusSpeed': 0, 'baseClick': 1, 'bonusClick': 0, 'bonusSpeedPercent': 0, 'bonusClickPercent': 0, 'baseMultiplier': speedTable[lvl['Merchanting']], 'bonusMultiplier': 0, 'bonusMultiplierPercent': 0 };
     return stats;
   };
 
@@ -147,6 +158,13 @@ function App() {
     setUnlocked(save.unlocked);
     setLvl(calculatedLvl);
     setStats(calculatedStats);
+    setMaxEnergy(energyTable.time[calculatedLvl["Energy"]]);
+    setAutoTask(save.autoTask);
+    setSkillSelected(save.skill);
+    setTaskSelected(save.task);
+
+    // Calculate amount of time since the game was last played
+    setTimeElapsed(new Date() - new Date(save.time));
 
     // save game to cookies
     Cookies.set("runeclicker", saveFile, {expires: 1000});
@@ -158,7 +176,6 @@ function App() {
       setLoaded(true);
     }
   }, [fetched]);
-
 
 
 
@@ -179,7 +196,16 @@ function App() {
         lvl={lvl}
         setLvl={setLvl}
         stats={stats}
+        maxEnergy={maxEnergy}
+        setMaxEnergy={setMaxEnergy}
+        autoTask={autoTask}
+        setAutoTask={setAutoTask}
+        skillSelected={skillSelected}
+        setSkillSelected={setSkillSelected}
+        taskSelected={taskSelected}
+        setTaskSelected={setTaskSelected}
         setStats={setStats}
+        timeElapsed={timeElapsed}
         saveFile={saveFile}
         setSaveFile={setSaveFile}
         newSaveFile={newSaveFile}
@@ -188,7 +214,7 @@ function App() {
         speedTable={speedTable}
         items={items}
         tasks={tasks}
-        recipes={recipes}
+        energyTable={energyTable}
         skills={skills}
         version={version}
       />

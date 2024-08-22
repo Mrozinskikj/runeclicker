@@ -11,6 +11,8 @@ import Console from "./components/Console.jsx";
 import Skilling from "./components/Skilling.jsx";
 import TaskList from "./components/TaskList.jsx";
 import RecipeList from "./components/RecipeList.jsx";
+import Merchanting from './components/Merchanting.jsx';
+import Energy from './components/Energy.jsx';
 import SkillList from "./components/SkillList.jsx";
 import Inventory from './components/Inventory.jsx';
 import Settings from './components/Settings.jsx';
@@ -30,49 +32,111 @@ const Main = ({
     setLvl,
     stats,
     setStats,
+    maxEnergy,
+    setMaxEnergy,
+    autoTask,
+    setAutoTask,
+    skillSelected,
+    setSkillSelected,
+    taskSelected,
+    setTaskSelected,
+    timeElapsed,
     saveFile,
     setSaveFile,
     newSaveFile,
     loadSave,
     lvlTable,
     speedTable,
+    energyTable,
     items,
     tasks,
-    recipes,
     skills,
     version,
 }) => {
+
+    // Get task data by task name. For certain skills, task data must be generated dynamically
+    const getTaskData = (taskName) => {
+        // Merchanting skill calculates xp and coin reward dynamically 
+        if (skillSelected === "Merchanting") {
+            const multiplierNoPercent = stats['Merchanting'].baseMultiplier + stats['Merchanting'].bonusMultiplier;
+            const multiplier = (multiplierNoPercent * ((stats['Merchanting'].bonusMultiplier / 100) + 1)).toFixed(2);
+            const value = Math.floor(items[taskName]?.value * multiplier);
+            return {
+                'lvl': 0,
+                'actionName': 'Sell',
+                'message': 'You sell the item.',
+                'actions': 4,
+                'xpReward': items[taskName]?.value,
+                'itemCost': [{ 'id': taskName, 'quantity': 1 }],
+                'itemReward': [{ 'id': 'Coins', 'quantity': [value, value], 'probability': 1 }],
+            }
+        }
+        // xp reward for energy skill is exact amount needed for lvl up. cost is looked up from table
+        else if (skillSelected === "Energy") {
+            if (taskName === "Energy Fortification") {
+                return {
+                    'lvl': 0,
+                    'actionName': 'Fortify',
+                    'message': 'You fortify your energy.',
+                    'actions': 4,
+                    'xpReward': lvlTable[lvl['Energy'] + 1] - lvlTable[lvl['Energy']],
+                    'itemCost': [{ 'id': 'Coins', 'quantity': energyTable.cost[lvl['Energy']] }]
+                }
+            } else {
+                return {
+                    'lvl': 0,
+                    'actionName': 'Unlock',
+                    'message': 'You have unlocked Auto Task. From now on, closing the game will continue your active task until your energy runs out.',
+                    'actions': 1024,
+                    'xpReward': 0,
+                    'itemCost': [{ 'id': 'Coins', 'quantity': 100000 }]
+                }
+            }
+        }
+        // All other tasks are looked up from table
+        else {
+            return tasks[skillSelected][taskName];
+        }
+    }
 
     const [needToSave, setNeedToSave] = useState(false);
     const messagesEndRef = useRef(null);
 
     const [viewSettings, setViewSettings] = useState(false);
     const onSettingsClick = (state) => {
-        setTaskSelected({});
+        setTaskSelected(null);
         setViewSettings(state);
     }
 
-    const [skillSelected, setSkillSelected] = useState(skills[0]);
-    const [taskSelected, setTaskSelected] = useState({});
     const [actionAllowed, setActionAllowed] = useState(false);
 
     const [updatedItemOverlay, setUpdatedItemOverlay] = useState(false);
     const [updatedItemIndices, setUpdatedItemIndices] = useState([]);
 
-    const [actionsLeft, setActionsLeft] = useState(1); // actions needed to finish task
+    const [actionsLeft, setActionsLeft] = useState(getTaskData(taskSelected)?.actions); // actions needed to finish task
+    const [energy, setEnergy] = useState(maxEnergy); // number of seconds of afk time
+    const energyRef = useRef(energy);
+    useEffect(() => {
+        energyRef.current = energy;
+    }, [energy]);
+    const energyIntervalRef = useRef(null);
 
     // Convert game data into save file string
     const saveGame = useCallback(() => {
         const save = JSON.stringify({
+            time: new Date(),
+            skill: skillSelected,
+            task: taskSelected,
             xp: xp,
+            autoTask: autoTask,
             inventory: inventory,
             equipment: equipment,
             unlocked: unlocked
         });
         // save game to cookies
-        Cookies.set("runeclicker", save, {expires: 1000});
+        Cookies.set("runeclicker", save, { expires: 1000 });
         setSaveFile(save);
-    }, [xp, inventory, equipment, unlocked]);
+    }, [xp, inventory, equipment, unlocked, skillSelected, taskSelected]);
 
     useEffect(() => {
         if (needToSave) {
@@ -80,17 +144,23 @@ const Main = ({
             setNeedToSave(false);
         }
     }, [needToSave, saveGame]);
+    // Save file updated every time a new skill or task selected
+    useEffect(() => {
+        setNeedToSave(true);
+    }, [skillSelected, taskSelected]);
 
     const lvlUp = (newLvl) => {
 
-        let tasksList;
-        if (skillSelected === "Processing") {
-            tasksList = Object.values(recipes);
+        const tasksList = Object.values(tasks[skillSelected]);
+
+        if (skillSelected === "Merchanting") {
+            addMessage(`You have reached ${skillSelected} lvl ${newLvl}. You gain ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} speed, and ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} multiplier.`);
+        } else if (skillSelected === "Energy") {
+            addMessage(`You have reached ${skillSelected} lvl ${newLvl}. You gain ${energyTable.time[lvl['Energy'] + 1] - energyTable.time[lvl['Energy']]} seconds of energy.`);
         } else {
-            tasksList = Object.values(tasks[skillSelected]);
+            addMessage(`You have reached ${skillSelected} lvl ${newLvl}. You gain ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} speed.`);
         }
 
-        addMessage(`You have reached ${skillSelected} lvl ${newLvl}. You gain ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} speed.`);
         // Check whether there are any new task unlocks at new lvl
         let unlocks = false;
         for (const task of tasksList) {
@@ -112,8 +182,17 @@ const Main = ({
         setStats(prevSkills => {
             const newSkill = { ...prevSkills[skillSelected] };
             newSkill.baseSpeed = speedTable[newLvl];
+            // update the base multiplier of the merchanting skill
+            if (skillSelected == 'Merchanting') {
+                newSkill.baseMultiplier = speedTable[newLvl];
+            }
             return { ...prevSkills, [skillSelected]: newSkill };
         });
+
+        if (skillSelected === "Energy") {
+            setMaxEnergy(energyTable.time[newLvl]);
+            setEnergy(energyTable.time[newLvl]);
+        }
     };
 
     // gain xp and recalculate derivative xp data
@@ -137,47 +216,45 @@ const Main = ({
         }
     };
 
-    const selectTask = useCallback((taskName, taskData) => {
+    const selectTask = useCallback((taskName) => {
+        const taskData = getTaskData(taskName);
         setTaskSelected(taskName);
         setActionsLeft(taskData.actions);
-    }, []);
+    }, [skillSelected]);
 
     const selectSkill = useCallback((skill) => {
         setSkillSelected(skill);
-        setTaskSelected({});
+        setTaskSelected(null);
         setViewSettings(false);
-    }, []);
+        setEnergy(maxEnergy);
+    }, [maxEnergy]);
 
-    const completeTask = () => {
-        let rewardMessage;
-        let task;
+    const completeTask = (iterations, muteMessage) => {
+        const taskData = getTaskData(taskSelected);
+        const xpReward = taskData.xpReward * iterations;
 
-        if (skillSelected === "Processing") {
-            task = recipes[taskSelected];
-            removeItems(task.ingredients);
-            addItems([{ id: taskSelected, quantity: [1, 1], probability: 1 }]);
-            rewardMessage = `You create ${task.quantity} ${taskSelected}. You gain ${task.xpReward} xp.`;
+        const itemMessage = addItems(taskData.itemReward, iterations);
+        removeItems(taskData.itemCost, iterations);
 
+        if (muteMessage) {
+            addMessage(`You gain ${itemMessage}${xpReward} xp.`);
         } else {
-            task = tasks[skillSelected][taskSelected];
-            const itemMessage = addItems(task.items);
-
-            if (itemMessage.length > 0) {
-                rewardMessage = `${task.message} You gain ${itemMessage} and ${task.xpReward} xp.`;
-            } else {
-                rewardMessage = `${task.message} You gain ${task.xpReward} xp.`;
-            }
+            addMessage(`${taskData.message} You gain ${itemMessage}${xpReward} xp.`);
         }
 
-        addMessage(rewardMessage);
-        gainXp(skillSelected, task.xpReward);
-        setActionsLeft(task.actions);
+        gainXp(skillSelected, xpReward);
+        setActionsLeft(taskData.actions);
+
+        if (taskSelected === "Auto Task") {
+            setAutoTask(true);
+        }
+
         setNeedToSave(true);
     }
 
     useEffect(() => {
         if (actionsLeft <= 0) {
-            completeTask();
+            completeTask(1);
         }
     }, [actionsLeft]);
 
@@ -189,11 +266,22 @@ const Main = ({
             });
         }
     }, [actionAllowed]);
+    // if action button click, perform action and recharge energy
+    const manualAction = useCallback((value) => {
+        performAction(value);
+        setEnergy(maxEnergy);
 
-    const removeItems = useCallback((recipeItems) => {
+        // Clear and reset the interval
+        clearInterval(energyIntervalRef.current);
+        energyIntervalRef.current = setInterval(() => {
+            depleteEnergy(1);
+        }, 1000);
+    }, [performAction, maxEnergy]);
+
+    const removeItems = useCallback((taskItems, iterations) => {
         setInventory(prevItems => {
             const newItems = [...prevItems];
-            recipeItems.forEach(({ id, quantity }) => {
+            taskItems?.forEach(({ id, quantity }) => {
                 // Find item in inventory
                 const index = newItems.findIndex(item => item?.id === id);
                 if (index !== -1) {
@@ -201,7 +289,7 @@ const Main = ({
                     if (newItems[index].quantity - quantity <= 0) {
                         newItems[index] = null;
                     } else {
-                        newItems[index] = { ...newItems[index], quantity: newItems[index].quantity - quantity };
+                        newItems[index] = { ...newItems[index], quantity: newItems[index].quantity - (quantity * iterations) };
                     }
                 }
             });
@@ -209,38 +297,36 @@ const Main = ({
         });
     }, []);
 
-    const addItems = useCallback((taskItems) => {
-        let itemMessage = "";
+    const addItems = useCallback((taskItems, iterations) => {
         let indices = [];
 
         // Roll for each item based on probabilities and possible quantities
-        let receivedItems = [];
-        taskItems.forEach(({ id, quantity, probability, index }) => {
-            // Roll for if item will be received
-            const rollItem = Math.random() < 1 / probability
-            if (rollItem) {
-                // Roll for the quantity of the item
-                const rollQuantity = Math.floor(Math.random() * (quantity[1] - quantity[0] + 1)) + quantity[0];
+        let receivedItems = {};
+        if (taskItems) {
+            // perform number of rolls for number of iterations
+            for (let i = 0; i < iterations; i++) {
+                taskItems.forEach(({ id, quantity, probability, index }) => {
+                    // Roll for if item will be received
+                    const rollItem = Math.random() < 1 / probability;
+                    if (rollItem) {
+                        // Roll for the quantity of the item
+                        const rollQuantity = Math.floor(Math.random() * (quantity[1] - quantity[0] + 1)) + quantity[0];
 
-                receivedItems.push({ 'id': id, 'quantity': rollQuantity, 'selectedIndex': index });
-                itemMessage = itemMessage.concat(`${rollQuantity} ${id}, `);
-
-                // Unlock item if first time receiving it
-                setUnlocked(prevItems => {
-                    if (!prevItems.includes(id)) {
-                        addMessage(`You have unlocked a new item: ${id}.`);
-                        return [...prevItems, id];
+                        // If the item has already been rolled prior, add to quantity. if not, make a new entry. this is only relevant when multiple iterations
+                        if (receivedItems[id]) {
+                            receivedItems[id].quantity += rollQuantity;
+                        } else {
+                            receivedItems[id] = { 'quantity': rollQuantity, 'selectedIndex': index };
+                        }
                     }
-                    return prevItems;
                 });
             }
-        });
+        }
 
         // Update inventory items with the rolled items
         setInventory(prevItems => {
             const newItems = [...prevItems];
-            receivedItems.forEach(({ id, quantity, selectedIndex }) => {
-
+            Object.entries(receivedItems).forEach(([id, { quantity, selectedIndex }]) => {
                 // If item exists in inventory, add quantity
                 const existingIndex = newItems.findIndex(item => item?.id === id);
                 if (existingIndex !== -1) {
@@ -261,13 +347,33 @@ const Main = ({
             return newItems;
         });
 
+        // Create item message from quantities and names of all received items
+        let itemMessage = "";
+        Object.entries(receivedItems).forEach(([id, { quantity, selectedIndex }]) => {
+            itemMessage = `${itemMessage}${quantity} ${id}, `;
+
+            // Unlock item if first time receiving it
+            setUnlocked(prevItems => {
+                if (!prevItems.includes(id)) {
+                    return [...prevItems, id];
+                }
+                return prevItems;
+            });
+            if (!unlocked.includes(id)) {
+                addMessage(`You have unlocked a new item: ${id}.`);
+            }
+        });
+
         // Indicate that the items at updated indices  should flash
         setUpdatedItemIndices(indices);
         setUpdatedItemOverlay(true);
         setTimeout(() => setUpdatedItemOverlay(false), 150);
 
+        if (itemMessage.length > 0) {
+            itemMessage = `${itemMessage}and `
+        }
         return itemMessage;
-    }, []);
+    }, [unlocked]);
 
     const calculateStats = () => {
         // Initialise skillBonus object storing the total click and speed bonus for all skills from all equipment
@@ -310,49 +416,82 @@ const Main = ({
         calculateStats();
     }, [equipment, lvl]);
 
-
-    const checkSufficientIngredients = (recipe) => {
-        let sufficient = true;
-        recipe.ingredients.forEach(ingredient => {
-            if ((inventory.find(item => item?.id === ingredient.id)?.quantity ?? 0) < ingredient.quantity) {
-                sufficient = false;
-            }
+    // Check the number of items that can be made given ingredients in inventory
+    const checkSufficientIngredients = (task) => {
+        // Initialise storing the number of items each ingredient could create
+        let itemsPerIngredient = {};
+        task.itemCost?.forEach(item => {
+            itemsPerIngredient[item.id] = 0;
         });
-        return sufficient;
+
+        // Find number of items each ingredient could create
+        task.itemCost?.forEach(ingredient => {
+            const inventoryQuantity = inventory.find(item => item?.id === ingredient.id)?.quantity ?? 0;
+            itemsPerIngredient[ingredient.id] = Math.floor(inventoryQuantity / ingredient.quantity);
+        })
+
+        // Number of items that can be created is the minimum of all ingredients
+        return Math.min(...Object.values(itemsPerIngredient));
     }
+
+
     useEffect(() => {
+        // Check if the task is allowed (sufficient ingredients or not yet unlocked) whenever task or inventory change
         const checkActionAllowed = () => {
             let allowed = true;
+            const taskData = getTaskData(taskSelected);
 
             // not allowed if no task is selected
-            if (Object.keys(taskSelected).length === 0) {
+            if (taskSelected === null || !checkSufficientIngredients(taskData)) {
+                allowed = false;
+                //addMessage(`You have ran out of the required items.`);
+            }
+
+            if (taskSelected == "Auto Task" && autoTask) {
                 allowed = false;
             }
-
-            // Not allowed if insufficientingredients
-            if (skillSelected === "Processing" && Object.keys(taskSelected).length !== 0) {
-                if (!checkSufficientIngredients(recipes[taskSelected])) {
-                    allowed = false;
-                }
-            }
-
             setActionAllowed(allowed);
         }
 
         checkActionAllowed();
-    }, [inventory, taskSelected]);
+    }, [taskSelected, inventory]);
 
     // Automatically perform actions if allowed
     useEffect(() => {
         const speedNoPercent = stats[skillSelected].baseSpeed + stats[skillSelected].bonusSpeed;
-        const speed = speedNoPercent*((stats[skillSelected].bonusSpeedPercent/100)+1);
-        const intervalSize = speed!=0 ? 1000/speed : 1e10;
+        const speed = speedNoPercent * ((stats[skillSelected].bonusSpeedPercent / 100) + 1);
+        const intervalSize = speed != 0 ? 1000 / speed : 1e10;
 
         const interval = setInterval(() => {
-            performAction(1);
+            if (energyRef.current !== 0) {
+                performAction(1);
+            }
         }, intervalSize);
         return () => clearInterval(interval);
     }, [performAction, stats, taskSelected]);
+
+
+    const depleteEnergy = useCallback((value) => {
+        // deplete energy by 1 if non-zero
+        if (energyRef.current > 0 && actionAllowed) {
+            setEnergy(prevEnergy => {
+                return prevEnergy - value;
+            });
+        }
+    }, [actionAllowed]);
+    // Automatically deplete energy
+    useEffect(() => {
+        energyIntervalRef.current = setInterval(() => {
+            depleteEnergy(1);
+        }, 1000);
+        return () => clearInterval(energyIntervalRef.current);
+    }, [depleteEnergy]);
+    // Send message if energy fully depeleted
+    useEffect(() => {
+        if (energy == 0) {
+            addMessage("You have ran out of energy.");
+        }
+    }, [energy]);
 
     const [messages, setMessages] = useState([]);
 
@@ -383,6 +522,109 @@ const Main = ({
         addMessage("Welcome to Runeclicker.");
     }, []);
 
+    // convert number into formatted time string
+    function formatTime(seconds) {
+        const hrs = Math.floor(seconds / 3600);
+        const mins = Math.floor((seconds % 3600) / 60);
+        const secs = Math.round(seconds % 60);
+
+        return [
+            hrs.toString().padStart(2, '0'),
+            mins.toString().padStart(2, '0'),
+            secs.toString().padStart(2, '0')
+        ].join(':');
+    }
+    // auto perform tasks when game starts and unlocked
+    useEffect(() => {
+        if (autoTask && taskSelected !== null && skillSelected !== "Energy") {
+            const taskData = getTaskData(taskSelected);
+
+            // Calculate speed and click as base + bonus
+            const speedNoPercent = stats[skillSelected].baseSpeed + stats[skillSelected].bonusSpeed;
+            const speed = (speedNoPercent * ((stats[skillSelected].bonusSpeedPercent / 100) + 1)).toFixed(2);
+
+            // Calculate seconds spent working, limited by max energy
+            const secondsElapsed = timeElapsed / 1000;
+            const secondsWorking = secondsElapsed > maxEnergy ? maxEnergy : secondsElapsed;
+
+            // Calculate number of tasks performed
+            const taskActions = taskData.actions;
+            let tasksPerformed = Math.floor((secondsWorking * speed) / taskActions);
+
+            // tasks performed is bound by number of ingredients in inventory if task has an item cost
+            if (taskData.itemCost) {
+                tasksPerformed = Math.min(tasksPerformed, checkSufficientIngredients(taskData));
+            }
+
+            // message detailing time spent
+            const formattedTimeElapsed = formatTime(secondsElapsed);
+            const formattedTimeWorking = formatTime(secondsWorking);
+            addMessage(`You have been away for ${formattedTimeElapsed}, and have spent ${formattedTimeWorking} on your task. You have completed ${tasksPerformed} tasks.`);
+
+            // complete the number of tasks performed
+            if (tasksPerformed > 0) {
+                completeTask(tasksPerformed, true);
+            }
+        }
+    }, [timeElapsed]);
+
+
+
+    // Render different task list components depening on selected skill
+    const renderTaskList = () => {
+        switch (skillSelected) {
+            case "Processing":
+                return (
+                    <RecipeList
+                        skillLvl={lvl}
+                        items={items}
+                        recipes={tasks['Processing']}
+                        inventoryItems={inventory}
+                        unlockedItems={unlocked}
+                        stats={stats}
+                        selectTask={selectTask}
+                        checkSufficientIngredients={checkSufficientIngredients}
+                    />
+                );
+            case "Merchanting":
+                return (
+                    <Merchanting
+                        inventory={inventory}
+                        items={items}
+                        stats={stats}
+                        selectTask={selectTask}
+                    />
+                );
+            case "Energy":
+                return (
+                    <Energy
+                        energyTable={energyTable}
+                        inventory={inventory}
+                        items={items}
+                        unlockedItems={unlocked}
+                        lvl={lvl}
+                        stats={stats}
+                        autoTask={autoTask}
+                        selectTask={selectTask}
+                        getTaskData={getTaskData}
+                        checkSufficientIngredients={checkSufficientIngredients}
+                    />
+                );
+            default:
+                return (
+                    <TaskList
+                        skillLvl={lvl}
+                        tasks={tasks}
+                        items={items}
+                        unlockedItems={unlocked}
+                        stats={stats}
+                        skillSelected={skillSelected}
+                        selectTask={selectTask}
+                    />
+                );
+        }
+    }
+
     return (
         <Box sx={{
             backgroundColor: '#555555',
@@ -407,6 +649,7 @@ const Main = ({
                         setInventory={setInventory}
                         equipment={equipment}
                         setEquipment={setEquipment}
+                        stats={stats}
                         setNeedToSave={setNeedToSave}
                         updatedItemIndices={updatedItemIndices}
                         updatedItemOverlay={updatedItemOverlay}
@@ -417,47 +660,40 @@ const Main = ({
 
                 <Grid item xs={6.96} sx={{ display: 'flex', flexDirection: 'column' }}>
                     <Box sx={{ mb: 0.6 }}>
-                        {/* If no selected task, show task list */}
-                        {viewSettings ?
-                            (
-                                <Settings version={version} saveFile={saveFile} setSaveFile={setSaveFile} newSaveFile={newSaveFile} loadSave={loadSave} addMessage={addMessage} />
+
+                        {viewSettings ? (
+                            <Settings
+                                version={version}
+                                saveFile={saveFile}
+                                setSaveFile={setSaveFile}
+                                newSaveFile={newSaveFile}
+                                loadSave={loadSave}
+                                addMessage={addMessage}
+                            />
+                        ) : (
+                            // render appropriate tasklist component if no task selected
+                            taskSelected === null ? (
+                                <>
+                                    {renderTaskList()}
+                                </>
                             ) : (
-                                Object.keys(taskSelected).length === 0 ?
-                                    (skillSelected === "Processing" ? (
-                                        <RecipeList
-                                            skillLvl={lvl}
-                                            recipes={recipes}
-                                            items={items}
-                                            inventoryItems={inventory}
-                                            unlockedItems={unlocked}
-                                            selectTask={selectTask}
-                                            checkSufficientIngredients={checkSufficientIngredients}
-                                        />
-                                    ) : (
-                                        <TaskList
-                                            skillLvl={lvl}
-                                            tasks={tasks}
-                                            items={items}
-                                            unlockedItems={unlocked}
-                                            skillSelected={skillSelected}
-                                            selectTask={selectTask}
-                                        />
-                                    )) : (
-                                        <Skilling
-                                            skillXp={xp}
-                                            skillLvl={lvl}
-                                            lvlTable={lvlTable}
-                                            stats={stats}
-                                            skillSelected={skillSelected}
-                                            selectSkill={selectSkill}
-                                            taskSelected={taskSelected}
-                                            tasks={tasks}
-                                            recipes={recipes}
-                                            actionsLeft={actionsLeft}
-                                            actionAllowed={actionAllowed}
-                                            performAction={performAction}
-                                        />
-                                    ))}
+                                // Render skilling window if task selected
+                                <Skilling
+                                    skillXp={xp}
+                                    skillLvl={lvl}
+                                    lvlTable={lvlTable}
+                                    stats={stats}
+                                    skillSelected={skillSelected}
+                                    selectSkill={selectSkill}
+                                    taskSelected={taskSelected}
+                                    getTaskData={getTaskData}
+                                    actionsLeft={actionsLeft}
+                                    energy={energy}
+                                    maxEnergy={maxEnergy}
+                                    actionAllowed={actionAllowed}
+                                    manualAction={manualAction}
+                                />
+                            ))}
                     </Box>
                     <Box sx={{ flex: 1 }}>
                         <Console messages={messages} messagesEndRef={messagesEndRef} />

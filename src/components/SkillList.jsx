@@ -59,15 +59,15 @@ const Totals = ({ xp, lvl, items, unlocked }) => {
         <Box sx={{ userSelect: 'none' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'left' }}>lvls:</Typography>
-                <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'right' }}>{totalLvl}</Typography>
+                <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'right' }}>{totalLvl.toLocaleString()}</Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'left' }}>xp:</Typography>
-                <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'right' }}>{totalXp}</Typography>
+                <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'right' }}>{totalXp.toLocaleString()}</Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'left' }}>unlocks:</Typography>
-                <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'right' }}>{unlocks}/{totalUnlocks}</Typography>
+                <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'right' }}>{unlocks.toLocaleString()}/{totalUnlocks.toLocaleString()}</Typography>
             </Box>
         </Box>
     );
