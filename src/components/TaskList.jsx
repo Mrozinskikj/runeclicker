@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { List, Divider } from '@mui/material';
 
 import Window from "./Window";
@@ -22,7 +22,7 @@ const TaskList = ({ skillLvl, tasks, items, unlockedItems, skillSelected, stats,
                 }));
 
                 return (
-                    <>
+                    <Fragment key={index}>
                         <TaskItem
                             unlocked={skillLvl[skillSelected] >= taskData.lvl}
                             title={taskName}
@@ -34,7 +34,7 @@ const TaskList = ({ skillLvl, tasks, items, unlockedItems, skillSelected, stats,
                             taskData={taskData}
                         />
                         <Divider />
-                    </>
+                    </Fragment>
                 );
             })}
 

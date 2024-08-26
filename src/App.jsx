@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Cookies from 'js-cookie';
 
-import Main from './Main.jsx';
+import Game from './Game.jsx';
 
 function App() {
   const fast = false;
@@ -75,7 +75,7 @@ function App() {
 
   const fetchData = useCallback(async (path) => {
     try {
-      const response = await fetch(`${process.env.PUBLIC_URL}${path}`);
+      const response = await fetch(path);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -184,7 +184,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Main
+      <Game
         xp={xp}
         setXp={setXp}
         inventory={inventory}

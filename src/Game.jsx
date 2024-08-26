@@ -19,7 +19,7 @@ import Settings from './components/Settings.jsx';
 
 
 
-const Main = ({
+const Game = ({
     xp,
     setXp,
     inventory,
@@ -739,4 +739,4 @@ const Main = ({
     );
 }
 
-export default Main;
+export default Game;

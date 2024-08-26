@@ -157,7 +157,7 @@ const Item = ({ itemData, itemName, quantity, proportion, stats, updated, locked
             <Box sx={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
 
                 {/* Item Icon */}
-                <img src={`${process.env.PUBLIC_URL}/gameData/images/items/${itemData?.image}`} alt="" style={{ userSelect: 'none', pointerEvents: 'none', filter: (locked || hideIcon) ? 'brightness(0%) invert(25%)' : filter }} />
+                <img src={`/gameData/images/items/${itemData?.image}`} alt="" style={{ userSelect: 'none', pointerEvents: 'none', filter: (locked || hideIcon) ? 'brightness(0%) invert(25%)' : filter }} />
 
                 {/* Item Quantity */}
                 {quantity !== 1 && (
