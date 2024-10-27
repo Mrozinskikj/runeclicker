@@ -63,8 +63,6 @@ const Item = ({ itemData, itemName, quantity, proportion, stats, updated, locked
         quantityFormatted = "";
     }
 
-
-
     // Item flashes white if it is tagged as updated
     let filter = 'brightness(100%)';
     if (updated) {
@@ -72,8 +70,6 @@ const Item = ({ itemData, itemName, quantity, proportion, stats, updated, locked
     }
 
     const border = '0 0 1px #000000, '.repeat(10).slice(0, -2);
-
-
 
     return (
         <Tooltip
@@ -89,6 +85,15 @@ const Item = ({ itemData, itemName, quantity, proportion, stats, updated, locked
                             <Typography variant="body2" sx={{ fontFamily: 'monospace', fontWeight: 'bold' }}>
                                 {itemName}
                             </Typography>
+
+                            {/* crafting material */}
+                            {itemData.description && (
+                                <Box sx={{}}>
+                                    <Typography variant="caption" sx={{ fontFamily: 'monospace', fontStyle: 'italic' }}>
+                                        {itemData.description}
+                                    </Typography>
+                                </Box>
+                            )}
 
                             {/* crafting material */}
                             {itemData.crafting && (
@@ -111,6 +116,18 @@ const Item = ({ itemData, itemName, quantity, proportion, stats, updated, locked
                                 </Box>
                             )}
 
+                            {/* heal */}
+                            {itemData?.heal && (
+                                <Box sx={{}}>
+                                    <Typography variant="caption" sx={{ fontFamily: 'monospace' }}>
+                                        heal:
+                                    </Typography>
+                                    <Typography variant="caption" sx={{ fontFamily: 'monospace', pl: 1, fontWeight: 'bold', color: '#3BCC4C' }}>
+                                        +{itemData.heal.toLocaleString()}
+                                    </Typography>
+                                </Box>
+                            )}
+
                             {/* bonus */}
                             {itemData?.bonus && (
                                 Object.entries(itemData.bonus).map(([skill, bonus]) => (
@@ -122,10 +139,10 @@ const Item = ({ itemData, itemName, quantity, proportion, stats, updated, locked
                                         {Object.entries(bonus).map(([property, value]) => (
                                             <Box key={property} sx={{ mt: -0.5 }}>
                                                 <Typography variant="caption" sx={{ fontFamily: 'monospace', pl: 2 }}>
-                                                    {(property === "speed" || property === "speedPercent") ? "speed" : "click"}:
+                                                    {property.endsWith("Percent") ? property.slice(0, -7) : property}:
                                                 </Typography>
                                                 <Typography variant="caption" sx={{ fontFamily: 'monospace', pl: 1, fontWeight: 'bold', color: value >= 0 ? '#3BCC4C' : '#C13E3E' }}>
-                                                    {value >= 0 && "+"}{value}{(property === "speedPercent" || property === "clickPercent") && "%"}
+                                                    {value >= 0 && "+"}{value}{property.endsWith("Percent") && "%"}
                                                 </Typography>
                                             </Box>
                                         ))}
@@ -161,19 +178,48 @@ const Item = ({ itemData, itemName, quantity, proportion, stats, updated, locked
 
                 {/* Item Quantity */}
                 {quantity !== 1 && (
-                    <Typography variant="caption" sx={{
-                        position: 'absolute',
-                        display: 'flex',
-                        top: -8,
-                        left: -3,
-                        fontFamily: 'monospace',
-                        userSelect: 'none',
-                        color: textColour,
-                        textShadow: border
-                    }}>
-                        {quantityFormatted}
-                    </Typography>
-                )}
+                    quantityFormatted.length < 8 ? (
+                        <Typography variant="caption" sx={{
+                            position: 'absolute',
+                            display: 'flex',
+                            top: -7,
+                            left: -3,
+                            fontFamily: 'monospace',
+                            userSelect: 'none',
+                            color: textColour,
+                            textShadow: border
+                        }}>
+                            {quantityFormatted}
+                        </Typography>
+                    ) : (
+                        // If too long, split over 2 lines
+                        <>
+                            <Typography variant="caption" sx={{
+                                position: 'absolute',
+                                display: 'flex',
+                                top: -7,
+                                left: -3,
+                                fontFamily: 'monospace',
+                                userSelect: 'none',
+                                color: textColour,
+                                textShadow: border
+                            }}>
+                                {formatNumber(quantity[0]).formatted}
+                            </Typography>
+                            <Typography variant="caption" sx={{
+                                position: 'absolute',
+                                display: 'flex',
+                                top: 2,
+                                left: -3,
+                                fontFamily: 'monospace',
+                                userSelect: 'none',
+                                color: textColour,
+                                textShadow: border
+                            }}>
+                                /{formatNumber(quantity[1]).formatted}
+                            </Typography>
+                        </>
+                    ))}
             </Box>
         </Tooltip >
     );

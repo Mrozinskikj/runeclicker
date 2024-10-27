@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Typography, Box, LinearProgress, Button, Grid } from '@mui/material';
 
 import Window from "./Window";
-import backarrowicon from "../images/interface/backarrow.png";
+import SkillBanner from "./SkillBanner";
 
 
 const Skilling = ({ skillXp, skillLvl, lvlTable, stats, skillSelected, selectSkill, taskSelected, getTaskData, actionsLeft, energy, maxEnergy, actionAllowed, manualAction }) => {
@@ -20,7 +20,7 @@ const Skilling = ({ skillXp, skillLvl, lvlTable, stats, skillSelected, selectSki
         ].join(':');
     }
 
-    const ProgressBar = ({ value, colour, completeOverlay }) => {
+    const ProgressBar = ({ value, colour, completeOverlay, thick }) => {
         return (
             <Box sx={{ position: 'relative', height: 'auto' }}>
                 <LinearProgress
@@ -28,16 +28,16 @@ const Skilling = ({ skillXp, skillLvl, lvlTable, stats, skillSelected, selectSki
                     value={value}
                     classes={{ bar: 'bar' }}
                     sx={{
-                        boxShadow: '0px 1px 0 rgba(0,0,0,0.25)',
-                        border: 1,
-                        height: 10,
+                        border: thick ? 1 : 0,
+                        height: thick ? 12 : 6,
+                        boxShadow: thick ? '0px 1px 0 rgba(0,0,0,0.25)' : '0px 1px 0 rgba(0,0,0,1), 0px -1px 0 rgba(0,0,0,1)',
                         backgroundColor: '#444444', // Background color of the progress bar
                         '& .MuiLinearProgress-bar': {
                             backgroundColor: colour // Color of the progress bar itself
                         }
                     }}
                 />
-                {/* Task Complete Overlay */}
+                {/* Completion Overlay */}
                 <Box
                     sx={{
                         position: 'absolute',
@@ -70,13 +70,8 @@ const Skilling = ({ skillXp, skillLvl, lvlTable, stats, skillSelected, selectSki
     }
 
     // flashing progress bars on completion
-    const [lvlOverlay, setLvlOverlay] = useState(false);
     const [actionOverlay, setActionOverlay] = useState(false);
     const [energyOverlay, setEnergyOverlay] = useState(false);
-    useEffect(() => {
-        setLvlOverlay(true);
-        setTimeout(() => setLvlOverlay(false), 150);
-    }, [skillLvl[skillSelected]]);
     useEffect(() => {
         if (actionsLeft <= 0) {
             setActionOverlay(true);
@@ -96,113 +91,20 @@ const Skilling = ({ skillXp, skillLvl, lvlTable, stats, skillSelected, selectSki
     const buttonText = energy !== 0 ? taskData.actionName : 'Recharge Energy';
     const buttonColour = energy !== 0 ? '#FFFFFF' : '#E8C2C2';
 
-    // Calculate xp progress for current level
-    const xpThisLvl = lvlTable[skillLvl[skillSelected]];
-    const xpNextLvl = lvlTable[skillLvl[skillSelected] + 1];
-    const xpLvlTotal = xpNextLvl - xpThisLvl;
-    const xpLvlRemaining = xpNextLvl - skillXp[skillSelected];
-
     // Calculate data for progress bars (0-100)
-    const lvlProgress = ((skillXp[skillSelected] - xpThisLvl) / (xpNextLvl - xpThisLvl)) * 100;
     const actionProgress = (actionsLeft / taskData.actions) * 100
     const energyProgress = (energy / maxEnergy) * 100;
 
     const content = (
         <Box sx={{ overflowY: 'hidden', userSelect: 'none' }}>
-            {/* XP tracker */}
-            <Box>
-                {/* Skill */}
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                    <Box sx={{ display: 'flex' }}>
-                        <Button variant="contained" disableRipple onClick={() => selectSkill(skillSelected)} sx={{
-                            p: 0,
-                            mr: 0.5,
-                            minWidth: 'unset',
-                            width: "24px",
-                            height: "24px",
-                            boxShadow: 0,
-                            borderRadius: 0,
-                            backgroundColor: 'rgba(0,0,0,0)',
-                            transition: 'none',
-                            '&:hover': {
-                                backgroundColor: 'rgba(0,0,0,0)',
-                                boxShadow: 0,
-                            }
-                        }}>
-                            <img src={backarrowicon} alt="Settings" />
-                        </Button>
-                        <Typography variant="body1" sx={{ fontFamily: 'monospace', fontWeight: 'bold' }}>
-                            {skillSelected}
-                        </Typography>
-                    </Box>
-                    <Typography variant="body1" sx={{ fontFamily: 'monospace' }}>
-                        lvl {skillLvl[skillSelected]}
-                    </Typography>
-                </Box>
 
-                <ProgressBar value={lvlProgress} colour={'#6ACAD8'} completeOverlay={lvlOverlay} />
-
-                <Grid container sx={{ mt: 0.5 }}>
-                    <Grid item xs={4} sx={{ px: 1 }}>
-                        <Typography variant="body2" sx={{ fontFamily: 'monospace' }}> xp: {skillXp[skillSelected].toLocaleString()}</Typography>
-                    </Grid>
-
-                    <Grid item xs={4} sx={{ px: 1 }}>
-                        <Typography variant="body2" sx={{ fontFamily: 'monospace' }}> next lvl: {xpNextLvl.toLocaleString()}</Typography>
-                    </Grid>
-
-                    <Grid item xs={4} sx={{ px: 1 }}>
-                        <Typography variant="body2" sx={{ fontFamily: 'monospace' }}> remaining: {xpLvlRemaining.toLocaleString()}/{xpLvlTotal.toLocaleString()}</Typography>
-                    </Grid>
-                </Grid>
-            </Box>
-
-
-            {/* Perform Action */}
-            <Box sx={{ boxShadow: buttonShadow }}>
-                <Button
-                    variant="contained"
-                    disableRipple
-                    disabled={!actionAllowed}
-                    onClick={() => manualAction(click)}
-                    onMouseEnter={() => setButtonHover(true)}
-                    onMouseLeave={() => setButtonHover(false)}
-                    onMouseDown={() => setButtonActive(true)}
-                    onMouseUp={() => setButtonActive(false)}
-                    sx={{
-                        mt: 4,
-                        width: '100%',
-                        fontFamily: 'monospace',
-                        borderRadius: 0,
-                        backgroundColor: buttonColour,
-                        color: '#000000',
-                        border: 1,
-                        transition: 'none',
-                        '&:hover': { backgroundColor: '#F4FAFF' },
-                        '&:active': { backgroundColor: '#CCDAE2' },
-                        '&:disabled': { backgroundColor: '#aaaaaa' }
-                    }}>
-                    {buttonText}
-                </Button>
-                <Box sx={{ mt: -0.2 }}>
-                    <ProgressBar value={energyProgress} colour={'#82E0AF'} completeOverlay={energyOverlay} />
-                </Box>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                <Typography variant="body2" sx={{ px: 1, fontFamily: 'monospace', mt: 0.5 }}>
-                    {formatTime(energy)}
-                </Typography>
-                <Typography variant="body2" sx={{ px: 1, fontFamily: 'monospace', mt: 0.5 }}>
-                    {formatTime(maxEnergy)}
-                </Typography>
-            </Box>
-
+            <SkillBanner lvl={skillLvl} skill={skillSelected} xp={skillXp} lvlTable={lvlTable} selectSkill={selectSkill} />
 
             {/* Action tracker */}
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: 4, mb: 2, px: 1 }}>
                 <Typography variant="body1" sx={{ fontFamily: 'monospace', fontWeight: 'bold' }}>{taskSelected}</Typography>
 
-                <ProgressBar value={actionProgress} colour={'#FFA366'} completeOverlay={actionOverlay} />
+                <ProgressBar value={actionProgress} colour={'#FFA366'} completeOverlay={actionOverlay} thick />
 
                 <Grid container sx={{ mt: 0.5 }}>
                     <Grid item xs={4} sx={{ px: 1 }}>
@@ -226,19 +128,61 @@ const Skilling = ({ skillXp, skillLvl, lvlTable, stats, skillSelected, selectSki
                 </Grid>
             </Box>
 
-            {/* Energy */}
-            <Box sx={{ px: 1 }}>
-                <Box sx={{ display: 'flex', width: '100%' }}>
-                    <Typography variant="body2" sx={{ fontFamily: 'monospace' }}>
-
-                    </Typography>
+            {/* Perform Action */}
+            <Box sx={{ boxShadow: buttonShadow, overflowX: 'clip', }}>
+                <Button
+                    variant="contained"
+                    disableRipple
+                    disabled={!actionAllowed}
+                    onClick={() => manualAction(click)}
+                    onMouseEnter={() => setButtonHover(true)}
+                    onMouseLeave={() => setButtonHover(false)}
+                    onMouseDown={() => setButtonActive(true)}
+                    onMouseUp={() => setButtonActive(false)}
+                    sx={{
+                        height: 47,
+                        mt: 2,
+                        mx: '-1px',
+                        width: 'calc(100% + 2px)',
+                        fontFamily: 'monospace',
+                        borderRadius: 0,
+                        backgroundColor: buttonColour,
+                        color: '#000000',
+                        border: 1,
+                        transition: 'none',
+                        '&:hover': { backgroundColor: '#F4FAFF' },
+                        '&:active': { backgroundColor: '#CCDAE2' },
+                        '&:disabled': { backgroundColor: '#aaaaaa' }
+                    }}>
+                    {buttonText}
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            px: 0.5,
+                            display: 'flex',
+                            justifyContent: 'space-between'
+                        }}
+                    >
+                        <Typography variant="caption" sx={{ fontFamily: 'monospace' }}>
+                            {formatTime(energy)}
+                        </Typography>
+                        <Typography variant="caption" sx={{ fontFamily: 'monospace' }}>
+                            {formatTime(maxEnergy)}
+                        </Typography>
+                    </Box>
+                </Button>
+                <Box sx={{ mt: -0.2 }}>
+                    <ProgressBar value={energyProgress} colour={'#82E0AF'} completeOverlay={energyOverlay} />
                 </Box>
             </Box>
         </Box>
     );
 
     return (
-        <Window content={content} pad />
+        <Window content={content} />
     );
 }
 

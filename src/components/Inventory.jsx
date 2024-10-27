@@ -4,63 +4,21 @@ import { Grid, Box } from '@mui/material';
 
 import Window from "./Window";
 import Item from "./Item";
+import EquipmentSlot from "./EquipmentSlot";
 
 import inventoryslot from "../images/interface/inventoryslot.png";
 import inventoryplaceholder from "../images/interface/inventoryplaceholder.png";
 import axeslot from "../images/interface/axeslot.png";
 import pickaxeslot from "../images/interface/pickaxeslot.png";
+import hammerslot from "../images/interface/hammerslot.png";
 import ringslot from "../images/interface/ringslot.png";
+import weaponslot from "../images/interface/weaponslot.png";
+import headslot from "../images/interface/headslot.png";
+import torsoslot from "../images/interface/torsoslot.png";
+import legsslot from "../images/interface/legsslot.png";
+import neckslot from "../images/interface/neckslot.png";
 
-const EquipmentSlot = ({ top, left, slot, icon, equipment, items, inventory, stats, sourceIndex, grabItem, placeItem }) => {
-    const item = equipment[slot];
-
-    let border = '';
-
-    // Check if selected item belongs to equipment slot
-    const selectedItem = items[inventory[sourceIndex]?.id];
-    if (selectedItem?.slot === slot) {
-        border = '0 0 0 1px #ffffff, 0 0 0 2px #000000';
-    }
-
-    return (
-        <Box
-            sx={{
-                backgroundImage: item == null ? `url(${icon})` : `url(${inventoryslot})`,
-                position: 'absolute',
-                top: top,
-                left: left,
-                backgroundRepeat: 'no-repeat',
-                width: 44,
-                height: 44,
-                boxSizing: 'border-box',
-                margin: 0,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flex: '0 1 auto',
-                cursor: sourceIndex != null ? 'grab' : 'default',
-                boxShadow: border
-            }}
-            onMouseDown={item != null ? () => grabItem(slot) : undefined}
-            onMouseUp={() => placeItem(slot)}
-        >
-            {/* Only display item if there is an item in given slot */}
-            {item != null ? (
-                // Display item if not currently being dragged
-                sourceIndex !== slot ? (
-                    <Item itemData={items[item]} itemName={item} quantity={1} stats={stats} updated={false} />
-                ) : (
-                    // Display placeholder if currently being dragged
-                    <img src={inventoryplaceholder} alt="" style={{ userSelect: 'none', pointerEvents: 'none' }} />
-                )
-            ) : null}
-        </Box>
-    );
-}
-
-const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, stats, setNeedToSave, updatedItemIndices, updatedItemOverlay, removeItems, addItems }) => {
-
-    const [sourceIndex, setSourceIndex] = useState(null);
+const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, stats, setNeedToSave, updatedItemIndices, updatedItemOverlay, removeItems, addItems, sourceIndex, setSourceIndex }) => {
 
     const grabItem = (index) => {
         setSourceIndex(index);
@@ -119,10 +77,13 @@ const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, st
     const inventoryGrid = (
         <Grid container spacing={0} sx={{
             width: 'auto',
-            maxWidth: 264,
+            maxWidth: 300,
             display: 'flex',
             flexWrap: 'wrap',
-            userSelect: 'none'
+            userSelect: 'none',
+            maxHeight: 352,
+            overflowY: 'auto',
+            scrollbarGutter: 'stable',
         }}>
             {inventory.map((item, index) => (
                 <Grid
@@ -162,19 +123,23 @@ const Inventory = ({ items, inventory, setInventory, equipment, setEquipment, st
 
     const equipmentGrid = (
         <Box sx={{
-            width: 'auto',
-            maxWidth: 264,
-            height: 56,
+            width: 264,
+            height: 164,
             display: 'flex',
             flexWrap: 'wrap',
             userSelect: 'none',
             position: 'relative'
         }}>
 
-            <EquipmentSlot top={6} left={34} slot={"axe"} icon={axeslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
-            <EquipmentSlot top={6} left={110} slot={"pickaxe"} icon={pickaxeslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
-            <EquipmentSlot top={6} left={186} slot={"ring"} icon={ringslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
-
+            <EquipmentSlot x={0} y={0} slot={"axe"} icon={axeslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot x={0} y={1} slot={"pickaxe"} icon={pickaxeslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            {/* <EquipmentSlot x={0} y={2} slot={"hammer"} icon={hammerslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} /> */}
+            <EquipmentSlot x={2} y={1} slot={"weapon"} icon={weaponslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot x={3} y={0} slot={"head"} icon={headslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot x={3} y={1} slot={"torso"} icon={torsoslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot x={3} y={2} slot={"legs"} icon={legsslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot x={4} y={2} slot={"ring"} icon={ringslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
+            <EquipmentSlot x={4} y={1} slot={"neck"} icon={neckslot} equipment={equipment} items={items} inventory={inventory} stats={stats} sourceIndex={sourceIndex} grabItem={grabItem} placeItem={placeItem} />
         </Box>
     );
 

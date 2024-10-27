@@ -3,17 +3,21 @@ import { Typography, ListItem, ListItemButton, Box, Stack } from '@mui/material'
 
 import Item from "./Item";
 
-const TaskItem = ({ unlocked, icon, title, subtitle, action, rightText, items, taskName, taskData, inventoryItems, checkSufficientIngredients }) => {
+const TaskItem = ({ unlocked, icon, title, subtitle, action, rightText, items, taskName, taskData, inventoryItems, checkSufficientIngredients, getItemProbability }) => {
 
     let sufficient = true;
     if (checkSufficientIngredients) {
-        sufficient = checkSufficientIngredients(taskData)>0;
+        sufficient = checkSufficientIngredients(taskData) > 0;
+    }
+    let textColour = '#000000';
+    if (!sufficient && unlocked) {
+        textColour = '#C14C55';
     }
 
     return (
         <ListItem
             disablePadding
-            sx={{ backgroundColor: unlocked ? '' : 'rgba(188,167,149,0.25)', overflow:'hidden' }}
+            sx={{ backgroundColor: unlocked && sufficient ? '' : 'rgba(188,167,149,0.25)', overflow: 'hidden' }}
         >
             <ListItemButton
                 onClick={() => sufficient && action(taskName)}
@@ -26,21 +30,39 @@ const TaskItem = ({ unlocked, icon, title, subtitle, action, rightText, items, t
                     width: '100%',
                     height: 43,
                     transition: 'none',
-                    cursor: sufficient ? 'pointer' : 'default'
+                    cursor: sufficient ? 'pointer' : 'default',
+                    backgroundColor: 'transparent',
+                    '&:hover': {
+                        backgroundColor: !sufficient && 'transparent'
+                    },
                 }}
                 disableRipple
             >
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', pr: 1 }}>
                     {/* Icon */}
                     {icon && (
-                        <Box sx={{ pl: 0.5, mt: 0.5 }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', pl: 0.5 }}>
                             <Item itemData={icon.itemData} itemName={icon.itemName} stats={icon.stats} quantity={icon.quantity} locked={icon.locked} />
+
+                            {icon.probability && icon.probability !==1 && (
+                                <Stack sx={{ pl: 0.5 }}>
+                                    <Typography variant="caption" sx={{ fontFamily: 'monospace', textAlign: 'center', mb: -0.25 }}>
+                                        1
+                                    </Typography>
+                                    <Box
+                                        sx={{ width: '100%', height: '1px', backgroundColor: 'currentColor' }}
+                                    />
+                                    <Typography variant="caption" sx={{ fontFamily: 'monospace', textAlign: 'center', mt: -0.25 }}>
+                                        {icon.probability}
+                                    </Typography>
+                                </Stack>
+                            )}
                         </Box>
                     )}
 
                     {/* Title */}
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', pl: 1 }}>
-                        <Typography variant="body1" sx={{ fontFamily: 'monospace', textAlign: 'left', fontWeight: 'bold' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', pl: 1, position: 'relative' }}>
+                        <Typography variant="body1" sx={{ fontFamily: 'monospace', textAlign: 'left', fontWeight: 'bold', color: textColour, lineHeight: 0.75, minHeight:15 }}>
                             {unlocked ? (
                                 title
                             ) : (
@@ -89,7 +111,7 @@ const TaskItem = ({ unlocked, icon, title, subtitle, action, rightText, items, t
                                                     sx={{ width: '100%', height: '1px', backgroundColor: 'currentColor' }}
                                                 />
                                                 <Typography variant="caption" sx={{ fontFamily: 'monospace', textAlign: 'center', mt: -0.25 }}>
-                                                    {item.probability}
+                                                    {getItemProbability(item)}
                                                 </Typography>
                                             </Stack>
                                         )}
@@ -99,7 +121,7 @@ const TaskItem = ({ unlocked, icon, title, subtitle, action, rightText, items, t
 
                             {/* Right text */}
                             {rightText && (
-                                <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'left', pl: 3 }}>
+                                <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'left', pl: 3, whiteSpace: 'nowrap' }}>
                                     {rightText}
                                 </Typography>
                             )}

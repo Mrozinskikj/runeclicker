@@ -85,7 +85,7 @@
     },
     "Silver Ore": {
         "image": "Silver Ore.png",
-        "value": 100
+        "value": 50
     },
     "Gold Ore": {
         "image": "Gold Ore.png",
@@ -93,11 +93,11 @@
     },
     "Platinum Ore": {
         "image": "Platinum Ore.png",
-        "value": 900
+        "value": 1000
     },
     "Silver Ingot": {
         "image": "Silver Ingot.png",
-        "value": 200
+        "value": 100
     },
     "Gold Ingot": {
         "image": "Gold Ingot.png",
@@ -105,10 +105,10 @@
     },
     "Platinum Ingot": {
         "image": "Platinum Ingot.png",
-        "value": 1800
+        "value": 2000
     },
     "Wooden Axe": {
-        "image": "woodenaxe.png",
+        "image": "Wooden Axe.png",
         "slot": "axe",
         "value": 10,
         "bonus": {
@@ -120,7 +120,7 @@
     "Flint Axe": {
         "image": "Flint Axe.png",
         "slot": "axe",
-        "value": 30,
+        "value": 40,
         "bonus": {
             "Woodcutting": {
                 "speed": 2,
@@ -131,7 +131,7 @@
     "Bronze Axe": {
         "image": "Bronze Axe.png",
         "slot": "axe",
-        "value": 60,
+        "value": 160,
         "bonus": {
             "Woodcutting": {
                 "speed": 4,
@@ -142,7 +142,7 @@
     "Iron Axe": {
         "image": "Iron Axe.png",
         "slot": "axe",
-        "value": 120,
+        "value": 640,
         "bonus": {
             "Woodcutting": {
                 "speed": 6,
@@ -153,7 +153,7 @@
     "Steel Axe": {
         "image": "Steel Axe.png",
         "slot": "axe",
-        "value": 240,
+        "value": 2560,
         "bonus": {
             "Woodcutting": {
                 "speed": 10,
@@ -164,7 +164,7 @@
     "Titanium Axe": {
         "image": "Titanium Axe.png",
         "slot": "axe",
-        "value": 480,
+        "value": 10240,
         "bonus": {
             "Woodcutting": {
                 "speed": 16,
@@ -173,7 +173,7 @@
         }
     },
     "Wooden Pickaxe": {
-        "image": "woodenpickaxe.png",
+        "image": "Wooden Pickaxe.png",
         "slot": "pickaxe",
         "value": 10,
         "bonus": {
@@ -185,7 +185,7 @@
     "Flint Pickaxe": {
         "image": "Flint Pickaxe.png",
         "slot": "pickaxe",
-        "value": 30,
+        "value": 40,
         "bonus": {
             "Mining": {
                 "speed": 2,
@@ -196,7 +196,7 @@
     "Bronze Pickaxe": {
         "image": "Bronze Pickaxe.png",
         "slot": "pickaxe",
-        "value": 60,
+        "value": 160,
         "bonus": {
             "Mining": {
                 "speed": 4,
@@ -207,7 +207,7 @@
     "Iron Pickaxe": {
         "image": "Iron Pickaxe.png",
         "slot": "pickaxe",
-        "value": 120,
+        "value": 640,
         "bonus": {
             "Mining": {
                 "speed": 6,
@@ -218,7 +218,7 @@
     "Steel Pickaxe": {
         "image": "Steel Pickaxe.png",
         "slot": "pickaxe",
-        "value": 240,
+        "value": 2560,
         "bonus": {
             "Mining": {
                 "speed": 10,
@@ -229,7 +229,7 @@
     "Titanium Pickaxe": {
         "image": "Titanium Pickaxe.png",
         "slot": "pickaxe",
-        "value": 480,
+        "value": 10240,
         "bonus": {
             "Mining": {
                 "speed": 16,
@@ -237,10 +237,270 @@
             }
         }
     },
+    "Flint Spear": {
+        "image": "Flint Spear.png",
+        "slot": "weapon",
+        "value": 40,
+        "bonus": {
+            "Combat": {
+                "strength": 1
+            }
+        }
+    },
+    "Bronze Sword": {
+        "image": "Bronze Sword.png",
+        "slot": "weapon",
+        "value": 160,
+        "bonus": {
+            "Combat": {
+                "strength": 3,
+                "accuracy": 1,
+                "speed": 1
+            }
+        }
+    },
+    "Iron Sword": {
+        "image": "Iron Sword.png",
+        "slot": "weapon",
+        "value": 640,
+        "bonus": {
+            "Combat": {
+                "strength": 6,
+                "accuracy": 3,
+                "speed": 2
+            }
+        }
+    },
+    "Steel Sword": {
+        "image": "Steel Sword.png",
+        "slot": "weapon",
+        "value": 2560,
+        "bonus": {
+            "Combat": {
+                "strength": 12,
+                "accuracy": 6,
+                "speed": 4
+            }
+        }
+    },
+    "Titanium Sword": {
+        "image": "Titanium Sword.png",
+        "slot": "weapon",
+        "value": 10240,
+        "bonus": {
+            "Combat": {
+                "strength": 24,
+                "accuracy": 12,
+                "speed": 8
+            }
+        }
+    },
+    "Spiked Mace": {
+        "image": "Spiked Mace.png",
+        "slot": "weapon",
+        "value": 500,
+        "bonus": {
+            "Combat": {
+                "strength": 6,
+                "accuracy": -0.5
+            }
+        }
+    },
+    "Snail Shield": {
+        "image": "Snail Shield.png",
+        "value": 2000,
+        "slot": "weapon",
+        "bonus": {
+            "Combat": {
+                "strength": 2,
+                "defence": 20
+            }
+        }
+    },
+    "Soft Leather Cap": {
+        "image": "Soft Leather Cap.png",
+        "slot": "head",
+        "value": 24,
+        "bonus": {
+            "Combat": {
+                "defence": 1
+            }
+        }
+    },
+    "Tough Leather Cap": {
+        "image": "Tough Leather Cap.png",
+        "slot": "head",
+        "value": 48,
+        "bonus": {
+            "Combat": {
+                "defence": 2
+            }
+        }
+    },
+    "Bronze Helmet": {
+        "image": "Bronze Helmet.png",
+        "slot": "head",
+        "value": 96,
+        "bonus": {
+            "Combat": {
+                "defence": 3
+            }
+        }
+    },
+    "Iron Helmet": {
+        "image": "Iron Helmet.png",
+        "slot": "head",
+        "value": 384,
+        "bonus": {
+            "Combat": {
+                "defence": 6
+            }
+        }
+    },
+    "Steel Helmet": {
+        "image": "Steel Helmet.png",
+        "slot": "head",
+        "value": 1536,
+        "bonus": {
+            "Combat": {
+                "defence": 12
+            }
+        }
+    },
+    "Titanium Helmet": {
+        "image": "Titanium Helmet.png",
+        "slot": "head",
+        "value": 6144,
+        "bonus": {
+            "Combat": {
+                "defence": 24
+            }
+        }
+    },
+    "Soft Leather Tunic": {
+        "image": "Soft Leather Tunic.png",
+        "slot": "torso",
+        "value": 48,
+        "bonus": {
+            "Combat": {
+                "defence": 1
+            }
+        }
+    },
+    "Tough Leather Tunic": {
+        "image": "Tough Leather Tunic.png",
+        "slot": "torso",
+        "value": 96,
+        "bonus": {
+            "Combat": {
+                "defence": 3
+            }
+        }
+    },
+    "Bronze Chestplate": {
+        "image": "Bronze Chestplate.png",
+        "slot": "torso",
+        "value": 192,
+        "bonus": {
+            "Combat": {
+                "defence": 6
+            }
+        }
+    },
+    "Iron Chestplate": {
+        "image": "Iron Chestplate.png",
+        "slot": "torso",
+        "value": 768,
+        "bonus": {
+            "Combat": {
+                "defence": 12
+            }
+        }
+    },
+    "Steel Chestplate": {
+        "image": "Steel Chestplate.png",
+        "slot": "torso",
+        "value": 3072,
+        "bonus": {
+            "Combat": {
+                "defence": 24
+            }
+        }
+    },
+    "Titanium Chestplate": {
+        "image": "Titanium Chestplate.png",
+        "slot": "torso",
+        "value": 12288,
+        "bonus": {
+            "Combat": {
+                "defence": 48
+            }
+        }
+    },
+    "Soft Leather Trousers": {
+        "image": "Soft Leather Trousers.png",
+        "slot": "legs",
+        "value": 48,
+        "bonus": {
+            "Combat": {
+                "defence": 1
+            }
+        }
+    },
+    "Tough Leather Trousers": {
+        "image": "Tough Leather Trousers.png",
+        "slot": "legs",
+        "value": 96,
+        "bonus": {
+            "Combat": {
+                "defence": 3
+            }
+        }
+    },
+    "Bronze Greaves": {
+        "image": "Bronze Greaves.png",
+        "slot": "legs",
+        "value": 192,
+        "bonus": {
+            "Combat": {
+                "defence": 6
+            }
+        }
+    },
+    "Iron Greaves": {
+        "image": "Iron Greaves.png",
+        "slot": "legs",
+        "value": 768,
+        "bonus": {
+            "Combat": {
+                "defence": 12
+            }
+        }
+    },
+    "Steel Greaves": {
+        "image": "Steel Greaves.png",
+        "slot": "legs",
+        "value": 3072,
+        "bonus": {
+            "Combat": {
+                "defence": 24
+            }
+        }
+    },
+    "Titanium Greaves": {
+        "image": "Titanium Greaves.png",
+        "slot": "legs",
+        "value": 12288,
+        "bonus": {
+            "Combat": {
+                "defence": 48
+            }
+        }
+    },
     "Silver Ring": {
         "image": "Silver Ring.png",
         "slot": "ring",
-        "value": 500
+        "value": 300
     },
     "Gold Ring": {
         "image": "Gold Ring.png",
@@ -250,12 +510,12 @@
     "Platinum Ring": {
         "image": "Platinum Ring.png",
         "slot": "ring",
-        "value": 4000
+        "value": 5000
     },
     "Lesser Ring of Woodcutting": {
         "image": "Lesser Ring of Woodcutting.png",
         "slot": "ring",
-        "value": 1000,
+        "value": 700,
         "bonus": {
             "Woodcutting": {
                 "speedPercent": 25
@@ -275,7 +535,7 @@
     "Greater Ring of Woodcutting": {
         "image": "Greater Ring of Woodcutting.png",
         "slot": "ring",
-        "value": 8000,
+        "value": 12000,
         "bonus": {
             "Woodcutting": {
                 "speedPercent": 75
@@ -285,18 +545,18 @@
     "Imbued Ring of Woodcutting": {
         "image": "Imbued Ring of Woodcutting.png",
         "slot": "ring",
-        "value": 16000,
+        "value": 25000,
         "bonus": {
             "Woodcutting": {
                 "speedPercent": -100,
-                "clickPercent": 400
+                "clickPercent": 600
             }
         }
     },
     "Lesser Ring of Mining": {
         "image": "Lesser Ring of Mining.png",
         "slot": "ring",
-        "value": 1000,
+        "value": 700,
         "bonus": {
             "Mining": {
                 "speedPercent": 25
@@ -316,7 +576,7 @@
     "Greater Ring of Mining": {
         "image": "Greater Ring of Mining.png",
         "slot": "ring",
-        "value": 8000,
+        "value": 12000,
         "bonus": {
             "Mining": {
                 "speedPercent": 75
@@ -326,15 +586,135 @@
     "Imbued Ring of Mining": {
         "image": "Imbued Ring of Mining.png",
         "slot": "ring",
-        "value": 16000,
+        "value": 25000,
         "bonus": {
             "Mining": {
                 "speedPercent": -100,
-                "clickPercent": 400
+                "clickPercent": 600
+            }
+        }
+    },
+    "Ring of Protection": {
+        "image": "Ring of Protection.png",
+        "slot": "ring",
+        "value": 1000,
+        "bonus": {
+            "Combat": {
+                "defencePercent": 5
+            }
+        }
+    },
+    "Berserker Amulet": {
+        "image": "Berserker Amulet.png",
+        "slot": "neck",
+        "value": 160,
+        "bonus": {
+            "Combat": {
+                "strengthPercent": 10
+            }
+        }
+    },
+    "Forest Amulet": {
+        "image": "Forest Amulet.png",
+        "slot": "neck",
+        "description": "+50% chance of finding sap crystals.",
+        "value": 500,
+        "bonus": {
+            "Woodcutting": {
+                "speedPercent": 5
+            }
+        }
+    },
+    "Cave Amulet": {
+        "image": "Cave Amulet.png",
+        "slot": "neck",
+        "description": "+50% chance of finding ancient fossils.",
+        "value": 1500,
+        "bonus": {
+            "Mining": {
+                "speedPercent": 5
             }
         }
     },
     "Coins": {
         "image": "Coins.png"
+    },
+    "Bone": {
+        "image": "Bone.png",
+        "value": 1
+    },
+    "Bonemeal": {
+        "image": "Bonemeal.png",
+        "value": 2
+    },
+    "Soft Boar Hide": {
+        "image": "Soft Boar Hide.png",
+        "value": 6
+    },
+    "Tough Boar Hide": {
+        "image": "Tough Boar Hide.png",
+        "value": 18
+    },
+    "Soft Boar Leather": {
+        "image": "Soft Boar Leather.png",
+        "value": 12
+    },
+    "Tough Boar Leather": {
+        "image": "Tough Boar Leather.png",
+        "value": 36
+    },
+    "Wolf Fang": {
+        "image": "Wolf Fang.png",
+        "value": 20
+    },
+    "String": {
+        "image": "String.png",
+        "value": 20
+    },
+    "Snail Shell": {
+        "image": "Snail Shell.png",
+        "value": 80
+    },
+    "Rat Tail": {
+        "image": "Rat Tail.png",
+        "value": 40
+    },
+    "Enchanted Leaf": {
+        "image": "Enchanted Leaf.png",
+        "value": 150
+    },
+    "Enchanted Stone": {
+        "image": "Enchanted Stone.png",
+        "value": 450
+    },
+    "Bear Meat": {
+        "image": "Bear Meat.png",
+        "value": 6
+    },
+    "Rich Bear Meat": {
+        "image": "Rich Bear Meat.png",
+        "value": 12
+    },
+    "Cave Fungus": {
+        "image": "Cave Fungus.png",
+        "value": 24
+    },
+    "Cooked Bear Meat": {
+        "image": "Cooked Bear Meat.png",
+        "value": 18,
+        "slot": "food",
+        "heal": 6
+    },
+    "Cooked Rich Bear Meat": {
+        "image": "Cooked Rich Bear Meat.png",
+        "value": 36,
+        "slot": "food",
+        "heal": 12
+    },
+    "Mushroom Stew": {
+        "image": "Mushroom Stew.png",
+        "value": 72,
+        "slot": "food",
+        "heal": 24
     }
 }

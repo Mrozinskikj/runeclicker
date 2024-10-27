@@ -4,7 +4,6 @@ import { Typography, List, ListItem, ListItemButton, LinearProgress, Divider, Bo
 
 import Window from "./Window";
 
-
 const SkillButton = ({ index, skills, skill, xp, lvl, lvlTable, skillSelected, selectSkill }) => {
 
     const lvlProgress = ((xp[skill] - lvlTable[lvl[skill]]) / (lvlTable[lvl[skill] + 1] - lvlTable[lvl[skill]])) * 100;
@@ -13,14 +12,19 @@ const SkillButton = ({ index, skills, skill, xp, lvl, lvlTable, skillSelected, s
         <>
             <ListItem disablePadding sx={{ backgroundColor: skillSelected === skill ? '#BCA795' : 'transparent' }}>
                 <ListItemButton onClick={() => selectSkill(skill)} disableRipple sx={{ flexDirection: 'column', alignItems: 'flex-start', p: 0 }}>
-                    <Typography variant="body1" sx={{ fontFamily: 'monospace', textAlign: 'left', fontWeight: 'bold', pl: 1 }}>
-                        {skill}
-                    </Typography>
+                    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', pl: 0.25, pr: 1 }}>
+                        <img src={`${process.env.PUBLIC_URL}/gameData/images/interface/${skill.toLowerCase()}.png`} alt="" style={{ userSelect: 'none', pointerEvents: 'none' }} />
 
-                    <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'left', pl: 1 }}>
-                        lvl {lvl[skill]}
-                    </Typography>
+                        <Box>
+                            <Typography variant="body1" sx={{ fontFamily: 'monospace', textAlign: 'left', fontWeight: 'bold', pl: 0.5 }}>
+                                {skill}
+                            </Typography>
 
+                            <Typography variant="body2" sx={{ fontFamily: 'monospace', textAlign: 'left', pl: 0.5 }}>
+                                lvl {lvl[skill]}
+                            </Typography>
+                        </Box>
+                    </Box>
                     <LinearProgress
                         variant="determinate"
                         value={lvlProgress}
@@ -37,7 +41,7 @@ const SkillButton = ({ index, skills, skill, xp, lvl, lvlTable, skillSelected, s
                     />
                 </ListItemButton>
             </ListItem>
-            {index !== skills.length-1 && <Divider />}
+            {index !== skills.length - 1 && <Divider />}
         </>
     );
 };

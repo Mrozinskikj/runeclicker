@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Cookies from 'js-cookie';
+import LZString from 'lz-string';
 
 import { Box, Grid, Button } from '@mui/material';
 
@@ -8,6 +9,7 @@ import settingsicon from "./images/interface/settings.png";
 
 import Header from "./components/Header.jsx";
 import Console from "./components/Console.jsx";
+import Combat from "./components/Combat.jsx";
 import Skilling from "./components/Skilling.jsx";
 import TaskList from "./components/TaskList.jsx";
 import RecipeList from "./components/RecipeList.jsx";
@@ -16,6 +18,7 @@ import Energy from './components/Energy.jsx';
 import SkillList from "./components/SkillList.jsx";
 import Inventory from './components/Inventory.jsx';
 import Settings from './components/Settings.jsx';
+import CombatList from './components/CombatList.jsx';
 
 
 
@@ -28,8 +31,16 @@ const Main = ({
     setEquipment,
     unlocked,
     setUnlocked,
+    enemiesDiscovered,
+    setEnemiesDiscovered,
     lvl,
     setLvl,
+    health,
+    setHealth,
+    enemy,
+    setEnemy,
+    kills,
+    setKills,
     stats,
     setStats,
     maxEnergy,
@@ -48,7 +59,11 @@ const Main = ({
     lvlTable,
     speedTable,
     energyTable,
+    combatTable,
+    combatBests,
+    setCombatBests,
     items,
+    enemies,
     tasks,
     skills,
     version,
@@ -121,6 +136,71 @@ const Main = ({
     }, [energy]);
     const energyIntervalRef = useRef(null);
 
+    const [depth, setDepth] = useState(1);
+    const [attackTurn, setAttackTurn] = useState(true);
+    const [combatTurn, setCombatTurn] = useState(0);
+    const [newCombatBest, setNewCombatBest] = useState(false);
+    const [rest, setRest] = useState(false);
+
+    const [enemyDamage, setEnemyDamage] = useState(null);
+    const [playerDamage, setPlayerDamage] = useState(null);
+
+    const [sourceIndex, setSourceIndex] = useState(null); // inventory item grab index
+
+    useEffect(() => {
+        const depthSize = tasks[skillSelected][taskSelected]?.depthSize;
+
+        // Set depth to correct amount based on number of kills
+        let newDepth;
+        if (kills < depthSize) {
+            newDepth = 1;
+        } else if (kills >= depthSize && kills < depthSize * 2) {
+            newDepth = 2;
+        } else if (kills >= depthSize * 2 && kills < depthSize * 3) {
+            newDepth = 3;
+        } else {
+            newDepth = 4;
+        }
+        setDepth(newDepth)
+
+        if (combatTurn) {
+            if (taskSelected && (!combatBests[taskSelected] || kills > combatBests[taskSelected])) {
+                setCombatBests(prevCombatBests => ({
+                    ...prevCombatBests,
+                    [taskSelected]: kills
+                }));
+                setNewCombatBest(true);
+            }
+
+            if (kills === depthSize - 1 || kills === (depthSize * 2) - 1 || kills == (depthSize * 3) - 1) {
+                setActionsLeft(8);
+                setRest(true);
+            } else {
+                selectEnemy(taskSelected, newDepth);
+            }
+        }
+    }, [kills, taskSelected])
+
+    useEffect(() => {
+        if (depth > 1 && skillSelected === "Combat" && taskSelected !== null) {
+            addMessage(`You advance deeper into the ${taskSelected}.`)
+        }
+    }, [depth])
+    useEffect(() => {
+        if (combatTurn && kills > 1) {
+            addMessage(`You have achieved a new best for ${taskSelected}.`);
+        }
+    }, [newCombatBest])
+    useEffect(() => {
+        if (rest) {
+            addMessage(`You may now rest before advancing.`);
+        }
+    }, [rest])
+
+    const calculateXpReward = (enemy) => {
+        return (Math.max(Math.floor(enemy?.maxhealth / 6), 1));
+    }
+
     // Convert game data into save file string
     const saveGame = useCallback(() => {
         const save = JSON.stringify({
@@ -128,37 +208,46 @@ const Main = ({
             skill: skillSelected,
             task: taskSelected,
             xp: xp,
+            health: health,
+            enemy: enemy,
+            kills: kills,
             autoTask: autoTask,
             inventory: inventory,
             equipment: equipment,
-            unlocked: unlocked
+            unlocked: unlocked,
+            enemiesDiscovered: enemiesDiscovered,
+            combatBests: combatBests,
         });
+        const compressed = LZString.compressToBase64(save);
         // save game to cookies
-        Cookies.set("runeclicker", save, { expires: 1000 });
-        setSaveFile(save);
-    }, [xp, inventory, equipment, unlocked, skillSelected, taskSelected]);
+        Cookies.set("runeclicker", compressed, { expires: 1000 });
+        setSaveFile(compressed);
+    }, [xp, inventory, equipment, unlocked, skillSelected, taskSelected, health, enemy, kills, autoTask, enemiesDiscovered, combatBests]);
 
     useEffect(() => {
         if (needToSave) {
             saveGame();
             setNeedToSave(false);
         }
-    }, [needToSave, saveGame]);
+    }, [needToSave]);
     // Save file updated every time a new skill or task selected
     useEffect(() => {
+        console.log("now")
         setNeedToSave(true);
     }, [skillSelected, taskSelected]);
 
-    const lvlUp = (newLvl) => {
+    const lvlUp = (newLvl, skill=skillSelected) => {
 
-        const tasksList = Object.values(tasks[skillSelected]);
+        const tasksList = Object.values(tasks[skill]);
 
-        if (skillSelected === "Merchanting") {
-            addMessage(`You have reached ${skillSelected} lvl ${newLvl}. You gain ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} speed, and ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} multiplier.`);
-        } else if (skillSelected === "Energy") {
-            addMessage(`You have reached ${skillSelected} lvl ${newLvl}. You gain ${energyTable.time[lvl['Energy'] + 1] - energyTable.time[lvl['Energy']]} seconds of energy.`);
+        if (skill === "Merchanting") {
+            addMessage(`You have reached ${skill} lvl ${newLvl}. You gain ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} speed, and ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} multiplier.`);
+        } else if (skill === "Energy") {
+            addMessage(`You have reached ${skill} lvl ${newLvl}. You gain ${energyTable.time[lvl['Energy'] + 1] - energyTable.time[lvl['Energy']]} seconds of energy.`);
+        } else if (skill === "Combat") {
+            addMessage(`You have reached ${skill} lvl ${newLvl}. You gain ${(combatTable['health'][newLvl] - combatTable['health'][newLvl - 1])} health, ${(combatTable['strength'][newLvl] - combatTable['strength'][newLvl - 1]).toFixed(1)} strength, ${(combatTable['accuracy'][newLvl] - combatTable['accuracy'][newLvl - 1]).toFixed(1)} accuracy, ${(combatTable['defence'][newLvl] - combatTable['defence'][newLvl - 1]).toFixed(1)} defence, and ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} speed.`);
         } else {
-            addMessage(`You have reached ${skillSelected} lvl ${newLvl}. You gain ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} speed.`);
+            addMessage(`You have reached ${skill} lvl ${newLvl}. You gain ${(speedTable[newLvl] - speedTable[newLvl - 1]).toFixed(2)} speed.`);
         }
 
         // Check whether there are any new task unlocks at new lvl
@@ -175,21 +264,28 @@ const Main = ({
         // update the lvl of the skill
         setLvl(prevSkills => ({
             ...prevSkills,
-            [skillSelected]: newLvl
+            [skill]: newLvl
         }));
 
         // update the base speed of the skill
         setStats(prevSkills => {
-            const newSkill = { ...prevSkills[skillSelected] };
+            const newSkill = { ...prevSkills[skill] };
             newSkill.baseSpeed = speedTable[newLvl];
             // update the base multiplier of the merchanting skill
-            if (skillSelected == 'Merchanting') {
+            if (skill == 'Merchanting') {
                 newSkill.baseMultiplier = speedTable[newLvl];
             }
-            return { ...prevSkills, [skillSelected]: newSkill };
+
+            if (skill == 'Combat') {
+                newSkill.baseHealth = combatTable['health'][newLvl];
+                newSkill.baseStrength = combatTable['strength'][newLvl];
+                newSkill.baseAccuracy = combatTable['accuracy'][newLvl];
+                newSkill.baseDefence = combatTable['defence'][newLvl];
+            }
+            return { ...prevSkills, [skill]: newSkill };
         });
 
-        if (skillSelected === "Energy") {
+        if (skill === "Energy") {
             setMaxEnergy(energyTable.time[newLvl]);
             setEnergy(energyTable.time[newLvl]);
         }
@@ -211,22 +307,71 @@ const Main = ({
             newXp < xpThreshold && newXp >= (lvlTable[index - 1] || 0)
         ) - 1;
 
-        if (lvl[skillSelected] !== calculatedLvl) {
-            lvlUp(calculatedLvl);
+        if (lvl[skill] !== calculatedLvl) {
+            lvlUp(calculatedLvl, skill);
         }
     };
+
+    function sampleId(arr) {
+        // Calculate the total probability (in this case, both probabilities are 1)
+        const totalProbability = arr.reduce((sum, item) => sum + item.probability, 0);
+
+        // Generate a random number between 0 and totalProbability
+        let random = Math.random() * totalProbability;
+
+        // Iterate through the array and select the corresponding id
+        for (let item of arr) {
+            if (random < item.probability) {
+                return item.id;
+            }
+            random -= item.probability;
+        }
+    }
+
+    const selectEnemy = (taskName, depth) => {
+        if (taskName) {
+            const potentialEnemies = tasks["Combat"][taskName].enemies[depth - 1];
+            const selectedEnemy = sampleId(potentialEnemies);
+
+            setEnemy({
+                "id": selectedEnemy,
+                "maxhealth": enemies[selectedEnemy].health,
+                "health": enemies[selectedEnemy].health,
+                "strength": enemies[selectedEnemy].strength,
+                "accuracy": enemies[selectedEnemy].accuracy,
+                "defence": enemies[selectedEnemy].defence,
+            });
+
+            setNeedToSave(true);
+        }
+    }
+
 
     const selectTask = useCallback((taskName) => {
         const taskData = getTaskData(taskName);
         setTaskSelected(taskName);
         setActionsLeft(taskData.actions);
-    }, [skillSelected]);
+        setNewCombatBest(false);
+
+        if (skillSelected === "Combat") {
+            setKills(0);
+            selectEnemy(taskName, 1);
+            setRest(false);
+
+            const healthNoPercent = stats["Combat"].baseHealth + stats["Combat"].bonusHealth;
+            const maxHealth = Math.round(healthNoPercent * ((stats["Combat"].bonusHealthPercent / 100) + 1));
+            setHealth(maxHealth);
+        }
+    }, [skillSelected, stats, depth]);
 
     const selectSkill = useCallback((skill) => {
         setSkillSelected(skill);
         setTaskSelected(null);
         setViewSettings(false);
         setEnergy(maxEnergy);
+
+        setKills(0);
+        setCombatTurn(0);
     }, [maxEnergy]);
 
     const completeTask = (iterations, muteMessage) => {
@@ -234,12 +379,19 @@ const Main = ({
         const xpReward = taskData.xpReward * iterations;
 
         const itemMessage = addItems(taskData.itemReward, iterations);
+
         removeItems(taskData.itemCost, iterations);
 
         if (muteMessage) {
             addMessage(`You gain ${itemMessage}${xpReward} xp.`);
         } else {
-            addMessage(`${taskData.message} You gain ${itemMessage}${xpReward} xp.`);
+            if (itemMessage !== "") {
+                addMessage(`${taskData.message} You gain ${itemMessage}${xpReward} xp.`);
+            } else {
+                // Message for failure - no items made.
+                addMessage(`You fail to make the item. You gain ${xpReward} xp.`);
+            }
+
         }
 
         gainXp(skillSelected, xpReward);
@@ -254,9 +406,62 @@ const Main = ({
 
     useEffect(() => {
         if (actionsLeft <= 0) {
-            completeTask(1);
+            if (skillSelected === "Combat") {
+                setActionsLeft(NaN);
+                setKills(prevKills => prevKills + 1);
+                setRest(false);
+            } else {
+                completeTask(1);
+            }
         }
     }, [actionsLeft]);
+
+    useEffect(() => {
+        if (combatTurn > 0) { // ensure that attack turn does not turn on initialisation
+
+            if (!rest) {
+                const strengthNoPercent = stats[skillSelected].baseStrength + stats[skillSelected].bonusStrength;
+                const strength = Math.round(strengthNoPercent * ((stats[skillSelected].bonusStrengthPercent / 100) + 1));
+                const accuracyNoPercent = stats[skillSelected].baseAccuracy + stats[skillSelected].bonusAccuracy;
+                const accuracy = Math.round(accuracyNoPercent * ((stats[skillSelected].bonusAccuracyPercent / 100) + 1));
+                const defenceNoPercent = stats[skillSelected].baseDefence + stats[skillSelected].bonusDefence;
+                const defence = Math.round(defenceNoPercent * ((stats[skillSelected].bonusDefencePercent / 100) + 1));
+
+                if (attackTurn) {
+                    const hitChance = accuracy / (accuracy + enemy?.defence);
+                    const hit = Math.random() < hitChance;
+                    const damage = Math.min(Math.floor(Math.random() * strength) + 1, enemy.health);
+
+                    if (hit) {
+                        setEnemy(prevEnemy => ({
+                            ...prevEnemy,
+                            health: prevEnemy.health - damage,
+                        }));
+                        setPlayerDamage(-damage);
+                        setTimeout(() => setPlayerDamage(null), 250);
+                    } else {
+                        setPlayerDamage(0);
+                        setTimeout(() => setPlayerDamage(null), 250);
+                    }
+
+                } else {
+                    const hitChance = enemy?.accuracy / (enemy?.accuracy + defence);
+                    const hit = Math.random() < hitChance;
+                    const damage = Math.min(Math.floor(Math.random() * enemy?.strength) + 1, health);
+                    if (hit) {
+                        setHealth(prevHealth => prevHealth - damage);
+                        setEnemyDamage(-damage);
+                        setTimeout(() => setEnemyDamage(null), 250);
+                    } else {
+                        setEnemyDamage(0);
+                        setTimeout(() => setEnemyDamage(null), 250);
+                    }
+                }
+
+                setAttackTurn(prevAttackTurn => !prevAttackTurn);
+            }
+        }
+    }, [combatTurn]);
 
     const performAction = useCallback((value) => {
         if (actionAllowed) {
@@ -264,8 +469,39 @@ const Main = ({
                 const newActionsLeft = prevActionsLeft - value;
                 return newActionsLeft;
             });
+
+            if (skillSelected === "Combat" && !rest) {
+                setCombatTurn(prevCombatTurn => prevCombatTurn + 1);
+            }
         }
     }, [actionAllowed]);
+
+    // Exit combat if no health
+    useEffect(() => {
+        if (health <= 0 && combatTurn !== 0) {
+            addMessage("With a final gasp, your strength fails, and the world slips away. The ground claims your broken form as the echoes of battle fade. Death takes you, cold and absolute.");
+        }
+    }, [health]);
+
+    // Reward if no enemy health
+    useEffect(() => {
+        if (enemy?.health <= 0 && !rest) {
+            setKills(prevKills => prevKills + 1);
+            const xpReward = calculateXpReward(enemy);
+            gainXp("Combat", xpReward);
+            const itemMessage = addItems(enemies[enemy?.id].itemReward, 1);
+            addMessage(`You have defeated the ${enemy?.id}. You gain ${itemMessage} ${xpReward} xp.`);
+        }
+
+        // Unlock enemy if first time seeing
+        if (enemy?.id && !enemiesDiscovered.includes(enemy?.id)) {
+            addMessage(`You have discovered a new enemy: ${enemy?.id}.`);
+            setEnemiesDiscovered(prevEnemiesDiscovered => {
+                return [...prevEnemiesDiscovered, enemy?.id];
+            })
+        }
+    }, [enemy]);
+
     // if action button click, perform action and recharge energy
     const manualAction = useCallback((value) => {
         performAction(value);
@@ -306,8 +542,9 @@ const Main = ({
             // perform number of rolls for number of iterations
             for (let i = 0; i < iterations; i++) {
                 taskItems.forEach(({ id, quantity, probability, index }) => {
+                    const rollProbability = getItemProbability({ "itemName": id, "probability": probability });
                     // Roll for if item will be received
-                    const rollItem = Math.random() < 1 / probability;
+                    const rollItem = Math.random() < 1 / rollProbability;
                     if (rollItem) {
                         // Roll for the quantity of the item
                         const rollQuantity = Math.floor(Math.random() * (quantity[1] - quantity[0] + 1)) + quantity[0];
@@ -373,24 +610,46 @@ const Main = ({
             itemMessage = `${itemMessage}and `
         }
         return itemMessage;
-    }, [unlocked]);
+    }, [unlocked, equipment]);
+
+    const consumeFood = (item) => {
+
+        const healthNoPercent = stats["Combat"].baseHealth + stats["Combat"].bonusHealth;
+        const maxHealth = Math.round(healthNoPercent * ((stats["Combat"].bonusHealthPercent / 100) + 1));
+
+        const heal = Math.min(items[item].heal, maxHealth - health);
+        setHealth(prevHealth => prevHealth + heal);
+
+        removeItems([{ id: item, quantity: 1 }], 1);
+        addMessage(`You eat the ${item} and regain ${heal} health. You are full and cannot eat again until the next time you rest.`);
+    }
 
     const calculateStats = () => {
         // Initialise skillBonus object storing the total click and speed bonus for all skills from all equipment
         const skillBonus = {}
+        const attributes = [
+            'speed', 'speedPercent',
+            'click', 'clickPercent',
+            'health', 'healthPercent',
+            'strength', 'strengthPercent',
+            'accuracy', 'accuracyPercent',
+            'defence', 'defencePercent'
+        ];
         skills.forEach(skill => {
-            skillBonus[skill] = { 'speed': 0, 'click': 0, 'speedPercent': 0, 'clickPercent': 0 };
-        })
+            skillBonus[skill] = {};
+            attributes.forEach(attr => {
+                skillBonus[skill][attr] = 0;
+            });
+        });
 
-        // Add click and speed bonus to each skill from all equipment
+        // Add click, speed, and other bonuses to each skill from all equipment
         Object.keys(equipment).forEach(item => {
-            const itemBonus = items[equipment[item]]?.bonus
+            const itemBonus = items[equipment[item]]?.bonus;
             if (itemBonus) {
                 Object.keys(itemBonus).forEach(skill => {
-                    skillBonus[skill].speed += itemBonus[skill].speed ?? 0;
-                    skillBonus[skill].click += itemBonus[skill].click ?? 0;
-                    skillBonus[skill].speedPercent += itemBonus[skill].speedPercent ?? 0;
-                    skillBonus[skill].clickPercent += itemBonus[skill].clickPercent ?? 0;
+                    attributes.forEach(attr => {
+                        skillBonus[skill][attr] += itemBonus[skill][attr] ?? 0;
+                    });
                 });
             }
         });
@@ -398,14 +657,15 @@ const Main = ({
         setStats(prevStats => {
             const updatedStats = {};
 
+            // Update stats for each skill, including the bonuses dynamically
             Object.keys(prevStats).forEach(skill => {
                 updatedStats[skill] = {
                     ...prevStats[skill],
-                    bonusSpeed: skillBonus[skill].speed,
-                    bonusClick: skillBonus[skill].click,
-                    bonusSpeedPercent: skillBonus[skill].speedPercent,
-                    bonusClickPercent: skillBonus[skill].clickPercent
                 };
+
+                attributes.forEach(attr => {
+                    updatedStats[skill][`bonus${attr.charAt(0).toUpperCase() + attr.slice(1)}`] = skillBonus[skill][attr];
+                });
             });
 
             return updatedStats;
@@ -450,17 +710,22 @@ const Main = ({
             if (taskSelected == "Auto Task" && autoTask) {
                 allowed = false;
             }
+
+            if (skillSelected == "Combat" && health <= 0) {
+                allowed = false;
+                setNeedToSave(true);
+            }
             setActionAllowed(allowed);
         }
 
         checkActionAllowed();
-    }, [taskSelected, inventory]);
+    }, [taskSelected, inventory, health]);
 
     // Automatically perform actions if allowed
     useEffect(() => {
         const speedNoPercent = stats[skillSelected].baseSpeed + stats[skillSelected].bonusSpeed;
         const speed = speedNoPercent * ((stats[skillSelected].bonusSpeedPercent / 100) + 1);
-        const intervalSize = speed != 0 ? 1000 / speed : 1e10;
+        const intervalSize = rest ? 1000 : (speed != 0 ? 1000 / speed : 1e10);
 
         const interval = setInterval(() => {
             if (energyRef.current !== 0) {
@@ -468,7 +733,25 @@ const Main = ({
             }
         }, intervalSize);
         return () => clearInterval(interval);
-    }, [performAction, stats, taskSelected]);
+    }, [performAction, stats, taskSelected, rest]);
+
+    const getItemProbability = useCallback((item) => {
+        let probability = item.probability;
+
+        if (equipment.neck == "Forest Amulet") {
+            if (item.itemName == "Rough Sap Crystal" || item.itemName == "Cloudy Sap Crystal" || item.itemName == "Vibrant Sap Crystal") {
+                probability = Math.round(probability / 1.5)
+
+            }
+        }
+        if (equipment.neck == "Cave Amulet") {
+            if (item.itemName == "Common Ancient Fossil" || item.itemName == "Uncommon Ancient Fossil" || item.itemName == "Rare Ancient Fossil") {
+                probability = Math.round(probability / 1.5)
+
+            }
+        }
+        return (probability);
+    }, [equipment]);
 
 
     const depleteEnergy = useCallback((value) => {
@@ -536,7 +819,7 @@ const Main = ({
     }
     // auto perform tasks when game starts and unlocked
     useEffect(() => {
-        if (autoTask && taskSelected !== null && skillSelected !== "Energy") {
+        if (autoTask && taskSelected !== null && skillSelected !== "Energy" && skillSelected !== "Combat") {
             const taskData = getTaskData(taskSelected);
 
             // Calculate speed and click as base + bonus
@@ -569,7 +852,6 @@ const Main = ({
     }, [timeElapsed]);
 
 
-
     // Render different task list components depening on selected skill
     const renderTaskList = () => {
         switch (skillSelected) {
@@ -582,6 +864,10 @@ const Main = ({
                         inventoryItems={inventory}
                         unlockedItems={unlocked}
                         stats={stats}
+                        xp={xp}
+                        skillSelected={skillSelected}
+                        lvlTable={lvlTable}
+                        selectSkill={selectSkill}
                         selectTask={selectTask}
                         checkSufficientIngredients={checkSufficientIngredients}
                     />
@@ -592,6 +878,11 @@ const Main = ({
                         inventory={inventory}
                         items={items}
                         stats={stats}
+                        lvl={lvl}
+                        xp={xp}
+                        skillSelected={skillSelected}
+                        lvlTable={lvlTable}
+                        selectSkill={selectSkill}
                         selectTask={selectTask}
                     />
                 );
@@ -605,9 +896,31 @@ const Main = ({
                         lvl={lvl}
                         stats={stats}
                         autoTask={autoTask}
+                        xp={xp}
+                        skillSelected={skillSelected}
+                        lvlTable={lvlTable}
+                        selectSkill={selectSkill}
                         selectTask={selectTask}
                         getTaskData={getTaskData}
                         checkSufficientIngredients={checkSufficientIngredients}
+                    />
+                );
+            case "Combat":
+                return (
+                    <CombatList
+                        skillLvl={lvl}
+                        tasks={tasks}
+                        items={items}
+                        unlockedItems={unlocked}
+                        enemiesDiscovered={enemiesDiscovered}
+                        stats={stats}
+                        skillSelected={skillSelected}
+                        xp={xp}
+                        lvlTable={lvlTable}
+                        enemies={enemies}
+                        selectSkill={selectSkill}
+                        selectTask={selectTask}
+                        combatBests={combatBests}
                     />
                 );
             default:
@@ -618,8 +931,12 @@ const Main = ({
                         items={items}
                         unlockedItems={unlocked}
                         stats={stats}
+                        xp={xp}
                         skillSelected={skillSelected}
+                        lvlTable={lvlTable}
                         selectTask={selectTask}
+                        selectSkill={selectSkill}
+                        getItemProbability={getItemProbability}
                     />
                 );
         }
@@ -635,14 +952,14 @@ const Main = ({
             backgroundRepeat: 'repeat'
         }}>
 
-            <Grid container spacing={1} sx={{ maxWidth: 1000, margin: 'auto' }}>
+            <Grid container spacing={1} sx={{ width: 1060, margin: 'auto' }}>
                 {/* Logo */}
-                <Grid item xs={12}>
+                <Grid item sx={{ width: '100%' }}>
                     <Header version={version} />
                 </Grid>
 
 
-                <Grid item xs={3.29}>
+                <Grid item sx={{ width: '282px' }}>
                     <Inventory
                         items={items}
                         inventory={inventory}
@@ -655,10 +972,12 @@ const Main = ({
                         updatedItemOverlay={updatedItemOverlay}
                         removeItems={removeItems}
                         addItems={addItems}
+                        sourceIndex={sourceIndex}
+                        setSourceIndex={setSourceIndex}
                     />
                 </Grid>
 
-                <Grid item xs={6.96} sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Grid item sx={{ width: '627px', display: 'flex', flexDirection: 'column' }}>
                     <Box sx={{ mb: 0.6 }}>
 
                         {viewSettings ? (
@@ -677,23 +996,56 @@ const Main = ({
                                     {renderTaskList()}
                                 </>
                             ) : (
-                                // Render skilling window if task selected
-                                <Skilling
-                                    skillXp={xp}
-                                    skillLvl={lvl}
-                                    lvlTable={lvlTable}
-                                    stats={stats}
-                                    skillSelected={skillSelected}
-                                    selectSkill={selectSkill}
-                                    taskSelected={taskSelected}
-                                    getTaskData={getTaskData}
-                                    actionsLeft={actionsLeft}
-                                    energy={energy}
-                                    maxEnergy={maxEnergy}
-                                    actionAllowed={actionAllowed}
-                                    manualAction={manualAction}
-                                />
-                            ))}
+                                skillSelected === "Combat" ? (
+                                    <Combat
+                                        consumeFood={consumeFood}
+                                        sourceIndex={sourceIndex}
+                                        setSourceIndex={setSourceIndex}
+                                        inventory={inventory}
+                                        items={items}
+                                        removeItems={removeItems}
+                                        kills={kills}
+                                        depth={depth}
+                                        attackTurn={attackTurn}
+                                        rest={rest}
+                                        health={health}
+                                        enemy={enemy}
+                                        skillXp={xp}
+                                        skillLvl={lvl}
+                                        lvlTable={lvlTable}
+                                        stats={stats}
+                                        skillSelected={skillSelected}
+                                        selectSkill={selectSkill}
+                                        selectTask={selectTask}
+                                        taskSelected={taskSelected}
+                                        tasks={tasks}
+                                        getTaskData={getTaskData}
+                                        actionsLeft={actionsLeft}
+                                        energy={energy}
+                                        maxEnergy={maxEnergy}
+                                        actionAllowed={actionAllowed}
+                                        manualAction={manualAction}
+                                        enemyDamage={enemyDamage}
+                                        playerDamage={playerDamage}
+                                    />
+                                ) : (
+                                    // Render skilling window if task selected
+                                    <Skilling
+                                        skillXp={xp}
+                                        skillLvl={lvl}
+                                        lvlTable={lvlTable}
+                                        stats={stats}
+                                        skillSelected={skillSelected}
+                                        selectSkill={selectSkill}
+                                        taskSelected={taskSelected}
+                                        getTaskData={getTaskData}
+                                        actionsLeft={actionsLeft}
+                                        energy={energy}
+                                        maxEnergy={maxEnergy}
+                                        actionAllowed={actionAllowed}
+                                        manualAction={manualAction}
+                                    />
+                                )))}
                     </Box>
                     <Box sx={{ flex: 1 }}>
                         <Console messages={messages} messagesEndRef={messagesEndRef} />
@@ -701,7 +1053,7 @@ const Main = ({
                 </Grid>
 
 
-                <Grid item xs={1.75}>
+                <Grid item sx={{width:'151px'}}>
                     <SkillList
                         skills={skills}
                         xp={xp}
@@ -733,7 +1085,6 @@ const Main = ({
                         <img src={settingsicon} alt="Settings" />
                     </Button>
                 </Grid>
-
             </Grid>
         </Box>
     );

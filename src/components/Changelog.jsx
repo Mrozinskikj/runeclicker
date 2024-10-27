@@ -6,6 +6,22 @@ const Changelog = ({ }) => {
         <>
             <>
                 <Box sx={{ display: 'flex' }}>
+                    <Typography variant="body1" sx={{ fontFamily: 'monospace', fontWeight: 'bold', mr: 2 }}>v1.2</Typography>
+                    <Typography variant="body1" sx={{ fontFamily: 'monospace' }}>2024-10-27</Typography>
+                </Box>
+
+                <Typography variant="body2" sx={{ fontFamily: 'monospace', ml: -2, mt: -2 }}>
+                    <ul>
+                        <li>Added Combat skill. 2 zones with 13 total enemies.</li>
+                        <li>Added new equipment slots for weapon, head, chest, legs, and neck.</li>
+                        <li>47 new items.</li>
+                        <li>Various interface improvements.</li>
+                    </ul>
+                </Typography>
+            </>
+
+            <>
+                <Box sx={{ display: 'flex' }}>
                     <Typography variant="body1" sx={{ fontFamily: 'monospace', fontWeight: 'bold', mr: 2 }}>v1.1</Typography>
                     <Typography variant="body1" sx={{ fontFamily: 'monospace' }}>2024-08-22</Typography>
                 </Box>

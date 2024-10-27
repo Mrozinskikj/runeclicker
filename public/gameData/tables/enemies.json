@@ -1,0 +1,330 @@
+{
+    "Forest Boar": {
+        "health": 4,
+        "strength": 1,
+        "accuracy": 1,
+        "defence": 0,
+        "itemReward": [
+            {
+                "id": "Bone",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 1
+            },
+            {
+                "id": "Soft Boar Hide",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 2
+            }
+        ]
+    },
+    "Brown Bear": {
+        "health": 6,
+        "strength": 2,
+        "accuracy": 1,
+        "defence": 0,
+        "itemReward": [
+            {
+                "id": "Bone",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 1
+            },
+            {
+                "id": "Bear Meat",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 4
+            }
+        ]
+    },
+    "Grey Wolf": {
+        "health": 8,
+        "strength": 3,
+        "accuracy": 1,
+        "defence": 1,
+        "itemReward": [
+            {
+                "id": "Bone",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 1
+            },
+            {
+                "id": "Wolf Fang",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 8
+            }
+        ]
+    },
+    "Armoured Boar": {
+        "health": 8,
+        "strength": 1,
+        "accuracy": 1,
+        "defence": 6,
+        "itemReward": [
+            {
+                "id": "Bone",
+                "quantity": [
+                    1,
+                    2
+                ],
+                "probability": 1
+            },
+            {
+                "id": "Soft Boar Hide",
+                "quantity": [
+                    1,
+                    4
+                ],
+                "probability": 2
+            },
+            {
+                "id": "Tough Boar Hide",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 2
+            }
+        ]
+    },
+    "Black Bear": {
+        "health": 12,
+        "strength": 3,
+        "accuracy": 4,
+        "defence": 1,
+        "itemReward": [
+            {
+                "id": "Bone",
+                "quantity": [
+                    1,
+                    2
+                ],
+                "probability": 1
+            },
+            {
+                "id": "Bear Meat",
+                "quantity": [
+                    1,
+                    2
+                ],
+                "probability": 2
+            },
+            {
+                "id": "Rich Bear Meat",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 4
+            }
+        ]
+    },
+    "Black Wolf": {
+        "health": 16,
+        "strength": 6,
+        "accuracy": 2,
+        "defence": 2,
+        "itemReward": [
+            {
+                "id": "Bone",
+                "quantity": [
+                    1,
+                    4
+                ],
+                "probability": 1
+            },
+            {
+                "id": "Wolf Fang",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 2
+            }
+        ]
+    },
+    "Ent": {
+        "health": 32,
+        "strength": 6,
+        "accuracy": 4,
+        "defence": 8,
+        "itemReward": [
+            {
+                "id": "Pine Log",
+                "quantity": [
+                    1,
+                    100
+                ],
+                "probability": 2
+            },
+            {
+                "id": "Oak Log",
+                "quantity": [
+                    1,
+                    50
+                ],
+                "probability": 2
+            },
+            {
+                "id": "Enchanted Leaf",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 1
+            }
+        ]
+    },
+    "Cave Spider": {
+        "health": 12,
+        "strength": 6,
+        "accuracy": 4,
+        "defence": 4,
+        "itemReward": [
+            {
+                "id": "String",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 2
+            }
+        ]
+    },
+    "Giant Spider": {
+        "health": 18,
+        "strength": 8,
+        "accuracy": 4,
+        "defence": 6,
+        "itemReward": [
+            {
+                "id": "String",
+                "quantity": [
+                    1,
+                    3
+                ],
+                "probability": 1
+            }
+        ]
+    },
+    "Fungal Snail": {
+        "health": 10,
+        "strength": 3,
+        "accuracy": 3,
+        "defence": 9,
+        "itemReward": [
+            {
+                "id": "Cave Fungus",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 2
+            },
+            {
+                "id": "Snail Shell",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 16
+            }
+        ]
+    },
+    "Giant Snail": {
+        "health": 20,
+        "strength": 5,
+        "accuracy": 3,
+        "defence": 14,
+        "itemReward": [
+            {
+                "id": "Cave Fungus",
+                "quantity": [
+                    1,
+                    3
+                ],
+                "probability": 1
+            },
+            {
+                "id": "Snail Shell",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 2
+            }
+        ]
+    },
+    "Cave Rat": {
+        "health": 20,
+        "strength": 4,
+        "accuracy": 3,
+        "defence": 0,
+        "itemReward": [
+            {
+                "id": "Bone",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 1
+            },
+            {
+                "id": "Rat Tail",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 1
+            }
+        ]
+    },
+    "Rock Golem": {
+        "health": 64,
+        "strength": 12,
+        "accuracy": 8,
+        "defence": 16,
+        "itemReward": [
+            {
+                "id": "Copper Ore",
+                "quantity": [
+                    1,
+                    100
+                ],
+                "probability": 2
+            },
+            {
+                "id": "Tin Ore",
+                "quantity": [
+                    1,
+                    100
+                ],
+                "probability": 2
+            },
+            {
+                "id": "Enchanted Stone",
+                "quantity": [
+                    1,
+                    1
+                ],
+                "probability": 1
+            }
+        ]
+    }
+}

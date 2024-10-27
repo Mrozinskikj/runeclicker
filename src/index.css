@@ -5,3 +5,28 @@ body {
 .bar {
   transition: none !important;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #BCA795;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #946F67;
+  border-top: none;
+  border-bottom: none;
+  border-left: 1px solid #553e38;
+  border-right: none;
+  box-shadow: 0 -1px 0 0 #553e38, 0 1px 0 0 #553e38;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #83625a;
+}

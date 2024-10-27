@@ -207,7 +207,7 @@
             "actionName": "Mine",
             "message": "You mine the rocks.",
             "actions": 64,
-            "xpReward": 12,
+            "xpReward": 6,
             "itemReward": [
                 {
                     "id": "Silver Ore",
@@ -249,7 +249,7 @@
             "actionName": "Mine",
             "message": "You mine the rocks.",
             "actions": 256,
-            "xpReward": 72,
+            "xpReward": 36,
             "itemReward": [
                 {
                     "id": "Gold Ore",
@@ -291,7 +291,7 @@
             "actionName": "Mine",
             "message": "You mine the rocks.",
             "actions": 1024,
-            "xpReward": 432,
+            "xpReward": 216,
             "itemReward": [
                 {
                     "id": "Platinum Ore",
@@ -430,12 +430,316 @@
                 }
             ]
         },
-        "Bronze Ingot": {
-            "lvl": 7,
+        "Flint Spear": {
+            "lvl": 1,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 12,
+            "itemCost": [
+                {
+                    "id": "Flint",
+                    "quantity": 10
+                },
+                {
+                    "id": "Pine Log",
+                    "quantity": 20
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Flint Spear",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Soft Boar Leather": {
+            "lvl": 1,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 4,
-            "xpReward": 4,
+            "xpReward": 2,
+            "itemCost": [
+                {
+                    "id": "Soft Boar Hide",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Soft Leather Cap": {
+            "lvl": 2,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 5,
+            "itemCost": [
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Soft Leather Cap",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Soft Leather Tunic": {
+            "lvl": 2,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 10,
+            "itemCost": [
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Soft Leather Tunic",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Soft Leather Trousers": {
+            "lvl": 2,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 10,
+            "itemCost": [
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Soft Leather Trousers",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Cooked Bear Meat": {
+            "lvl": 3,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 4,
+            "xpReward": 2,
+            "itemCost": [
+                {
+                    "id": "Bear Meat",
+                    "quantity": 1
+                },
+                {
+                    "id": "Pine Log",
+                    "quantity": 5
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Cooked Bear Meat",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 2
+                }
+            ]
+        },
+        "Bonemeal": {
+            "lvl": 4,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 6,
+            "xpReward": 1,
+            "itemCost": [
+                {
+                    "id": "Bone",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Bonemeal",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Tough Boar Leather": {
+            "lvl": 5,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 4,
+            "xpReward": 3,
+            "itemCost": [
+                {
+                    "id": "Tough Boar Hide",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Tough Leather Cap": {
+            "lvl": 6,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 10,
+            "itemCost": [
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 1
+                },
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Tough Leather Cap",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Tough Leather Tunic": {
+            "lvl": 6,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 20,
+            "itemCost": [
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 2
+                },
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Tough Leather Tunic",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Tough Leather Trousers": {
+            "lvl": 6,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 16,
+            "xpReward": 20,
+            "itemCost": [
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 2
+                },
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Tough Leather Trousers",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Cooked Rich Bear Meat": {
+            "lvl": 9,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 4,
+            "xpReward": 8,
+            "itemCost": [
+                {
+                    "id": "Rich Bear Meat",
+                    "quantity": 1
+                },
+                {
+                    "id": "Oak Log",
+                    "quantity": 5
+                },
+                {
+                    "id": "Pine Log",
+                    "quantity": 10
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Cooked Rich Bear Meat",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 2
+                }
+            ]
+        },
+        "Bronze Ingot": {
+            "lvl": 10,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 4,
+            "xpReward": 5,
             "itemCost": [
                 {
                     "id": "Copper Ore",
@@ -458,11 +762,11 @@
             ]
         },
         "Bronze Axe": {
-            "lvl": 8,
+            "lvl": 11,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 32,
-            "xpReward": 20,
+            "xpReward": 36,
             "itemCost": [
                 {
                     "id": "Bronze Ingot",
@@ -485,11 +789,11 @@
             ]
         },
         "Bronze Pickaxe": {
-            "lvl": 8,
+            "lvl": 11,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 32,
-            "xpReward": 20,
+            "xpReward": 36,
             "itemCost": [
                 {
                     "id": "Bronze Ingot",
@@ -511,8 +815,182 @@
                 }
             ]
         },
+        "Bronze Sword": {
+            "lvl": 11,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 32,
+            "xpReward": 36,
+            "itemCost": [
+                {
+                    "id": "Bronze Ingot",
+                    "quantity": 12
+                },
+                {
+                    "id": "Oak Log",
+                    "quantity": 10
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Bronze Sword",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Bronze Helmet": {
+            "lvl": 12,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 64,
+            "xpReward": 20,
+            "itemCost": [
+                {
+                    "id": "Bronze Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 1
+                },
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 2
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Bronze Helmet",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Bronze Chestplate": {
+            "lvl": 12,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 64,
+            "xpReward": 40,
+            "itemCost": [
+                {
+                    "id": "Bronze Ingot",
+                    "quantity": 20
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 2
+                },
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Bronze Chestplate",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Bronze Greaves": {
+            "lvl": 12,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 64,
+            "xpReward": 40,
+            "itemCost": [
+                {
+                    "id": "Bronze Ingot",
+                    "quantity": 20
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 2
+                },
+                {
+                    "id": "Soft Boar Leather",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Bronze Greaves",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Spiked Mace": {
+            "lvl": 14,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 200,
+            "itemCost": [
+                {
+                    "id": "Wolf Fang",
+                    "quantity": 8
+                },
+                {
+                    "id": "Oak Log",
+                    "quantity": 100
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Spiked Mace",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Berserker Amulet": {
+            "lvl": 14,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 100,
+            "itemCost": [
+                {
+                    "id": "Wolf Fang",
+                    "quantity": 8
+                },
+                {
+                    "id": "String",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Berserker Amulet",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
         "Silver Ingot": {
-            "lvl": 10,
+            "lvl": 15,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 8,
@@ -535,11 +1013,11 @@
             ]
         },
         "Silver Ring": {
-            "lvl": 10,
+            "lvl": 15,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 64,
-            "xpReward": 60,
+            "xpReward": 120,
             "itemCost": [
                 {
                     "id": "Silver Ingot",
@@ -558,11 +1036,11 @@
             ]
         },
         "Lesser Ring of Woodcutting": {
-            "lvl": 11,
+            "lvl": 16,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 256,
-            "xpReward": 200,
+            "xpReward": 400,
             "itemCost": [
                 {
                     "id": "Rough Sap Crystal",
@@ -585,11 +1063,11 @@
             ]
         },
         "Lesser Ring of Mining": {
-            "lvl": 11,
+            "lvl": 16,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 256,
-            "xpReward": 200,
+            "xpReward": 400,
             "itemCost": [
                 {
                     "id": "Common Ancient Fossil",
@@ -611,8 +1089,70 @@
                 }
             ]
         },
+        "Mushroom Stew": {
+            "lvl": 19,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 4,
+            "xpReward": 32,
+            "itemCost": [
+                {
+                    "id": "Cave Fungus",
+                    "quantity": 2
+                },
+                {
+                    "id": "Maple Log",
+                    "quantity": 5
+                },
+                {
+                    "id": "Oak Log",
+                    "quantity": 10
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Mushroom Stew",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Forest Amulet": {
+            "lvl": 20,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 512,
+            "xpReward": 450,
+            "itemCost": [
+                {
+                    "id": "Enchanted Leaf",
+                    "quantity": 1
+                },
+                {
+                    "id": "Pine Log",
+                    "quantity": 512
+                },
+                {
+                    "id": "String",
+                    "quantity": 8
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Forest Amulet",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
         "Iron Ingot": {
-            "lvl": 14,
+            "lvl": 20,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 8,
@@ -635,11 +1175,11 @@
             ]
         },
         "Iron Axe": {
-            "lvl": 15,
+            "lvl": 21,
             "actionName": "Make",
             "message": "You make the item.",
-            "actions": 32,
-            "xpReward": 40,
+            "actions": 64,
+            "xpReward": 108,
             "itemCost": [
                 {
                     "id": "Iron Ingot",
@@ -662,11 +1202,11 @@
             ]
         },
         "Iron Pickaxe": {
-            "lvl": 15,
+            "lvl": 21,
             "actionName": "Make",
             "message": "You make the item.",
-            "actions": 32,
-            "xpReward": 40,
+            "actions": 64,
+            "xpReward": 108,
             "itemCost": [
                 {
                     "id": "Iron Ingot",
@@ -688,8 +1228,116 @@
                 }
             ]
         },
+        "Iron Sword": {
+            "lvl": 21,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 64,
+            "xpReward": 108,
+            "itemCost": [
+                {
+                    "id": "Iron Ingot",
+                    "quantity": 12
+                },
+                {
+                    "id": "Maple Log",
+                    "quantity": 10
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Iron Sword",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Iron Helmet": {
+            "lvl": 22,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 60,
+            "itemCost": [
+                {
+                    "id": "Iron Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 4
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Iron Helmet",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Iron Chestplate": {
+            "lvl": 22,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 120,
+            "itemCost": [
+                {
+                    "id": "Iron Ingot",
+                    "quantity": 20
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 8
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Iron Chestplate",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Iron Greaves": {
+            "lvl": 22,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 120,
+            "itemCost": [
+                {
+                    "id": "Iron Ingot",
+                    "quantity": 20
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 8
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Iron Greaves",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
         "Gold Ingot": {
-            "lvl": 16,
+            "lvl": 25,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 16,
@@ -712,11 +1360,11 @@
             ]
         },
         "Gold Ring": {
-            "lvl": 16,
+            "lvl": 25,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 128,
-            "xpReward": 120,
+            "xpReward": 240,
             "itemCost": [
                 {
                     "id": "Gold Ingot",
@@ -735,11 +1383,11 @@
             ]
         },
         "Ring of Woodcutting": {
-            "lvl": 17,
+            "lvl": 26,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 512,
-            "xpReward": 400,
+            "xpReward": 800,
             "itemCost": [
                 {
                     "id": "Cloudy Sap Crystal",
@@ -766,11 +1414,11 @@
             ]
         },
         "Ring of Mining": {
-            "lvl": 17,
+            "lvl": 26,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 512,
-            "xpReward": 400,
+            "xpReward": 800,
             "itemCost": [
                 {
                     "id": "Uncommon Ancient Fossil",
@@ -796,8 +1444,93 @@
                 }
             ]
         },
+        "Ring of Protection": {
+            "lvl": 28,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 256,
+            "xpReward": 300,
+            "itemCost": [
+                {
+                    "id": "Snail Shell",
+                    "quantity": 4
+                },
+                {
+                    "id": "Silver Ring",
+                    "quantity": 1
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Ring of Protection",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Snail Shield": {
+            "lvl": 28,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 512,
+            "xpReward": 600,
+            "itemCost": [
+                {
+                    "id": "Snail Shell",
+                    "quantity": 8
+                },
+                {
+                    "id": "Iron Ingot",
+                    "quantity": 40
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Snail Shield",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Cave Amulet": {
+            "lvl": 29,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 1024,
+            "xpReward": 900,
+            "itemCost": [
+                {
+                    "id": "Enchanted Stone",
+                    "quantity": 1
+                },
+                {
+                    "id": "Flint",
+                    "quantity": 512
+                },
+                {
+                    "id": "String",
+                    "quantity": 16
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Cave Amulet",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
         "Steel Ingot": {
-            "lvl": 21,
+            "lvl": 30,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 16,
@@ -824,11 +1557,11 @@
             ]
         },
         "Steel Axe": {
-            "lvl": 22,
+            "lvl": 31,
             "actionName": "Make",
             "message": "You make the item.",
-            "actions": 64,
-            "xpReward": 80,
+            "actions": 128,
+            "xpReward": 324,
             "itemCost": [
                 {
                     "id": "Steel Ingot",
@@ -851,11 +1584,11 @@
             ]
         },
         "Steel Pickaxe": {
-            "lvl": 22,
+            "lvl": 31,
             "actionName": "Make",
             "message": "You make the item.",
-            "actions": 64,
-            "xpReward": 80,
+            "actions": 128,
+            "xpReward": 324,
             "itemCost": [
                 {
                     "id": "Steel Ingot",
@@ -877,8 +1610,116 @@
                 }
             ]
         },
+        "Steel Sword": {
+            "lvl": 31,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 128,
+            "xpReward": 324,
+            "itemCost": [
+                {
+                    "id": "Steel Ingot",
+                    "quantity": 12
+                },
+                {
+                    "id": "Mahogany Log",
+                    "quantity": 10
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Steel Sword",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Steel Helmet": {
+            "lvl": 32,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 256,
+            "xpReward": 180,
+            "itemCost": [
+                {
+                    "id": "Steel Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 16
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Steel Helmet",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Steel Chestplate": {
+            "lvl": 32,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 256,
+            "xpReward": 360,
+            "itemCost": [
+                {
+                    "id": "Steel Ingot",
+                    "quantity": 20
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 32
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Steel Chestplate",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Steel Greaves": {
+            "lvl": 32,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 256,
+            "xpReward": 360,
+            "itemCost": [
+                {
+                    "id": "Steel Ingot",
+                    "quantity": 20
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 32
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Steel Greaves",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
         "Platinum Ingot": {
-            "lvl": 24,
+            "lvl": 35,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 32,
@@ -901,11 +1742,11 @@
             ]
         },
         "Platinum Ring": {
-            "lvl": 24,
+            "lvl": 35,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 256,
-            "xpReward": 240,
+            "xpReward": 480,
             "itemCost": [
                 {
                     "id": "Platinum Ingot",
@@ -924,11 +1765,11 @@
             ]
         },
         "Greater Ring of Woodcutting": {
-            "lvl": 25,
+            "lvl": 36,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 1024,
-            "xpReward": 800,
+            "xpReward": 1600,
             "itemCost": [
                 {
                     "id": "Vibrant Sap Crystal",
@@ -959,11 +1800,11 @@
             ]
         },
         "Greater Ring of Mining": {
-            "lvl": 25,
+            "lvl": 36,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 1024,
-            "xpReward": 800,
+            "xpReward": 1600,
             "itemCost": [
                 {
                     "id": "Rare Ancient Fossil",
@@ -994,7 +1835,7 @@
             ]
         },
         "Titanium Ingot": {
-            "lvl": 29,
+            "lvl": 40,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 32,
@@ -1021,11 +1862,11 @@
             ]
         },
         "Titanium Axe": {
-            "lvl": 30,
+            "lvl": 41,
             "actionName": "Make",
             "message": "You make the item.",
-            "actions": 128,
-            "xpReward": 160,
+            "actions": 256,
+            "xpReward": 972,
             "itemCost": [
                 {
                     "id": "Titanium Ingot",
@@ -1048,11 +1889,11 @@
             ]
         },
         "Titanium Pickaxe": {
-            "lvl": 30,
+            "lvl": 41,
             "actionName": "Make",
             "message": "You make the item.",
-            "actions": 128,
-            "xpReward": 160,
+            "actions": 256,
+            "xpReward": 972,
             "itemCost": [
                 {
                     "id": "Titanium Ingot",
@@ -1074,12 +1915,120 @@
                 }
             ]
         },
+        "Titanium Sword": {
+            "lvl": 41,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 256,
+            "xpReward": 972,
+            "itemCost": [
+                {
+                    "id": "Titanium Ingot",
+                    "quantity": 12
+                },
+                {
+                    "id": "Redwood Log",
+                    "quantity": 10
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Titanium Sword",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Titanium Helmet": {
+            "lvl": 42,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 512,
+            "xpReward": 540,
+            "itemCost": [
+                {
+                    "id": "Titanium Ingot",
+                    "quantity": 10
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 64
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Titanium Helmet",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Titanium Chestplate": {
+            "lvl": 42,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 512,
+            "xpReward": 1080,
+            "itemCost": [
+                {
+                    "id": "Titanium Ingot",
+                    "quantity": 20
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 128
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Titanium Chestplate",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
+        "Titanium Greaves": {
+            "lvl": 42,
+            "actionName": "Make",
+            "message": "You make the item.",
+            "actions": 512,
+            "xpReward": 1080,
+            "itemCost": [
+                {
+                    "id": "Titanium Ingot",
+                    "quantity": 20
+                },
+                {
+                    "id": "Tough Boar Leather",
+                    "quantity": 128
+                }
+            ],
+            "itemReward": [
+                {
+                    "id": "Titanium Greaves",
+                    "quantity": [
+                        1,
+                        1
+                    ],
+                    "probability": 1
+                }
+            ]
+        },
         "Imbued Ring of Woodcutting": {
-            "lvl": 32,
+            "lvl": 42,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 4096,
-            "xpReward": 1600,
+            "xpReward": 3200,
             "itemCost": [
                 {
                     "id": "Greater Ring of Woodcutting",
@@ -1106,11 +2055,11 @@
             ]
         },
         "Imbued Ring of Mining": {
-            "lvl": 32,
+            "lvl": 42,
             "actionName": "Make",
             "message": "You make the item.",
             "actions": 4096,
-            "xpReward": 1600,
+            "xpReward": 3200,
             "itemCost": [
                 {
                     "id": "Greater Ring of Mining",
@@ -1138,5 +2087,131 @@
         }
     },
     "Merchanting": {},
-    "Energy": {}
+    "Energy": {},
+    "Combat": {
+        "Forest": {
+            "lvl": 0,
+            "depthSize": 10,
+            "enemies": [
+                [
+                    {
+                        "id": "Forest Boar",
+                        "probability": 2
+                    },
+                    {
+                        "id": "Brown Bear",
+                        "probability": 1
+                    }
+                ],
+                [
+                    {
+                        "id": "Forest Boar",
+                        "probability": 1
+                    },
+                    {
+                        "id": "Brown Bear",
+                        "probability": 1
+                    },
+                    {
+                        "id": "Grey Wolf",
+                        "probability": 1
+                    }
+                ],
+                [
+                    {
+                        "id": "Armoured Boar",
+                        "probability": 3
+                    },
+                    {
+                        "id": "Black Bear",
+                        "probability": 2
+                    },
+                    {
+                        "id": "Grey Wolf",
+                        "probability": 1
+                    }
+                ],
+                [
+                    {
+                        "id": "Armoured Boar",
+                        "probability": 13
+                    },
+                    {
+                        "id": "Black Bear",
+                        "probability": 13
+                    },
+                    {
+                        "id": "Black Wolf",
+                        "probability": 5
+                    },
+                    {
+                        "id": "Ent",
+                        "probability": 1
+                    }
+                ]
+            ]
+        },
+        "Caves": {
+            "lvl": 10,
+            "depthSize": 10,
+            "enemies": [
+                [
+                    {
+                        "id": "Cave Rat",
+                        "probability": 2
+                    },
+                    {
+                        "id": "Cave Spider",
+                        "probability": 1
+                    }
+                ],
+                [
+                    {
+                        "id": "Cave Spider",
+                        "probability": 1
+                    },
+                    {
+                        "id": "Fungal Snail",
+                        "probability": 1
+                    },
+                    {
+                        "id": "Cave Rat",
+                        "probability": 1
+                    }
+                ],
+                [
+                    {
+                        "id": "Cave Spider",
+                        "probability": 2
+                    },
+                    {
+                        "id": "Giant Spider",
+                        "probability": 1
+                    },
+                    {
+                        "id": "Fungal Snail",
+                        "probability": 1
+                    }
+                ],
+                [
+                    {
+                        "id": "Giant Spider",
+                        "probability": 13
+                    },
+                    {
+                        "id": "Fungal Snail",
+                        "probability": 13
+                    },
+                    {
+                        "id": "Giant Snail",
+                        "probability": 5
+                    },
+                    {
+                        "id": "Rock Golem",
+                        "probability": 1
+                    }
+                ]
+            ]
+        }
+    }
 }

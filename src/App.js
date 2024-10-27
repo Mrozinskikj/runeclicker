@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Cookies from 'js-cookie';
+import LZString from 'lz-string';
 
 import Main from './Main.jsx';
+import ErrorScreen from './components/ErrorScreen.jsx';
 
 function App() {
   const fast = false;
@@ -9,21 +11,24 @@ function App() {
   const [fetched, setFetched] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  const version = "1.1";
-  const skills = useMemo(() => ['Woodcutting', 'Mining', 'Processing', 'Merchanting', 'Energy'], []);
-  const equipmentSlots = ['pickaxe', 'axe', 'ring'];
-  const inventorySize = 36;
+  const version = "1.2";
+  const skills = useMemo(() => ['Woodcutting', 'Mining', 'Processing', 'Merchanting', 'Energy', 'Combat'], []);
+  const equipmentSlots = ['pickaxe', 'axe', 'hammer', 'weapon', 'ring', 'head', 'torso', 'legs', 'neck'];
+  const inventorySize = 102;
 
   const [lvlTable, setLvlTable] = useState(null);
   const [speedTable, setSpeedTable] = useState(null);
   const [tasks, setTasks] = useState(null);
   const [items, setItems] = useState(null);
+  const [enemies, setEnemies] = useState(null);
   const [energyTable, setEnergyTable] = useState(null);
+  const [combatTable, setCombatTable] = useState(null);
 
   const [xp, setXp] = useState(null);
   const [inventory, setInventory] = useState(null);
   const [equipment, setEquipment] = useState(null);
   const [unlocked, setUnlocked] = useState(null);
+  const [enemiesDiscovered, setEnemiesDiscovered] = useState(null);
 
   const [lvl, setLvl] = useState(null);
   const [stats, setStats] = useState(null);
@@ -36,6 +41,14 @@ function App() {
   const [skillSelected, setSkillSelected] = useState(null);
   const [taskSelected, setTaskSelected] = useState(null);
 
+  const [health, setHealth] = useState(0);
+  const [enemy, setEnemy] = useState(null);
+  const [kills, setKills] = useState(0);
+
+  const [combatBests, setCombatBests] = useState({});
+
+  const [loadError, setLoadError] = useState(false);
+
   // SAVE FILE LOGIC
   // Blank new game save file
   const MakeNewSaveFile = () => {
@@ -45,16 +58,23 @@ function App() {
     const equipment = {};
     equipmentSlots.forEach(slot => { equipment[slot] = null });
 
-    return JSON.stringify({
+    const save = JSON.stringify({
       time: new Date(),
       skill: skills[0],
       task: null,
       xp: xp,
+      health: 0,
+      enemy: null,
+      kills: 0,
       autoTask: false,
       inventory: Array(inventorySize).fill(null),
       equipment: equipment,
-      unlocked: []
+      unlocked: [],
+      enemiesDiscovered: [],
+      combatBests: {}
     });
+
+    return LZString.compressToBase64(save);
   }
   const newSaveFile = MakeNewSaveFile();
 
@@ -68,9 +88,7 @@ function App() {
     }
   }
 
-  const [saveFile, setSaveFile] = useState(getSaveFile());
-
-
+  const [saveFile, setSaveFile] = useState(() => getSaveFile());
 
 
   const fetchData = useCallback(async (path) => {
@@ -88,7 +106,9 @@ function App() {
     const speedData = await fetchData('/gameData/tables/speedTable.json');
     const taskData = await fetchData('/gameData/tables/tasks.json');
     const itemData = await fetchData('/gameData/tables/items.json');
+    const enemyData = await fetchData('/gameData/tables/enemies.json');
     const energyData = await fetchData('/gameData/tables/energyTable.json');
+    const combatData = await fetchData('/gameData/tables/combatTable.json');
 
     // Set number of actions for all tasks and recipes to 1 if fast mode enabled
     if (fast) {
@@ -113,7 +133,9 @@ function App() {
     setSpeedTable(speedData);
     setTasks(taskData);
     setItems(itemData);
+    setEnemies(enemyData);
     setEnergyTable(energyData);
+    setCombatTable(combatData);
 
     setFetched(true);
   }, [fetchData]);
@@ -143,31 +165,80 @@ function App() {
       stats[skill] = { 'baseSpeed': speedTable[lvl[skill]], 'bonusSpeed': 0, 'baseClick': 1, 'bonusClick': 0, 'bonusSpeedPercent': 0, 'bonusClickPercent': 0 };
     });
     // Merchanting also has a multiplier
-    stats['Merchanting'] = { 'baseSpeed': speedTable[lvl['Merchanting']], 'bonusSpeed': 0, 'baseClick': 1, 'bonusClick': 0, 'bonusSpeedPercent': 0, 'bonusClickPercent': 0, 'baseMultiplier': speedTable[lvl['Merchanting']], 'bonusMultiplier': 0, 'bonusMultiplierPercent': 0 };
+    stats['Merchanting'] = {
+      'baseSpeed': speedTable[lvl['Merchanting']],
+      'bonusSpeed': 0,
+      'bonusSpeedPercent': 0,
+
+      'baseClick': 1,
+      'bonusClick': 0,
+      'bonusClickPercent': 0,
+
+      'baseMultiplier': speedTable[lvl['Merchanting']],
+      'bonusMultiplier': 0,
+      'bonusMultiplierPercent': 0
+    };
+    // Combat also health, strength, accuracy, defence
+    stats['Combat'] = {
+      'baseSpeed': speedTable[lvl['Combat']],
+      'bonusSpeed': 0,
+      'bonusSpeedPercent': 0,
+
+      'baseClick': 1,
+      'bonusClick': 0,
+      'bonusClickPercent': 0,
+
+      'baseHealth': combatTable['health'][lvl['Combat']],
+      'bonusHealth': 0,
+      'bonusHealthPercent': 0,
+
+      'baseStrength': combatTable['strength'][lvl['Combat']],
+      'bonusStrength': 0,
+      'bonusStrengthPercent': 0,
+
+      'baseAccuracy': combatTable['accuracy'][lvl['Combat']],
+      'bonusAccuracy': 0,
+      'bonusAccuracyPercent': 0,
+
+      'baseDefence': combatTable['defence'][lvl['Combat']],
+      'bonusDefence': 0,
+      'bonusDefencePercent': 0,
+    };
     return stats;
   };
 
   const loadSave = () => {
-    const save = JSON.parse(saveFile);
-    const calculatedLvl = calculateLvl(save.xp);
-    const calculatedStats = calculateStats(calculatedLvl, save.equipment);
+    try {
+      console.log(saveFile)
+      const decompressed = LZString.decompressFromBase64(saveFile);
+      if (!decompressed) throw new Error("Decompression failed");
+      const save = JSON.parse(decompressed);
+      const calculatedLvl = calculateLvl(save.xp);
+      const calculatedStats = calculateStats(calculatedLvl, save.equipment);
 
-    setXp(save.xp);
-    setInventory(save.inventory);
-    setEquipment(save.equipment);
-    setUnlocked(save.unlocked);
-    setLvl(calculatedLvl);
-    setStats(calculatedStats);
-    setMaxEnergy(energyTable.time[calculatedLvl["Energy"]]);
-    setAutoTask(save.autoTask);
-    setSkillSelected(save.skill);
-    setTaskSelected(save.task);
+      setXp(save.xp);
+      setInventory(save.inventory);
+      setEquipment(save.equipment);
+      setUnlocked(save.unlocked);
+      setEnemiesDiscovered(save.enemiesDiscovered);
+      setLvl(calculatedLvl);
+      setStats(calculatedStats);
+      setMaxEnergy(energyTable.time[calculatedLvl["Energy"]]);
+      setAutoTask(save.autoTask);
+      setSkillSelected(save.skill);
+      setTaskSelected(save.task);
+      setHealth(save.health);
+      setEnemy(save.enemy);
+      setKills(save.kills);
+      setCombatBests(save.combatBests);
 
-    // Calculate amount of time since the game was last played
-    setTimeElapsed(new Date() - new Date(save.time));
-
-    // save game to cookies
-    Cookies.set("runeclicker", saveFile, {expires: 1000});
+      // Calculate amount of time since the game was last played
+      setTimeElapsed(new Date() - new Date(save.time));
+      setLoadError(false);
+    } catch {
+      console.log("failed")
+      setLoadError(true);
+    }
   }
 
   useEffect(() => {
@@ -177,8 +248,9 @@ function App() {
     }
   }, [fetched]);
 
-
-
+  if (loadError) {
+    return <ErrorScreen setSaveFile={setSaveFile} saveFile={saveFile} newSaveFile={newSaveFile} loadSave={loadSave} />
+  }
   if (!loaded) {
     return <></>
   }
@@ -193,8 +265,16 @@ function App() {
         setEquipment={setEquipment}
         unlocked={unlocked}
         setUnlocked={setUnlocked}
+        enemiesDiscovered={enemiesDiscovered}
+        setEnemiesDiscovered={setEnemiesDiscovered}
         lvl={lvl}
         setLvl={setLvl}
+        health={health}
+        setHealth={setHealth}
+        enemy={enemy}
+        setEnemy={setEnemy}
+        kills={kills}
+        setKills={setKills}
         stats={stats}
         maxEnergy={maxEnergy}
         setMaxEnergy={setMaxEnergy}
@@ -213,8 +293,12 @@ function App() {
         lvlTable={lvlTable}
         speedTable={speedTable}
         items={items}
+        enemies={enemies}
         tasks={tasks}
         energyTable={energyTable}
+        combatTable={combatTable}
+        combatBests={combatBests}
+        setCombatBests={setCombatBests}
         skills={skills}
         version={version}
       />
