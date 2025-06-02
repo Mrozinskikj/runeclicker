@@ -17,7 +17,6 @@ import { ZoneBar } from "./zoneBar";
 import { usePlayer } from "../../logic/usePlayer";
 import { EquipmentSlot } from "../inventory/equipmentSlot";
 import { useItems } from "../../logic/useItems";
-import { escape } from "querystring";
 
 const LabelsRow: React.FC<{
     enemy: Enemy | null;
