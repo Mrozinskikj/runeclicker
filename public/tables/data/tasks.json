@@ -1,0 +1,390 @@
+{
+    "Woodcutting": [
+        {
+            "name": "Pine Tree",
+            "lvl": 0,
+            "action": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 4,
+            "xp": 1,
+            "output": [
+                {
+                    "id": 0,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 5,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 512
+                }
+            ]
+        },
+        {
+            "name": "Oak Tree",
+            "lvl": 10,
+            "action": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 14,
+            "xp": 6,
+            "output": [
+                {
+                    "id": 1,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 5,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 256
+                }
+            ]
+        },
+        {
+            "name": "Maple Tree",
+            "lvl": 20,
+            "action": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 50,
+            "xp": 31,
+            "output": [
+                {
+                    "id": 2,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 6,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 512
+                }
+            ]
+        },
+        {
+            "name": "Mahogany Tree",
+            "lvl": 30,
+            "action": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 172,
+            "xp": 140,
+            "output": [
+                {
+                    "id": 3,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 6,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 256
+                }
+            ]
+        },
+        {
+            "name": "Redwood Tree",
+            "lvl": 40,
+            "action": "Chop",
+            "message": "You chop down the tree.",
+            "actions": 600,
+            "xp": 600,
+            "output": [
+                {
+                    "id": 4,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 7,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 512
+                }
+            ]
+        }
+    ],
+    "Mining": [
+        {
+            "name": "Flint Deposit",
+            "lvl": 0,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 8,
+            "xp": 2,
+            "output": [
+                {
+                    "id": 11,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 8,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 256
+                }
+            ]
+        },
+        {
+            "name": "Copper Deposit",
+            "lvl": 10,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 28,
+            "xp": 12,
+            "output": [
+                {
+                    "id": 12,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 8,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 128
+                }
+            ]
+        },
+        {
+            "name": "Tin Deposit",
+            "lvl": 10,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 28,
+            "xp": 12,
+            "output": [
+                {
+                    "id": 13,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 8,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 128
+                }
+            ]
+        },
+        {
+            "name": "Silver Deposit",
+            "lvl": 15,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 64,
+            "xp": 6,
+            "output": [
+                {
+                    "id": 21,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 2
+                }
+            ]
+        },
+        {
+            "name": "Iron Deposit",
+            "lvl": 20,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 100,
+            "xp": 62,
+            "output": [
+                {
+                    "id": 14,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 9,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 256
+                }
+            ]
+        },
+        {
+            "name": "Gold Deposit",
+            "lvl": 25,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 256,
+            "xp": 36,
+            "output": [
+                {
+                    "id": 22,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 2
+                }
+            ]
+        },
+        {
+            "name": "Coal Deposit",
+            "lvl": 30,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 344,
+            "xp": 280,
+            "output": [
+                {
+                    "id": 15,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 9,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 128
+                }
+            ]
+        },
+        {
+            "name": "Platinum Deposit",
+            "lvl": 35,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 1024,
+            "xp": 216,
+            "output": [
+                {
+                    "id": 23,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 2
+                }
+            ]
+        },
+        {
+            "name": "Titanium Deposit",
+            "lvl": 40,
+            "action": "Mine",
+            "message": "You mine the rocks.",
+            "actions": 1200,
+            "xp": 1200,
+            "output": [
+                {
+                    "id": 16,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 10,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 256
+                }
+            ]
+        }
+    ],
+    "Stamina": [
+        {
+            "name": "Basic Training",
+            "lvl": 0,
+            "action": "Train",
+            "message": "You train your energy.",
+            "actions": 5,
+            "xp": 10,
+            "input": [
+                {
+                    "id": 79,
+                    "quantity": 10
+                }
+            ]
+        },
+        {
+            "name": "Focused Training",
+            "lvl": 20,
+            "action": "Train",
+            "message": "You train your energy.",
+            "actions": 5,
+            "xp": 20,
+            "input": [
+                {
+                    "id": 79,
+                    "quantity": 30
+                }
+            ]
+        },
+        {
+            "name": "Intense Training",
+            "lvl": 40,
+            "action": "Train",
+            "message": "You train your energy.",
+            "actions": 5,
+            "xp": 40,
+            "input": [
+                {
+                    "id": 79,
+                    "quantity": 90
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,343 @@
+[
+    {
+        "name": "Forest Boar",
+        "health": 4,
+        "strength": 1,
+        "accuracy": 1,
+        "defence": 0,
+        "items": [
+            {
+                "id": 80,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            },
+            {
+                "id": 82,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 2
+            }
+        ]
+    },
+    {
+        "name": "Brown Bear",
+        "health": 6,
+        "strength": 2,
+        "accuracy": 1,
+        "defence": 0,
+        "items": [
+            {
+                "id": 80,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            },
+            {
+                "id": 92,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 4
+            }
+        ]
+    },
+    {
+        "name": "Grey Wolf",
+        "health": 8,
+        "strength": 3,
+        "accuracy": 1,
+        "defence": 1,
+        "items": [
+            {
+                "id": 80,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            },
+            {
+                "id": 86,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 8
+            }
+        ]
+    },
+    {
+        "name": "Armoured Boar",
+        "health": 8,
+        "strength": 1,
+        "accuracy": 1,
+        "defence": 6,
+        "items": [
+            {
+                "id": 80,
+                "quantity": {
+                    "min": 1,
+                    "max": 2
+                },
+                "probability": 1
+            },
+            {
+                "id": 82,
+                "quantity": {
+                    "min": 1,
+                    "max": 2
+                },
+                "probability": 2
+            },
+            {
+                "id": 83,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 2
+            }
+        ]
+    },
+    {
+        "name": "Black Bear",
+        "health": 12,
+        "strength": 3,
+        "accuracy": 4,
+        "defence": 1,
+        "items": [
+            {
+                "id": 80,
+                "quantity": {
+                    "min": 1,
+                    "max": 2
+                },
+                "probability": 1
+            },
+            {
+                "id": 92,
+                "quantity": {
+                    "min": 1,
+                    "max": 2
+                },
+                "probability": 2
+            },
+            {
+                "id": 93,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 4
+            }
+        ]
+    },
+    {
+        "name": "Black Wolf",
+        "health": 16,
+        "strength": 6,
+        "accuracy": 2,
+        "defence": 2,
+        "items": [
+            {
+                "id": 80,
+                "quantity": {
+                    "min": 1,
+                    "max": 4
+                },
+                "probability": 1
+            },
+            {
+                "id": 86,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 2
+            }
+        ]
+    },
+    {
+        "name": "Ent",
+        "health": 32,
+        "strength": 6,
+        "accuracy": 4,
+        "defence": 8,
+        "items": [
+            {
+                "id": 0,
+                "quantity": {
+                    "min": 1,
+                    "max": 100
+                },
+                "probability": 2
+            },
+            {
+                "id": 1,
+                "quantity": {
+                    "min": 1,
+                    "max": 50
+                },
+                "probability": 2
+            },
+            {
+                "id": 90,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ]
+    },
+    {
+        "name": "Cave Rat",
+        "health": 20,
+        "strength": 4,
+        "accuracy": 3,
+        "defence": 0,
+        "items": [
+            {
+                "id": 80,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            },
+            {
+                "id": 89,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ]
+    },
+    {
+        "name": "Cave Spider",
+        "health": 12,
+        "strength": 6,
+        "accuracy": 4,
+        "defence": 4,
+        "items": [
+            {
+                "id": 87,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 4
+            }
+        ]
+    },
+    {
+        "name": "Fungal Snail",
+        "health": 10,
+        "strength": 3,
+        "accuracy": 3,
+        "defence": 9,
+        "items": [
+            {
+                "id": 94,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 4
+            },
+            {
+                "id": 88,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 16
+            }
+        ]
+    },
+    {
+        "name": "Giant Spider",
+        "health": 18,
+        "strength": 8,
+        "accuracy": 4,
+        "defence": 6,
+        "items": [
+            {
+                "id": 87,
+                "quantity": {
+                    "min": 1,
+                    "max": 2
+                },
+                "probability": 2
+            }
+        ]
+    },
+    {
+        "name": "Giant Snail",
+        "health": 20,
+        "strength": 5,
+        "accuracy": 3,
+        "defence": 14,
+        "items": [
+            {
+                "id": 94,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            },
+            {
+                "id": 88,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 2
+            }
+        ]
+    },
+    {
+        "name": "Rock Golem",
+        "health": 64,
+        "strength": 12,
+        "accuracy": 8,
+        "defence": 16,
+        "items": [
+            {
+                "id": 12,
+                "quantity": {
+                    "min": 1,
+                    "max": 100
+                },
+                "probability": 2
+            },
+            {
+                "id": 13,
+                "quantity": {
+                    "min": 1,
+                    "max": 100
+                },
+                "probability": 2
+            },
+            {
+                "id": 91,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ]
+    }
+]

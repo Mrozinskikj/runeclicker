@@ -1,0 +1,876 @@
+[
+    {
+        "name": "Pine Log",
+        "value": 1
+    },
+    {
+        "name": "Oak Log",
+        "value": 6
+    },
+    {
+        "name": "Maple Log",
+        "value": 31
+    },
+    {
+        "name": "Mahogany Log",
+        "value": 140
+    },
+    {
+        "name": "Redwood Log",
+        "value": 600
+    },
+    {
+        "name": "Rough Sap Crystal",
+        "value": 100
+    },
+    {
+        "name": "Cloudy Sap Crystal",
+        "value": 1000
+    },
+    {
+        "name": "Vibrant Sap Crystal",
+        "value": 10000
+    },
+    {
+        "name": "Common Ancient Fossil",
+        "value": 100
+    },
+    {
+        "name": "Uncommon Ancient Fossil",
+        "value": 1000
+    },
+    {
+        "name": "Rare Ancient Fossil",
+        "value": 10000
+    },
+    {
+        "name": "Flint",
+        "value": 2
+    },
+    {
+        "name": "Copper Ore",
+        "value": 12
+    },
+    {
+        "name": "Tin Ore",
+        "value": 12
+    },
+    {
+        "name": "Iron Ore",
+        "value": 62
+    },
+    {
+        "name": "Coal",
+        "value": 280
+    },
+    {
+        "name": "Titanium Ore",
+        "value": 1200
+    },
+    {
+        "name": "Bronze Ingot",
+        "value": 24
+    },
+    {
+        "name": "Iron Ingot",
+        "value": 124
+    },
+    {
+        "name": "Steel Ingot",
+        "value": 560
+    },
+    {
+        "name": "Titanium Ingot",
+        "value": 2400
+    },
+    {
+        "name": "Silver Ore",
+        "value": 50
+    },
+    {
+        "name": "Gold Ore",
+        "value": 300
+    },
+    {
+        "name": "Platinum Ore",
+        "value": 1000
+    },
+    {
+        "name": "Silver Ingot",
+        "value": 100
+    },
+    {
+        "name": "Gold Ingot",
+        "value": 600
+    },
+    {
+        "name": "Platinum Ingot",
+        "value": 2000
+    },
+    {
+        "name": "Wooden Axe",
+        "value": 10,
+        "slot": "hand",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Flint Axe",
+        "value": 40,
+        "slot": "hand",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "absolute": 2
+                },
+                "click": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Bronze Axe",
+        "value": 160,
+        "slot": "hand",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "absolute": 4
+                },
+                "click": {
+                    "absolute": 2
+                }
+            }
+        }
+    },
+    {
+        "name": "Iron Axe",
+        "value": 640,
+        "slot": "hand",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "absolute": 6
+                },
+                "click": {
+                    "absolute": 3
+                }
+            }
+        }
+    },
+    {
+        "name": "Steel Axe",
+        "value": 2560,
+        "slot": "hand",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "absolute": 10
+                },
+                "click": {
+                    "absolute": 4
+                }
+            }
+        }
+    },
+    {
+        "name": "Titanium Axe",
+        "value": 10240,
+        "slot": "hand",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "absolute": 16
+                },
+                "click": {
+                    "absolute": 5
+                }
+            }
+        }
+    },
+    {
+        "name": "Wooden Pickaxe",
+        "value": 10,
+        "slot": "hand",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Flint Pickaxe",
+        "value": 40,
+        "slot": "hand",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "absolute": 2
+                },
+                "click": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Bronze Pickaxe",
+        "value": 160,
+        "slot": "hand",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "absolute": 4
+                },
+                "click": {
+                    "absolute": 2
+                }
+            }
+        }
+    },
+    {
+        "name": "Iron Pickaxe",
+        "value": 640,
+        "slot": "hand",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "absolute": 6
+                },
+                "click": {
+                    "absolute": 3
+                }
+            }
+        }
+    },
+    {
+        "name": "Steel Pickaxe",
+        "value": 2560,
+        "slot": "hand",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "absolute": 10
+                },
+                "click": {
+                    "absolute": 4
+                }
+            }
+        }
+    },
+    {
+        "name": "Titanium Pickaxe",
+        "value": 10240,
+        "slot": "hand",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "absolute": 16
+                },
+                "click": {
+                    "absolute": 5
+                }
+            }
+        }
+    },
+    {
+        "name": "Flint Spear",
+        "value": 40,
+        "slot": "hand",
+        "bonus": {
+            "Combat": {
+                "strength": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Bronze Sword",
+        "value": 160,
+        "slot": "hand",
+        "bonus": {
+            "Combat": {
+                "strength": {
+                    "absolute": 3
+                },
+                "accuracy": {
+                    "absolute": 1
+                },
+                "speed": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Iron Sword",
+        "value": 640,
+        "slot": "hand",
+        "bonus": {
+            "Combat": {
+                "strength": {
+                    "absolute": 6
+                },
+                "accuracy": {
+                    "absolute": 3
+                },
+                "speed": {
+                    "absolute": 2
+                }
+            }
+        }
+    },
+    {
+        "name": "Steel Sword",
+        "value": 2560,
+        "slot": "hand",
+        "bonus": {
+            "Combat": {
+                "strength": {
+                    "absolute": 12
+                },
+                "accuracy": {
+                    "absolute": 6
+                },
+                "speed": {
+                    "absolute": 4
+                }
+            }
+        }
+    },
+    {
+        "name": "Titanium Sword",
+        "value": 10240,
+        "slot": "hand",
+        "bonus": {
+            "Combat": {
+                "strength": {
+                    "absolute": 24
+                },
+                "accuracy": {
+                    "absolute": 12
+                },
+                "speed": {
+                    "absolute": 8
+                }
+            }
+        }
+    },
+    {
+        "name": "Spiked Mace",
+        "value": 500,
+        "slot": "hand",
+        "bonus": {
+            "Combat": {
+                "strength": {
+                    "absolute": 6
+                },
+                "accuracy": {
+                    "absolute": -0.5
+                }
+            }
+        }
+    },
+    {
+        "name": "Snail Shield",
+        "value": 2000,
+        "slot": "hand",
+        "bonus": {
+            "Combat": {
+                "strength": {
+                    "absolute": 2
+                },
+                "defence": {
+                    "absolute": 20
+                }
+            }
+        }
+    },
+    {
+        "name": "Soft Leather Cap",
+        "value": 24,
+        "slot": "head",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Tough Leather Cap",
+        "value": 48,
+        "slot": "head",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 2
+                }
+            }
+        }
+    },
+    {
+        "name": "Bronze Helmet",
+        "value": 96,
+        "slot": "head",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 3
+                }
+            }
+        }
+    },
+    {
+        "name": "Iron Helmet",
+        "value": 384,
+        "slot": "head",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 6
+                }
+            }
+        }
+    },
+    {
+        "name": "Steel Helmet",
+        "value": 1536,
+        "slot": "head",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 12
+                }
+            }
+        }
+    },
+    {
+        "name": "Titanium Helmet",
+        "value": 6144,
+        "slot": "head",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 24
+                }
+            }
+        }
+    },
+    {
+        "name": "Soft Leather Tunic",
+        "value": 48,
+        "slot": "torso",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Tough Leather Tunic",
+        "value": 96,
+        "slot": "torso",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 3
+                }
+            }
+        }
+    },
+    {
+        "name": "Bronze Chestplate",
+        "value": 192,
+        "slot": "torso",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 6
+                }
+            }
+        }
+    },
+    {
+        "name": "Iron Chestplate",
+        "value": 768,
+        "slot": "torso",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 12
+                }
+            }
+        }
+    },
+    {
+        "name": "Steel Chestplate",
+        "value": 3072,
+        "slot": "torso",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 24
+                }
+            }
+        }
+    },
+    {
+        "name": "Titanium Chestplate",
+        "value": 12288,
+        "slot": "torso",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 48
+                }
+            }
+        }
+    },
+    {
+        "name": "Soft Leather Trousers",
+        "value": 48,
+        "slot": "legs",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 1
+                }
+            }
+        }
+    },
+    {
+        "name": "Tough Leather Trousers",
+        "value": 96,
+        "slot": "legs",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 3
+                }
+            }
+        }
+    },
+    {
+        "name": "Bronze Greaves",
+        "value": 192,
+        "slot": "legs",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 6
+                }
+            }
+        }
+    },
+    {
+        "name": "Iron Greaves",
+        "value": 768,
+        "slot": "legs",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 12
+                }
+            }
+        }
+    },
+    {
+        "name": "Steel Greaves",
+        "value": 3072,
+        "slot": "legs",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 24
+                }
+            }
+        }
+    },
+    {
+        "name": "Titanium Greaves",
+        "value": 12288,
+        "slot": "legs",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "absolute": 48
+                }
+            }
+        }
+    },
+    {
+        "name": "Silver Ring",
+        "value": 300,
+        "slot": "finger"
+    },
+    {
+        "name": "Gold Ring",
+        "value": 1500,
+        "slot": "finger"
+    },
+    {
+        "name": "Platinum Ring",
+        "value": 5000,
+        "slot": "finger"
+    },
+    {
+        "name": "Lesser Ring of Woodcutting",
+        "value": 700,
+        "slot": "finger",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "percent": 25
+                }
+            }
+        }
+    },
+    {
+        "name": "Ring of Woodcutting",
+        "value": 3000,
+        "slot": "finger",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "percent": 50
+                }
+            }
+        }
+    },
+    {
+        "name": "Greater Ring of Woodcutting",
+        "value": 12000,
+        "slot": "finger",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "percent": 75
+                }
+            }
+        }
+    },
+    {
+        "name": "Imbued Ring of Woodcutting",
+        "value": 25000,
+        "slot": "finger",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "percent": 80
+                }
+            }
+        }
+    },
+    {
+        "name": "Lesser Ring of Mining",
+        "value": 700,
+        "slot": "finger",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "percent": 25
+                }
+            }
+        }
+    },
+    {
+        "name": "Ring of Mining",
+        "value": 3000,
+        "slot": "finger",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "percent": 50
+                }
+            }
+        }
+    },
+    {
+        "name": "Greater Ring of Mining",
+        "value": 12000,
+        "slot": "finger",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "percent": 75
+                }
+            }
+        }
+    },
+    {
+        "name": "Imbued Ring of Mining",
+        "value": 25000,
+        "slot": "finger",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "percent": 80
+                }
+            }
+        }
+    },
+    {
+        "name": "Ring of Protection",
+        "value": 1000,
+        "slot": "finger",
+        "bonus": {
+            "Combat": {
+                "defence": {
+                    "percent": 5
+                }
+            }
+        }
+    },
+    {
+        "name": "Berserker Amulet",
+        "value": 160,
+        "slot": "neck",
+        "bonus": {
+            "Combat": {
+                "strength": {
+                    "percent": 10
+                }
+            }
+        }
+    },
+    {
+        "name": "Forest Amulet",
+        "value": 500,
+        "slot": "neck",
+        "description": "+50% chance of finding sap crystals.",
+        "bonus": {
+            "Woodcutting": {
+                "speed": {
+                    "percent": 5
+                }
+            }
+        }
+    },
+    {
+        "name": "Cave Amulet",
+        "value": 1500,
+        "slot": "neck",
+        "description": "+50% chance of finding ancient fossils.",
+        "bonus": {
+            "Mining": {
+                "speed": {
+                    "percent": 5
+                }
+            }
+        }
+    },
+    {
+        "name": "Coins",
+        "value": 0
+    },
+    {
+        "name": "Bone",
+        "value": 1
+    },
+    {
+        "name": "Bonemeal",
+        "value": 2
+    },
+    {
+        "name": "Soft Boar Hide",
+        "value": 6
+    },
+    {
+        "name": "Tough Boar Hide",
+        "value": 18
+    },
+    {
+        "name": "Soft Boar Leather",
+        "value": 12
+    },
+    {
+        "name": "Tough Boar Leather",
+        "value": 36
+    },
+    {
+        "name": "Wolf Fang",
+        "value": 20
+    },
+    {
+        "name": "Spider String",
+        "value": 40
+    },
+    {
+        "name": "Snail Shell",
+        "value": 80
+    },
+    {
+        "name": "Rat Tail",
+        "value": 25
+    },
+    {
+        "name": "Enchanted Leaf",
+        "value": 150
+    },
+    {
+        "name": "Enchanted Stone",
+        "value": 450
+    },
+    {
+        "name": "Bear Meat",
+        "value": 6
+    },
+    {
+        "name": "Rich Bear Meat",
+        "value": 12
+    },
+    {
+        "name": "Cave Fungus",
+        "value": 24
+    },
+    {
+        "name": "Cooked Bear Meat",
+        "value": 18,
+        "heal": 6
+    },
+    {
+        "name": "Cooked Rich Bear Meat",
+        "value": 36,
+        "heal": 12
+    },
+    {
+        "name": "Mushroom Stew",
+        "value": 72,
+        "heal": 24
+    },
+    {
+        "name": "Soft Leather Sack",
+        "value": 96,
+        "slot": "back",
+        "space": 10
+    },
+    {
+        "name": "Tough Leather Satchel",
+        "value": 192,
+        "slot": "back",
+        "space": 20
+    },
+    {
+        "name": "Spider Silk",
+        "value": 80
+    },
+    {
+        "name": "Silk Rucksack",
+        "value": 384,
+        "slot": "back",
+        "space": 40
+    }
+]

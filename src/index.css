@@ -1,0 +1,16 @@
+:root {
+  background-color: #242424;
+}
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+}

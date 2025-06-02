@@ -1,0 +1,1731 @@
+[
+    {
+        "output": [
+            {
+                "id": 27,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 0,
+                "quantity": 10
+            }
+        ],
+        "lvl": 0,
+        "actions": 8,
+        "xp": 4
+    },
+    {
+        "output": [
+            {
+                "id": 33,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 0,
+                "quantity": 10
+            }
+        ],
+        "lvl": 0,
+        "actions": 8,
+        "xp": 4
+    },
+    {
+        "output": [
+            {
+                "id": 28,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 11,
+                "quantity": 10
+            },
+            {
+                "id": 0,
+                "quantity": 20
+            }
+        ],
+        "lvl": 1,
+        "actions": 16,
+        "xp": 12
+    },
+    {
+        "output": [
+            {
+                "id": 34,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 11,
+                "quantity": 10
+            },
+            {
+                "id": 0,
+                "quantity": 20
+            }
+        ],
+        "lvl": 1,
+        "actions": 16,
+        "xp": 12
+    },
+    {
+        "output": [
+            {
+                "id": 39,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 11,
+                "quantity": 10
+            },
+            {
+                "id": 0,
+                "quantity": 20
+            }
+        ],
+        "lvl": 1,
+        "actions": 16,
+        "xp": 12
+    },
+    {
+        "output": [
+            {
+                "id": 84,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 82,
+                "quantity": 2
+            }
+        ],
+        "lvl": 2,
+        "actions": 4,
+        "xp": 2
+    },
+    {
+        "output": [
+            {
+                "id": 46,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 84,
+                "quantity": 2
+            }
+        ],
+        "lvl": 3,
+        "actions": 16,
+        "xp": 5
+    },
+    {
+        "output": [
+            {
+                "id": 52,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 84,
+                "quantity": 4
+            }
+        ],
+        "lvl": 3,
+        "actions": 16,
+        "xp": 10
+    },
+    {
+        "output": [
+            {
+                "id": 58,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 84,
+                "quantity": 4
+            }
+        ],
+        "lvl": 3,
+        "actions": 16,
+        "xp": 10
+    },
+    {
+        "output": [
+            {
+                "id": 95,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 2
+            }
+        ],
+        "input": [
+            {
+                "id": 92,
+                "quantity": 1
+            },
+            {
+                "id": 0,
+                "quantity": 5
+            }
+        ],
+        "lvl": 4,
+        "actions": 4,
+        "xp": 2
+    },
+    {
+        "output": [
+            {
+                "id": 81,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 80,
+                "quantity": 2
+            }
+        ],
+        "lvl": 5,
+        "actions": 6,
+        "xp": 1
+    },
+    {
+        "output": [
+            {
+                "id": 98,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 84,
+                "quantity": 8
+            }
+        ],
+        "lvl": 6,
+        "actions": 64,
+        "xp": 30
+    },
+    {
+        "output": [
+            {
+                "id": 85,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 83,
+                "quantity": 2
+            }
+        ],
+        "lvl": 7,
+        "actions": 4,
+        "xp": 3
+    },
+    {
+        "output": [
+            {
+                "id": 47,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 85,
+                "quantity": 1
+            },
+            {
+                "id": 84,
+                "quantity": 4
+            }
+        ],
+        "lvl": 8,
+        "actions": 16,
+        "xp": 10
+    },
+    {
+        "output": [
+            {
+                "id": 53,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 85,
+                "quantity": 2
+            },
+            {
+                "id": 84,
+                "quantity": 8
+            }
+        ],
+        "lvl": 8,
+        "actions": 16,
+        "xp": 20
+    },
+    {
+        "output": [
+            {
+                "id": 59,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 85,
+                "quantity": 2
+            },
+            {
+                "id": 84,
+                "quantity": 8
+            }
+        ],
+        "lvl": 8,
+        "actions": 16,
+        "xp": 20
+    },
+    {
+        "output": [
+            {
+                "id": 96,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 2
+            }
+        ],
+        "input": [
+            {
+                "id": 93,
+                "quantity": 1
+            },
+            {
+                "id": 1,
+                "quantity": 5
+            },
+            {
+                "id": 0,
+                "quantity": 10
+            }
+        ],
+        "lvl": 9,
+        "actions": 4,
+        "xp": 8
+    },
+    {
+        "output": [
+            {
+                "id": 17,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 12,
+                "quantity": 1
+            },
+            {
+                "id": 13,
+                "quantity": 1
+            }
+        ],
+        "lvl": 10,
+        "actions": 4,
+        "xp": 5
+    },
+    {
+        "output": [
+            {
+                "id": 29,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 17,
+                "quantity": 10
+            },
+            {
+                "id": 1,
+                "quantity": 20
+            }
+        ],
+        "lvl": 11,
+        "actions": 32,
+        "xp": 36
+    },
+    {
+        "output": [
+            {
+                "id": 35,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 17,
+                "quantity": 10
+            },
+            {
+                "id": 1,
+                "quantity": 20
+            }
+        ],
+        "lvl": 11,
+        "actions": 32,
+        "xp": 36
+    },
+    {
+        "output": [
+            {
+                "id": 40,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 17,
+                "quantity": 12
+            },
+            {
+                "id": 1,
+                "quantity": 10
+            }
+        ],
+        "lvl": 11,
+        "actions": 32,
+        "xp": 36
+    },
+    {
+        "output": [
+            {
+                "id": 48,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 17,
+                "quantity": 10
+            },
+            {
+                "id": 85,
+                "quantity": 1
+            },
+            {
+                "id": 84,
+                "quantity": 4
+            }
+        ],
+        "lvl": 12,
+        "actions": 64,
+        "xp": 20
+    },
+    {
+        "output": [
+            {
+                "id": 54,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 17,
+                "quantity": 20
+            },
+            {
+                "id": 85,
+                "quantity": 2
+            },
+            {
+                "id": 84,
+                "quantity": 8
+            }
+        ],
+        "lvl": 12,
+        "actions": 64,
+        "xp": 40
+    },
+    {
+        "output": [
+            {
+                "id": 60,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 17,
+                "quantity": 20
+            },
+            {
+                "id": 85,
+                "quantity": 2
+            },
+            {
+                "id": 84,
+                "quantity": 8
+            }
+        ],
+        "lvl": 12,
+        "actions": 64,
+        "xp": 40
+    },
+    {
+        "output": [
+            {
+                "id": 99,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 85,
+                "quantity": 8
+            },
+            {
+                "id": 84,
+                "quantity": 16
+            }
+        ],
+        "lvl": 13,
+        "actions": 128,
+        "xp": 60
+    },
+    {
+        "output": [
+            {
+                "id": 44,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 86,
+                "quantity": 8
+            },
+            {
+                "id": 1,
+                "quantity": 100
+            }
+        ],
+        "lvl": 14,
+        "actions": 128,
+        "xp": 200
+    },
+    {
+        "output": [
+            {
+                "id": 76,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 86,
+                "quantity": 8
+            },
+            {
+                "id": 87,
+                "quantity": 4
+            }
+        ],
+        "lvl": 14,
+        "actions": 128,
+        "xp": 100
+    },
+    {
+        "output": [
+            {
+                "id": 77,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 90,
+                "quantity": 1
+            },
+            {
+                "id": 0,
+                "quantity": 512
+            },
+            {
+                "id": 87,
+                "quantity": 8
+            }
+        ],
+        "lvl": 15,
+        "actions": 512,
+        "xp": 450
+    },
+    {
+        "output": [
+            {
+                "id": 24,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 21,
+                "quantity": 2
+            }
+        ],
+        "lvl": 15,
+        "actions": 8,
+        "xp": 15
+    },
+    {
+        "output": [
+            {
+                "id": 64,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 24,
+                "quantity": 2
+            }
+        ],
+        "lvl": 15,
+        "actions": 64,
+        "xp": 120
+    },
+    {
+        "output": [
+            {
+                "id": 67,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 5,
+                "quantity": 1
+            },
+            {
+                "id": 64,
+                "quantity": 1
+            }
+        ],
+        "lvl": 16,
+        "actions": 256,
+        "xp": 400
+    },
+    {
+        "output": [
+            {
+                "id": 71,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 8,
+                "quantity": 1
+            },
+            {
+                "id": 64,
+                "quantity": 1
+            }
+        ],
+        "lvl": 16,
+        "actions": 256,
+        "xp": 400
+    },
+    {
+        "output": [
+            {
+                "id": 97,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 94,
+                "quantity": 2
+            },
+            {
+                "id": 2,
+                "quantity": 5
+            },
+            {
+                "id": 1,
+                "quantity": 10
+            }
+        ],
+        "lvl": 19,
+        "actions": 4,
+        "xp": 32
+    },
+    {
+        "output": [
+            {
+                "id": 100,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 87,
+                "quantity": 2
+            }
+        ],
+        "lvl": 20,
+        "actions": 8,
+        "xp": 6
+    },
+    {
+        "output": [
+            {
+                "id": 18,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 14,
+                "quantity": 2
+            }
+        ],
+        "lvl": 20,
+        "actions": 8,
+        "xp": 10
+    },
+    {
+        "output": [
+            {
+                "id": 30,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 18,
+                "quantity": 10
+            },
+            {
+                "id": 2,
+                "quantity": 20
+            }
+        ],
+        "lvl": 21,
+        "actions": 64,
+        "xp": 108
+    },
+    {
+        "output": [
+            {
+                "id": 36,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 18,
+                "quantity": 10
+            },
+            {
+                "id": 2,
+                "quantity": 20
+            }
+        ],
+        "lvl": 21,
+        "actions": 64,
+        "xp": 108
+    },
+    {
+        "output": [
+            {
+                "id": 41,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 18,
+                "quantity": 12
+            },
+            {
+                "id": 2,
+                "quantity": 10
+            }
+        ],
+        "lvl": 21,
+        "actions": 64,
+        "xp": 108
+    },
+    {
+        "output": [
+            {
+                "id": 49,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 18,
+                "quantity": 10
+            },
+            {
+                "id": 100,
+                "quantity": 2
+            },
+            {
+                "id": 85,
+                "quantity": 4
+            }
+        ],
+        "lvl": 22,
+        "actions": 128,
+        "xp": 60
+    },
+    {
+        "output": [
+            {
+                "id": 55,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 18,
+                "quantity": 20
+            },
+            {
+                "id": 100,
+                "quantity": 4
+            },
+            {
+                "id": 85,
+                "quantity": 8
+            }
+        ],
+        "lvl": 22,
+        "actions": 128,
+        "xp": 120
+    },
+    {
+        "output": [
+            {
+                "id": 61,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 18,
+                "quantity": 20
+            },
+            {
+                "id": 100,
+                "quantity": 4
+            },
+            {
+                "id": 85,
+                "quantity": 8
+            }
+        ],
+        "lvl": 22,
+        "actions": 128,
+        "xp": 120
+    },
+    {
+        "output": [
+            {
+                "id": 101,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 100,
+                "quantity": 8
+            },
+            {
+                "id": 85,
+                "quantity": 16
+            }
+        ],
+        "lvl": 24,
+        "actions": 256,
+        "xp": 120
+    },
+    {
+        "output": [
+            {
+                "id": 25,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 22,
+                "quantity": 2
+            }
+        ],
+        "lvl": 25,
+        "actions": 16,
+        "xp": 30
+    },
+    {
+        "output": [
+            {
+                "id": 65,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 25,
+                "quantity": 2
+            }
+        ],
+        "lvl": 25,
+        "actions": 128,
+        "xp": 240
+    },
+    {
+        "output": [
+            {
+                "id": 68,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 6,
+                "quantity": 1
+            },
+            {
+                "id": 5,
+                "quantity": 2
+            },
+            {
+                "id": 65,
+                "quantity": 1
+            }
+        ],
+        "lvl": 26,
+        "actions": 512,
+        "xp": 800
+    },
+    {
+        "output": [
+            {
+                "id": 72,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 9,
+                "quantity": 1
+            },
+            {
+                "id": 8,
+                "quantity": 2
+            },
+            {
+                "id": 65,
+                "quantity": 1
+            }
+        ],
+        "lvl": 26,
+        "actions": 512,
+        "xp": 800
+    },
+    {
+        "output": [
+            {
+                "id": 75,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 88,
+                "quantity": 4
+            },
+            {
+                "id": 64,
+                "quantity": 1
+            }
+        ],
+        "lvl": 28,
+        "actions": 256,
+        "xp": 300
+    },
+    {
+        "output": [
+            {
+                "id": 45,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 88,
+                "quantity": 8
+            },
+            {
+                "id": 18,
+                "quantity": 40
+            }
+        ],
+        "lvl": 28,
+        "actions": 512,
+        "xp": 600
+    },
+    {
+        "output": [
+            {
+                "id": 78,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 91,
+                "quantity": 1
+            },
+            {
+                "id": 11,
+                "quantity": 512
+            },
+            {
+                "id": 87,
+                "quantity": 16
+            }
+        ],
+        "lvl": 29,
+        "actions": 1024,
+        "xp": 900
+    },
+    {
+        "output": [
+            {
+                "id": 19,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 14,
+                "quantity": 2
+            },
+            {
+                "id": 15,
+                "quantity": 2
+            }
+        ],
+        "lvl": 30,
+        "actions": 16,
+        "xp": 20
+    },
+    {
+        "output": [
+            {
+                "id": 31,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 19,
+                "quantity": 10
+            },
+            {
+                "id": 3,
+                "quantity": 20
+            }
+        ],
+        "lvl": 31,
+        "actions": 128,
+        "xp": 324
+    },
+    {
+        "output": [
+            {
+                "id": 37,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 19,
+                "quantity": 10
+            },
+            {
+                "id": 3,
+                "quantity": 20
+            }
+        ],
+        "lvl": 31,
+        "actions": 128,
+        "xp": 324
+    },
+    {
+        "output": [
+            {
+                "id": 42,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 19,
+                "quantity": 12
+            },
+            {
+                "id": 3,
+                "quantity": 10
+            }
+        ],
+        "lvl": 31,
+        "actions": 128,
+        "xp": 324
+    },
+    {
+        "output": [
+            {
+                "id": 50,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 19,
+                "quantity": 10
+            },
+            {
+                "id": 100,
+                "quantity": 8
+            }
+        ],
+        "lvl": 32,
+        "actions": 256,
+        "xp": 180
+    },
+    {
+        "output": [
+            {
+                "id": 56,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 19,
+                "quantity": 20
+            },
+            {
+                "id": 100,
+                "quantity": 16
+            }
+        ],
+        "lvl": 32,
+        "actions": 256,
+        "xp": 360
+    },
+    {
+        "output": [
+            {
+                "id": 62,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 19,
+                "quantity": 20
+            },
+            {
+                "id": 100,
+                "quantity": 16
+            }
+        ],
+        "lvl": 32,
+        "actions": 256,
+        "xp": 360
+    },
+    {
+        "output": [
+            {
+                "id": 26,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 23,
+                "quantity": 2
+            }
+        ],
+        "lvl": 35,
+        "actions": 32,
+        "xp": 60
+    },
+    {
+        "output": [
+            {
+                "id": 66,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 26,
+                "quantity": 2
+            }
+        ],
+        "lvl": 35,
+        "actions": 256,
+        "xp": 480
+    },
+    {
+        "output": [
+            {
+                "id": 69,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 7,
+                "quantity": 1
+            },
+            {
+                "id": 6,
+                "quantity": 2
+            },
+            {
+                "id": 5,
+                "quantity": 3
+            },
+            {
+                "id": 66,
+                "quantity": 1
+            }
+        ],
+        "lvl": 36,
+        "actions": 1024,
+        "xp": 1600
+    },
+    {
+        "output": [
+            {
+                "id": 73,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 10,
+                "quantity": 1
+            },
+            {
+                "id": 9,
+                "quantity": 2
+            },
+            {
+                "id": 8,
+                "quantity": 3
+            },
+            {
+                "id": 66,
+                "quantity": 1
+            }
+        ],
+        "lvl": 36,
+        "actions": 1024,
+        "xp": 1600
+    },
+    {
+        "output": [
+            {
+                "id": 20,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 16,
+                "quantity": 2
+            },
+            {
+                "id": 15,
+                "quantity": 4
+            }
+        ],
+        "lvl": 40,
+        "actions": 32,
+        "xp": 40
+    },
+    {
+        "output": [
+            {
+                "id": 32,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 20,
+                "quantity": 10
+            },
+            {
+                "id": 4,
+                "quantity": 20
+            }
+        ],
+        "lvl": 41,
+        "actions": 256,
+        "xp": 972
+    },
+    {
+        "output": [
+            {
+                "id": 38,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 20,
+                "quantity": 10
+            },
+            {
+                "id": 4,
+                "quantity": 20
+            }
+        ],
+        "lvl": 41,
+        "actions": 256,
+        "xp": 972
+    },
+    {
+        "output": [
+            {
+                "id": 43,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 20,
+                "quantity": 12
+            },
+            {
+                "id": 4,
+                "quantity": 10
+            }
+        ],
+        "lvl": 41,
+        "actions": 256,
+        "xp": 972
+    },
+    {
+        "output": [
+            {
+                "id": 51,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 20,
+                "quantity": 10
+            },
+            {
+                "id": 100,
+                "quantity": 32
+            }
+        ],
+        "lvl": 42,
+        "actions": 512,
+        "xp": 540
+    },
+    {
+        "output": [
+            {
+                "id": 57,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 20,
+                "quantity": 20
+            },
+            {
+                "id": 100,
+                "quantity": 64
+            }
+        ],
+        "lvl": 42,
+        "actions": 512,
+        "xp": 1080
+    },
+    {
+        "output": [
+            {
+                "id": 63,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 20,
+                "quantity": 20
+            },
+            {
+                "id": 100,
+                "quantity": 64
+            }
+        ],
+        "lvl": 42,
+        "actions": 512,
+        "xp": 1080
+    },
+    {
+        "output": [
+            {
+                "id": 70,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 69,
+                "quantity": 1
+            },
+            {
+                "id": 68,
+                "quantity": 2
+            },
+            {
+                "id": 67,
+                "quantity": 3
+            }
+        ],
+        "lvl": 43,
+        "actions": 4096,
+        "xp": 3200
+    },
+    {
+        "output": [
+            {
+                "id": 74,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 73,
+                "quantity": 1
+            },
+            {
+                "id": 72,
+                "quantity": 2
+            },
+            {
+                "id": 71,
+                "quantity": 3
+            }
+        ],
+        "lvl": 43,
+        "actions": 4096,
+        "xp": 3200
+    }
+]
