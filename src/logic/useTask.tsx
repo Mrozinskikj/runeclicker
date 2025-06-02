@@ -56,7 +56,7 @@ export const useTask = create<TaskStore>((set, get) => {
         const { calculateStats } = useStats.getState();
         const speed = calculateStats(player.skill).speed;
         const intervalMs = 1000 / speed;
-        
+
         actionTimer = setInterval(() => {
             get().performAction(1);
         }, intervalMs);
@@ -225,7 +225,9 @@ export const useTask = create<TaskStore>((set, get) => {
 
             if (task !== null) {
                 replenishEnergy();
-                startActionTimer();
+                if (!get().pause) {
+                    startActionTimer();
+                }
             }
         },
 
