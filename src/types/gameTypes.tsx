@@ -190,5 +190,5 @@ export type SkillStats = GenericStats | MerchantingStats | StaminaStats | Combat
 // Settings
 export interface Settings {
   resolution: number,
-  rendering: boolean;
+  smooth: boolean;
 }

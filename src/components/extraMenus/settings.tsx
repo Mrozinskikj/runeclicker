@@ -83,8 +83,8 @@ const SettingsComponent: React.FC = () => {
                         <input
                             type="radio"
                             value={String(button.value)}
-                            checked={settings.rendering === button.value}
-                            onChange={() => setSettings({ rendering: button.value })}
+                            checked={settings.smooth === button.value}
+                            onChange={() => setSettings({ smooth: button.value })}
                         />
                         <Text text={button.name} type="bold" />
                     </label>

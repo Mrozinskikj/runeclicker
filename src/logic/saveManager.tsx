@@ -33,7 +33,7 @@ export function createInitialSave(gameData: GameData): Player {
 export function createInitialSettings(): Settings {
     return {
         resolution: 0,
-        rendering: false,
+        smooth: true,
     };
 }
 

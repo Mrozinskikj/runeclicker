@@ -53,7 +53,7 @@ export const Game: React.FC = () => {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [settings.resolution, settings.rendering]);
+  }, [settings.resolution, settings.smooth]);
 
   useEffect(() => {
     // Dynamically inject scrollbar styles into the document head
@@ -103,7 +103,7 @@ export const Game: React.FC = () => {
           alignItems: 'flex-start',
           backgroundImage: `url(${IMAGE}backgrounds/background.png)`,
           backgroundSize: `${64 * scale}px ${64 * scale}px`,
-          imageRendering: settings.rendering ? "auto" : "pixelated",
+          imageRendering: settings.smooth ? "auto" : "pixelated",
         }}
       >
         <div

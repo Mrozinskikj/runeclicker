@@ -28,7 +28,7 @@ export const Toolbar: React.FC = () => {
                 Made by Krzysztof Mrozinski
             </p>
             <p style={{ marginRight: "40px" }}>
-                <a href="http://kmroz.com" style={linkStyle}>my website</a>
+                <a href="https://kmroz.com" style={linkStyle}>my website</a>
             </p>
             <p style={{ marginRight: "40px" }}>
                 <a href="mailto:krzysztof@kmroz.com" style={linkStyle}>contact me</a>
