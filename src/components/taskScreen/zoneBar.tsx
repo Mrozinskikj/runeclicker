@@ -6,12 +6,11 @@ import { useCombat } from "../../logic/useCombat";
 
 interface ZoneBarProps {
     step: number;
-    record: number;
     updated?: boolean;
-    showStep?: boolean;
+    record?: number;
 }
 
-export const ZoneBar: React.FC<ZoneBarProps> = ({ step, record, updated, showStep = true }) => {
+export const ZoneBar: React.FC<ZoneBarProps> = ({ step, updated, record }) => {
     const calculateDepth = useCombat((state) => state.calculateDepth);
     const depth = calculateDepth(step);
     const isRest = useCombat((state) => state.isRest);
@@ -20,7 +19,7 @@ export const ZoneBar: React.FC<ZoneBarProps> = ({ step, record, updated, showSte
     const untilRest = depth != 3 ? String(10 - (step % 10)) : "-";
 
     // Tooltip for actions progress bar
-    const tooltipContent = showStep && (
+    const tooltipContent = record && (
         <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <Text text="Steps until rest: " type="normal" colour="white" />
@@ -62,7 +61,7 @@ export const ZoneBar: React.FC<ZoneBarProps> = ({ step, record, updated, showSte
                             ? `url(${IMAGE}progress/depth${depth}.png)`
                             : `url(${IMAGE}progress/empty.png)`,
                         boxSizing: "border-box",
-                        ...(isLast && showStep && {
+                        ...(isLast && record && {
                             border: "1px solid #FFFFFF",
                         }),
                     };

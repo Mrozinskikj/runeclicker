@@ -9,7 +9,7 @@ interface PlayerStore {
 
 // Function to create the store once game data is loaded
 export const createPlayer = (initialPlayer: Player) =>
-  create<PlayerStore>((set, get) => ({
+  create<PlayerStore>((set) => ({
     player: initialPlayer,
 
     // Update player state (can accept an object or a function for updates)

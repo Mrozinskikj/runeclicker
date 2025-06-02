@@ -127,7 +127,7 @@ export const Stats: React.FC = () => {
                             ) : (
                                 <Text text={zone.name} type="bold" maxWidth={100} colour="black" />
                             )}
-                            {!locked && (<ZoneBar step={player.records.zones[index]} showStep={false} />)}
+                            {!locked && (<ZoneBar step={player.records.zones[index]} />)}
                         </div>
                     </div>
                 );

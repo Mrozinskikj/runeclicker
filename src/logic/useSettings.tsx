@@ -9,7 +9,7 @@ interface SettingsStore {
 
 // Function to create the store once game data is loaded
 export const createSettings = (initialSettings: Settings) =>
-  create<SettingsStore>((set, get) => ({
+  create<SettingsStore>((set) => ({
     settings: initialSettings,
     
     // Update settings state (can accept an object or a function for updates)
