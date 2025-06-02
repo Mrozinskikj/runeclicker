@@ -44,7 +44,7 @@ export const useCombat = create<CombatStore>((set, get) => {
 
     const useFood = (food: FixedItem): void => {
         if (!get().isRest(get().step)) return;
-        if (get().foodUsed){
+        if (get().foodUsed) {
             useConsole.getState().addMessage("You are already full.");
             return;
         };
@@ -69,6 +69,7 @@ export const useCombat = create<CombatStore>((set, get) => {
     const calculateHitChance = (isPlayer: boolean) => {
         const stats = useStats.getState().calculateStats("Combat") as CombatStats;
         const enemy = get().enemy!;
+        if (enemy == null) return 0;
         return isPlayer
             ? stats.accuracy / (stats.accuracy + enemy.defence)
             : enemy.accuracy / (enemy.accuracy + stats.defence);

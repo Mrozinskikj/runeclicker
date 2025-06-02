@@ -17,6 +17,7 @@ import { ZoneBar } from "./zoneBar";
 import { usePlayer } from "../../logic/usePlayer";
 import { EquipmentSlot } from "../inventory/equipmentSlot";
 import { useItems } from "../../logic/useItems";
+import { escape } from "querystring";
 
 const LabelsRow: React.FC<{
     enemy: Enemy | null;
@@ -86,7 +87,7 @@ const HealthBarsRow: React.FC<{
                 <Text text={String(playerStats.health - health)} type="bold" colour="white" />
             </div>
         </>
-    ) : (
+    ) : enemy &&  (
         <>
             <div style={{ display: "flex", alignItems: "center" }}>
                 <Text text={"Average hit damage: "} type="normal" colour="white" />
