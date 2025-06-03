@@ -52,6 +52,7 @@ export const useTask = create<TaskStore>((set, get) => {
         if (actionTimer) return;
         const { player } = usePlayer.getState();
         if (get().calculateMaxTasks(player.skill, player.task!) <= 0) return;
+        if (get().energy <= 0) return;
 
         const { calculateStats } = useStats.getState();
         const speed = calculateStats(player.skill).speed;

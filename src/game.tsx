@@ -96,7 +96,7 @@ export const Game: React.FC = () => {
         className="root"
         style={{
           width: '100vw',
-          height: '100vh',
+          height: 'calc(100vh - 24px)',
           overflow: 'auto',
           display: 'flex',
           justifyContent: 'center',
