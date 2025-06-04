@@ -40,7 +40,9 @@ export const Game: React.FC = () => {
     let newScale = 1;
     if (settings.resolution === 0) {
       const scaleX = window.innerWidth / BASE_WIDTH;
-      const scaleY = window.innerHeight / BASE_HEIGHT;
+      const toolbarHeight = 24;
+      const availableHeight = window.innerHeight - toolbarHeight;
+      const scaleY = availableHeight / BASE_HEIGHT;
       newScale = Math.min(scaleX, scaleY);
     } else {
       newScale = settings.resolution;
@@ -111,7 +113,7 @@ export const Game: React.FC = () => {
             width: BASE_WIDTH,
             height: BASE_HEIGHT,
             transform: `scale(${scale})`,
-            transformOrigin: 'top center', // Anchor scaling to the top
+            transformOrigin: 'top center',
           }}
         >
           {/* Existing Game UI */}
