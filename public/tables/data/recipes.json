@@ -223,7 +223,7 @@
         ],
         "lvl": 4,
         "actions": 4,
-        "xp": 2
+        "xp": 4
     },
     {
         "output": [
@@ -390,7 +390,7 @@
         ],
         "lvl": 9,
         "actions": 4,
-        "xp": 8
+        "xp": 16
     },
     {
         "output": [
@@ -681,7 +681,7 @@
         ],
         "lvl": 15,
         "actions": 512,
-        "xp": 450
+        "xp": 600
     },
     {
         "output": [
@@ -702,7 +702,7 @@
         ],
         "lvl": 15,
         "actions": 8,
-        "xp": 15
+        "xp": 10
     },
     {
         "output": [
@@ -723,7 +723,7 @@
         ],
         "lvl": 15,
         "actions": 64,
-        "xp": 120
+        "xp": 40
     },
     {
         "output": [
@@ -802,7 +802,7 @@
         ],
         "lvl": 19,
         "actions": 4,
-        "xp": 32
+        "xp": 64
     },
     {
         "output": [
@@ -1036,6 +1036,56 @@
     {
         "output": [
             {
+                "id": 75,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 88,
+                "quantity": 4
+            },
+            {
+                "id": 64,
+                "quantity": 1
+            }
+        ],
+        "lvl": 25,
+        "actions": 256,
+        "xp": 300
+    },
+    {
+        "output": [
+            {
+                "id": 45,
+                "quantity": {
+                    "min": 1,
+                    "max": 1
+                },
+                "probability": 1
+            }
+        ],
+        "input": [
+            {
+                "id": 88,
+                "quantity": 8
+            },
+            {
+                "id": 18,
+                "quantity": 30
+            }
+        ],
+        "lvl": 25,
+        "actions": 512,
+        "xp": 600
+    },
+    {
+        "output": [
+            {
                 "id": 25,
                 "quantity": {
                     "min": 1,
@@ -1052,7 +1102,7 @@
         ],
         "lvl": 25,
         "actions": 16,
-        "xp": 30
+        "xp": 40
     },
     {
         "output": [
@@ -1073,7 +1123,7 @@
         ],
         "lvl": 25,
         "actions": 128,
-        "xp": 240
+        "xp": 160
     },
     {
         "output": [
@@ -1102,7 +1152,7 @@
         ],
         "lvl": 26,
         "actions": 512,
-        "xp": 800
+        "xp": 1600
     },
     {
         "output": [
@@ -1131,57 +1181,7 @@
         ],
         "lvl": 26,
         "actions": 512,
-        "xp": 800
-    },
-    {
-        "output": [
-            {
-                "id": 75,
-                "quantity": {
-                    "min": 1,
-                    "max": 1
-                },
-                "probability": 1
-            }
-        ],
-        "input": [
-            {
-                "id": 88,
-                "quantity": 4
-            },
-            {
-                "id": 64,
-                "quantity": 1
-            }
-        ],
-        "lvl": 28,
-        "actions": 256,
-        "xp": 300
-    },
-    {
-        "output": [
-            {
-                "id": 45,
-                "quantity": {
-                    "min": 1,
-                    "max": 1
-                },
-                "probability": 1
-            }
-        ],
-        "input": [
-            {
-                "id": 88,
-                "quantity": 8
-            },
-            {
-                "id": 18,
-                "quantity": 40
-            }
-        ],
-        "lvl": 28,
-        "actions": 512,
-        "xp": 600
+        "xp": 1600
     },
     {
         "output": [
@@ -1210,7 +1210,7 @@
         ],
         "lvl": 29,
         "actions": 1024,
-        "xp": 900
+        "xp": 1200
     },
     {
         "output": [
@@ -1406,7 +1406,7 @@
         ],
         "lvl": 35,
         "actions": 32,
-        "xp": 60
+        "xp": 160
     },
     {
         "output": [
@@ -1427,7 +1427,7 @@
         ],
         "lvl": 35,
         "actions": 256,
-        "xp": 480
+        "xp": 640
     },
     {
         "output": [
@@ -1460,7 +1460,7 @@
         ],
         "lvl": 36,
         "actions": 1024,
-        "xp": 1600
+        "xp": 6400
     },
     {
         "output": [
@@ -1493,7 +1493,7 @@
         ],
         "lvl": 36,
         "actions": 1024,
-        "xp": 1600
+        "xp": 6400
     },
     {
         "output": [
@@ -1697,7 +1697,7 @@
         ],
         "lvl": 43,
         "actions": 4096,
-        "xp": 3200
+        "xp": 25600
     },
     {
         "output": [
@@ -1726,6 +1726,6 @@
         ],
         "lvl": 43,
         "actions": 4096,
-        "xp": 3200
+        "xp": 25600
     }
 ]
