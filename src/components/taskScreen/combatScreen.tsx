@@ -71,12 +71,12 @@ const HealthBarsRow: React.FC<{
     const playerStats = useStats((state) => state.calculateStats)("Combat") as CombatStats;
     const calculateHitChance = useCombat((state) => state.calculateHitChance);
 
-    const enemyBar = enemyData ? (enemy!.health / enemyData.health) * 100 : (actions / 8) * 100;
+    const enemyBar = enemyData ? (enemy!.health / enemyData.health) * 100 : (actions / 16) * 100;
     const playerBar = (health / playerStats.health) * 100;
     const enemyDamageBar = (enemyData && enemyDamage !== null) ? ((enemyDamage / enemyData.health) * 100) : 0;
     const playerDamageBar = playerDamage !== null ? ((playerDamage / playerStats.health) * 100) : 0;
 
-    const enemyText = enemyData ? `${enemy!.health} / ${enemyData.health}` : `${actions} / ${8}`;
+    const enemyText = enemyData ? `${enemy!.health} / ${enemyData.health}` : `${actions} / ${16}`;
     const playerText = `${health} / ${playerStats.health}`;
 
     const playerTooltip = rest ? (
