@@ -268,7 +268,7 @@ export const useCombat = create<CombatStore>((set, get) => {
                 // If next step is rest, start rest
                 if (isRest(step)) {
                     useConsole.getState().addMessage('You may now rest.');
-                    return { step, enemy: null, actions: 8, foodUsed: false, record, playerTurn: !playerTurn };
+                    return { step, enemy: null, actions: 16, foodUsed: false, record, playerTurn: !playerTurn };
                 }
                 // Otherwise, roll the next enemy
                 return { step, enemy: selectEnemy(calculateDepth(step)), record, playerTurn: !playerTurn };
@@ -278,7 +278,7 @@ export const useCombat = create<CombatStore>((set, get) => {
             // Player defeated- start escape
             if (health <= 0) {
                 useConsole.getState().addMessage(`You have been defeated by the ${useData.getState().gameData.enemies[enemy.id].name}. You are forced to retreat.`);
-                return { health: 0, enemy: null, escape: true, actions: 8, playerTurn: !playerTurn };
+                return { health: 0, enemy: null, escape: true, actions: 16, playerTurn: !playerTurn };
             }
         }
 
