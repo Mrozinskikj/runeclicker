@@ -705,7 +705,7 @@
         "bonus": {
             "Mining": {
                 "speed": {
-                    "percent": 50
+                    "percent": 60
                 }
             }
         }
@@ -717,7 +717,7 @@
         "bonus": {
             "Mining": {
                 "speed": {
-                    "percent": 60
+                    "percent": 70
                 }
             }
         }
