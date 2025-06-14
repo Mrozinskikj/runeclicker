@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useScale } from "../logic/useScale";
 
 interface TooltipProps {
