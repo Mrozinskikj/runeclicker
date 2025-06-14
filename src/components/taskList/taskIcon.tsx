@@ -33,6 +33,7 @@ export const TaskIcon: React.FC<{
                                 position: "absolute",
                                 left: "50%",
                                 transform: "translateX(-50%)",
+                                bottom: -2
                             }}
                         >
                             <Text text={`1/${chance}`} type="shadow" colour="white" />
