@@ -118,7 +118,16 @@ export const Stats: React.FC = () => {
                         }}
                     >
                         {/* Icon */}
-                        <TaskIcon source={locked ? "" : `tasks/Combat/${index}.png`} />
+                        <TaskIcon icon={!locked &&
+                            <img
+                                src={`${IMAGE}${`tasks/Combat/${index}.png`}`}
+                                style={{
+                                    pointerEvents: "none",
+                                    objectFit: "contain",
+                                    display: "block",
+                                }}
+                            />
+                        } />
 
                         {/* Title + Subtitle */}
                         <div style={{ display: "flex", flexDirection: "column", flexGrow: 1, gap: "2px" }}>

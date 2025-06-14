@@ -49,7 +49,15 @@ const LabelsRow: React.FC<{
             </div>
             <div />
             <div style={{ display: "flex", alignItems: "flex-end", marginBottom: 2, gap: "4px" }}>
-                <TaskIcon source={image} />
+                <TaskIcon icon={
+                    <img
+                        src={`${IMAGE}${image}`}
+                        style={{
+                            pointerEvents: "none",
+                            objectFit: "contain"
+                        }}
+                    />
+                } />
                 <Text text={name} type="bold" />
             </div>
         </div>
@@ -86,7 +94,7 @@ const HealthBarsRow: React.FC<{
                 <Text text={String(playerStats.health - health)} type="bold" colour="white" />
             </div>
         </>
-    ) : enemy &&  (
+    ) : enemy && (
         <>
             <div style={{ display: "flex", alignItems: "center" }}>
                 <Text text={"Average hit damage: "} type="normal" colour="white" />
@@ -202,7 +210,17 @@ const StatRow: React.FC<{
             }}
         >
             <div style={{ justifySelf: "end" }}>
-                <Text text={`${playerValue.toFixed(1)}`} type="normal" />
+                <Text
+                    text={
+                        (() => {
+                            const rounded = Math.round(playerValue * 10) / 10;
+                            return Number.isInteger(rounded)
+                                ? rounded.toLocaleString()
+                                : rounded.toLocaleString(undefined, { minimumFractionDigits: 1 });
+                        })()
+                    }
+                    type="normal"
+                />
             </div>
             <div style={{ display: "flex", justifyContent: "center", marginTop: -2 }}>
                 <Tooltip content={tooltip}>

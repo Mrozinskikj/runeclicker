@@ -7,19 +7,18 @@ import { Tooltip } from "./tooltip";
 import { Quantity } from "./quantity";
 import { useItems } from "../logic/useItems";
 
-interface ItemProps {
+/**
+ * Item Component
+ * - Displays an item with a tooltip, quantity, and lock state.
+ */
+const ItemComponent: React.FC<{
     index: number;
     quantity: number;
     quantityMax?: number;
     cost?: number;
     updated?: boolean;
-}
-
-/**
- * Item Component
- * - Displays an item with a tooltip, quantity, and lock state.
- */
-const ItemComponent: React.FC<ItemProps> = ({ index, quantity, quantityMax, cost, updated = false }) => {
+    overrideShowTooltip?: boolean;
+}> = ({ index, quantity, quantityMax, cost, updated = false, overrideShowTooltip = false }) => {
 
     const itemData = useData((state) => state.gameData.items[index]);
     const locked = usePlayer((state) => state.player.records.items[index] < 1);
@@ -33,7 +32,7 @@ const ItemComponent: React.FC<ItemProps> = ({ index, quantity, quantityMax, cost
 
     // Mouse-over tooltip
     const tooltipContent = useMemo(() => {
-        if (locked) {
+        if (locked && !overrideShowTooltip) {
             return (<Text text={"???"} type="normal" colour="white" />);
         }
 
@@ -96,15 +95,15 @@ const ItemComponent: React.FC<ItemProps> = ({ index, quantity, quantityMax, cost
                 {/* Item Bonuses */}
                 {itemData.bonus && (
                     Object.entries(itemData.bonus).map(([skill, bonuses]) => (
-                        <div key={skill} style={{ marginTop: "2px" }}>
+                        <div key={skill} style={{ marginTop: "6px" }}>
                             {/* Skill Name */}
-                            <Text text={skill} type="normal" colour="white" />
+                            <Text text={skill} type="bold" colour="white" />
 
                             {/* Bonus Details */}
                             {Object.entries(bonuses).map(([stat, bonus]) => (
                                 <div key={stat} style={{ display: "flex" }}>
                                     {/* Bonus Type (Stat) */}
-                                    <Text text={`-${stat}: `} type="normal" colour="white" />
+                                    <Text text={`• ${stat}: `} type="normal" colour="white" />
 
                                     {/* Bonus Value */}
                                     <Text
@@ -132,7 +131,7 @@ const ItemComponent: React.FC<ItemProps> = ({ index, quantity, quantityMax, cost
                     height: "44px",
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center"
+                    alignItems: "center",
                 }}
             >
                 {/* Quantity text */}

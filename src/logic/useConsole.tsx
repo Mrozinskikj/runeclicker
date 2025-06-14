@@ -12,13 +12,13 @@ interface ConsoleStore {
 }
 
 // Format time as HH:MM
-const formatTime = (isoString: string): string => isoString.split("T")[1].slice(0, 5);
+const getTime = (): string => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
 
 export const useConsole = create<ConsoleStore>((set) => {
     // Initial welcome message
     const initialMessages: Message[] = [
         {
-            time: formatTime(new Date().toISOString()),
+            time: getTime(),
             content: "Welcome to Runeclicker.",
             quantity: 1,
         }
@@ -46,7 +46,7 @@ export const useConsole = create<ConsoleStore>((set) => {
                 const newMessages = [
                     ...state.messages,
                     {
-                        time: formatTime(new Date().toISOString()),
+                        time: getTime(),
                         content,
                         quantity: 1
                     }

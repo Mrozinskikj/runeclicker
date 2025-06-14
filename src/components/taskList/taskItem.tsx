@@ -81,6 +81,7 @@ export const TaskItem: React.FC<{
     const updatedItems = useItems((state) => state.updatedItems);
     const getItemProbability = useItems((state) => state.getItemProbability);
     const gameData = useData((state) => state.gameData);
+    const calculateMaxTasks = useTask((state) => state.calculateMaxTasks);
 
     const taskData = getTaskData(skill, task);
 
@@ -95,7 +96,16 @@ export const TaskItem: React.FC<{
     switch (skill) {
         case "Woodcutting":
         case "Mining":
-            mainIcon = <TaskIcon source={`tasks/${skill}/${task}.png`} />;
+            mainIcon = <TaskIcon icon={
+                <img
+                    src={`${IMAGE}${`tasks/${skill}/${task}.png`}`}
+                    style={{
+                        pointerEvents: "none",
+                        objectFit: "contain",
+                        display: "block",
+                    }}
+                />
+            } />
             rightIcons = (
                 <div style={{ display: "flex", gap: "8px" }}>
                     {taskData.output?.map((item, index) => (
@@ -116,7 +126,9 @@ export const TaskItem: React.FC<{
             break;
 
         case "Processing":
-            mainIcon = <TaskIcon source={`items/${taskData.output?.[0]?.id}.png`} chance={taskData.output?.[0].probability} />
+            mainIcon = <TaskIcon icon={
+                <Item index={taskData.output?.[0].id!} quantity={calculateMaxTasks("Processing", task)} overrideShowTooltip={true} />
+            } chance={taskData.output?.[0].probability} />
             rightIcons = (
                 <div style={{ display: "flex", gap: "8px" }}>
                     {taskData.input?.map((item, index) => (
@@ -138,7 +150,9 @@ export const TaskItem: React.FC<{
                 return null;
             }
             subtitle = `value: ${taskData.output && taskData.output[0].quantity.min.toLocaleString()} (base: ${taskData.input && gameData.items[taskData.input[0].id].value.toLocaleString()})`;
-            mainIcon = <TaskIcon source={`items/${task}.png`} />
+            mainIcon = <TaskIcon icon={
+                <Item index={task} quantity={calculateMaxTasks("Merchanting", task)} />
+            } chance={taskData.output?.[0].probability} />
             rightIcons = (
                 <div style={{ display: "flex", gap: "8px" }}>
                     {taskData.output?.map((item, index) => (
@@ -159,7 +173,16 @@ export const TaskItem: React.FC<{
             break;
 
         case "Stamina":
-            mainIcon = <TaskIcon source={`tasks/Stamina/${task}.png`} />
+            mainIcon = <TaskIcon icon={
+                <img
+                    src={`${IMAGE}tasks/Stamina/${task}.png`}
+                    style={{
+                        pointerEvents: "none",
+                        objectFit: "contain",
+                        display: "block",
+                    }}
+                />
+            } />
             rightIcons = (
                 <div style={{ display: "flex", gap: "8px" }}>
                     {taskData.input?.map((item, index) => (

@@ -51,6 +51,7 @@ export const useTask = create<TaskStore>((set, get) => {
         // Exit if already running or task unavailable
         if (actionTimer) return;
         const { player } = usePlayer.getState();
+        if (player.task == null) return;
         if (get().calculateMaxTasks(player.skill, player.task!) <= 0) return;
         if (get().energy <= 0) return;
 

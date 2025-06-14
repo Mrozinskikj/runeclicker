@@ -37,7 +37,7 @@ export const Text: React.FC<TextProps> = ({ text, type = "bold", colour = "black
     yellow: 5,
   };
 
-  const charMap = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890.,:+-/?[]()%";
+  const charMap = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890.,:+-/?[]()%•";
 
   useEffect(() => {
     const canvas = canvasRef.current;

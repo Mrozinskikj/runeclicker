@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 import { useScale } from "../logic/useScale";
 
 interface TooltipProps {
@@ -13,37 +13,62 @@ interface TooltipProps {
 export const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
     const [visible, setVisible] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [ready, setReady] = useState(false);
+    const tooltipRef = useRef<HTMLDivElement>(null);
     const { scale, offsetX } = useScale();
 
     // Set tooltip position based on mouse position and game screen scale
-    const handleMouseMove = (event: React.MouseEvent) => {
+    const updatePosition = (event: React.MouseEvent) => {
+        if (!tooltipRef.current) return;
+
+        // 1) Measure actual width in screen px
+        const pxWidth = tooltipRef.current.getBoundingClientRect().width;
+        // 2) Convert to game‐units
+        const unitWidth = pxWidth / scale;
+
+        // Clamp against the real viewport in game‐units
+        const maxX = (window.innerWidth / scale) - 8;
+        const rawX = (event.clientX - offsetX + 20) / scale;
+        const clampedX = Math.min(rawX, maxX - unitWidth);
+
         setPosition({
-            x: (event.clientX - offsetX + 20) / scale,
-            y: (event.clientY + 10) / scale
+            x: clampedX,
+            y: (event.clientY + 10) / scale,
         });
+        setReady(true);
     };
 
-    const handleMouseEnter = (event: React.MouseEvent) => {
-        setVisible(true)
-        setPosition({
-            x: (event.clientX - offsetX + 20) / scale,
-            y: (event.clientY + 10) / scale
-        });
+    const handleMouseEnter = (e: React.MouseEvent) => {
+        setVisible(true);
+        setReady(false);
+        updatePosition(e);
     };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (visible) updatePosition(e);
+    };
+
+    const handleMouseLeave = () => {
+        setVisible(false);
+        setReady(false);
+    };
+
 
     return (
         content ?
             <div
                 style={{ position: "relative", display: "block" }}
                 onMouseEnter={handleMouseEnter}
-                onMouseLeave={() => setVisible(false)}
-                onMouseMove={handleMouseMove} // Track mouse movement
+                onMouseLeave={handleMouseLeave}
+                onMouseMove={handleMouseMove}
             >
                 {children}
 
                 {visible && (
                     <div
+                        ref={tooltipRef}
                         style={{
+                            visibility: ready ? "visible" : "hidden",
                             position: "fixed",
                             top: `${position.y}px`,
                             left: `${position.x}px`,

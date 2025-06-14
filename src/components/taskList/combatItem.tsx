@@ -51,7 +51,16 @@ const TitleBar: React.FC<{
                 cursor: !active ? "pointer" : "default"
             }}>
             {/* Icon */}
-            <TaskIcon source={`tasks/Combat/${zone}.png`} />
+            <TaskIcon icon={
+                <img
+                    src={`${IMAGE}${`tasks/Combat/${zone}.png`}`}
+                    style={{
+                        pointerEvents: "none",
+                        objectFit: "contain",
+                        display: "block",
+                    }}
+                />
+            } />
 
             {/* Title + Subtitle */}
             <div style={{ display: "flex", flexDirection: "column", flexGrow: 1, gap: "2px" }}>
@@ -180,16 +189,7 @@ const EnemyRow: React.FC<{
                 <Text text={"???"} type="normal" />
             ) : (
                 <>
-                    <div
-                        style={{
-                            backgroundImage: `url(${IMAGE}slots/background.png)`,
-                            width: "44px",
-                            height: "44px",
-                            marginRight: "4px"
-                        }}
-                    >
-                        <Enemy index={enemyId} quantity={1} />
-                    </div>
+                    <TaskIcon icon={<Enemy index={enemyId} quantity={1} />} />
                     <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", gap: 2 }}>
                         <Text text={enemy.name} type="normal" maxWidth={170} />
                         {depthStats}

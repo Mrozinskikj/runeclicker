@@ -86,20 +86,30 @@ const SkillBannerComponent: React.FC<SkillBannerProps> = ({ skill }) => {
                 </div>
 
                 {/* Right: Stats */}
-                <div style={{ display: "flex", gap: "16px", marginRight: "6px" }}>
-                    {/* Split stats into pairs of two */}
-                    {Object.entries(stats).reduce((acc, [statName, value], index) => {
-                        if (index % 2 === 0) acc.push([]);
-                        acc[acc.length - 1].push([statName, value]);
-                        return acc;
-                    }, [] as [string, number][][]).map((column, columnIndex) => (
-                        <div key={columnIndex} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                            {column.map(([statName, value]) => (
-                                <div key={statName} style={{ display: "flex" }}>
-                                    <Text text={`${statName}: `} type="normal" />
-                                    <Text text={statName == "energy" ? formatSeconds(value) : value.toLocaleString()} type="bold" />
-                                </div>
-                            ))}
+                <div style={{ display: "flex", gap: "24px", marginRight: "6px" }}>
+                    {Object.entries(stats).map(([statName, value]) => (
+                        <div
+                            key={statName}
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-end",
+                            }}
+                        >
+                            <Text text={statName} type="normal" />
+                            <Text
+                                text={
+                                    statName === "energy"
+                                        ? formatSeconds(value)
+                                        : (() => {
+                                            const rounded = Math.round(value * 10) / 10;
+                                            return Number.isInteger(rounded)
+                                                ? rounded.toLocaleString()
+                                                : rounded.toLocaleString(undefined, { minimumFractionDigits: 1 });
+                                        })()
+                                }
+                                type="bold"
+                            />
                         </div>
                     ))}
                 </div>

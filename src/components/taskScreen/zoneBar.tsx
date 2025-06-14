@@ -35,8 +35,8 @@ export const ZoneBar: React.FC<ZoneBarProps> = ({ step, updated, record }) => {
         </div>
     );
 
-    const maxChunks = 423;
-    const chunkCount = Math.max(0, Math.min(step, maxChunks));
+    const maxChunks = 400;
+    const overflow = step > maxChunks;
 
     return (
         <Tooltip content={tooltipContent}>
@@ -47,43 +47,83 @@ export const ZoneBar: React.FC<ZoneBarProps> = ({ step, updated, record }) => {
                 display: "flex",
                 border: "1px solid #000",
             }}>
-                {/* Bar Chunks + Dividers */}
-                {Array.from({ length: chunkCount }).flatMap((_, i, arr) => {
-                    const depth = calculateDepth(i + 1);
-                    const isLast = i === arr.length - 1;
-                    const rest = isRest(i + 1);
 
-                    // Base chunk style
-                    const chunkStyle: React.CSSProperties = {
-                        flex: 1,
-                        height: "100%",
-                        backgroundImage: !rest
-                            ? `url(${IMAGE}progress/depth${depth}.png)`
-                            : `url(${IMAGE}progress/empty.png)`,
-                        boxSizing: "border-box",
-                        ...(isLast && record && {
-                            border: "1px solid #FFFFFF",
-                        }),
-                    };
+                {!overflow ? (
+                    // Bar Chunks + Dividers
+                    Array.from({ length: step }).flatMap((_, i, arr) => {
+                        const depth = calculateDepth(i + 1);
+                        const isLast = i === arr.length - 1;
+                        const rest = isRest(i + 1);
 
-                    return [
-                        <div key={`chunk-${i}`} style={chunkStyle} />,
-                        !isLast && (
-                            <div
-                                key={`divider-${i}`}
-                                style={{
-                                    width: "1px",
-                                    height: "100%",
-                                    backgroundImage: !rest
-                                        ? `url(${IMAGE}progress/depthdiv${depth}.png)`
-                                        : `url(${IMAGE}progress/empty.png)`,
-                                    backgroundRepeat: "no-repeat",
-                                    backgroundSize: "cover",
-                                }}
-                            />
-                        ),
-                    ];
-                })}
+                        // Base chunk style
+                        const chunkStyle: React.CSSProperties = {
+                            flex: 1,
+                            height: "100%",
+                            backgroundImage: !rest
+                                ? `url(${IMAGE}progress/depth${depth}.png)`
+                                : `url(${IMAGE}progress/empty.png)`,
+                            boxSizing: "border-box",
+                            ...(isLast && record && {
+                                border: "1px solid #FFFFFF",
+                            }),
+                        };
+
+                        return [
+                            <div key={`chunk-${i}`} style={chunkStyle} />,
+                            !isLast && (
+                                <div
+                                    key={`divider-${i}`}
+                                    style={{
+                                        width: "1px",
+                                        height: "100%",
+                                        backgroundImage: !rest
+                                            ? `url(${IMAGE}progress/depthdiv${depth}.png)`
+                                            : `url(${IMAGE}progress/empty.png)`,
+                                        backgroundRepeat: "no-repeat",
+                                        backgroundSize: "cover",
+                                    }}
+                                />
+                            ),
+                        ];
+                    })
+                ) : (
+                    // One bar per depth
+                    (() => {
+                        const segWeights = [9, 9, 9, Math.max(0, step - 27)];
+
+                        return segWeights.flatMap((weight, depth) => {
+                            // bar
+                            const bar = (
+                                <div
+                                    key={`bar-${depth}`}
+                                    style={{
+                                        flexGrow: weight,
+                                        flexShrink: 0,
+                                        height: '100%',
+                                        backgroundImage: `url(${IMAGE}progress/depth${depth}.png)`,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundSize: '100% 100%',
+                                    }}
+                                />
+                            );
+
+                            // separator (except after last)
+                            const sep =
+                                depth < segWeights.length - 1 ? (
+                                    <div
+                                        key={`sep-${depth}`}
+                                        style={{
+                                            width: '1px',
+                                            height: '100%',
+                                            backgroundImage: `url(${IMAGE}progress/empty.png)`,
+                                        }}
+                                    />
+                                ) : null;
+
+                            return sep ? [bar, sep] : [bar];
+                        });
+                    })()
+                )}
 
                 {/* Progress Text */}
                 <div

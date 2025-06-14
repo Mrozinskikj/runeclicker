@@ -66,9 +66,9 @@ export const useStats = create<StatsStore>((set) => ({
     calculateStats: (skill: string, lvlOverride?: number): SkillStats => {
         const { player } = usePlayer.getState();
         const { gameData, statData } = useData.getState();
-    
-        const lvl = lvlOverride !== undefined 
-            ? lvlOverride 
+
+        const lvl = lvlOverride !== undefined
+            ? lvlOverride
             : useStats.getState().calculateLvl(player.xp[skill]);
 
         let stats: SkillStats;
@@ -141,18 +141,18 @@ export const useStats = create<StatsStore>((set) => ({
      */
     lvlUp: (skill: string, newLvl: number) => {
         const { addMessage } = useConsole.getState();
-    
+
         setTimeout(() => {
             const oldStats = useStats.getState().calculateStats(skill, newLvl - 1);
             const newStats = useStats.getState().calculateStats(skill, newLvl);
-    
+
             const bonuses: string[] = [];
-    
+
             Object.keys(newStats).forEach((key) => {
                 const statKey = key as keyof SkillStats;
                 const oldValue = oldStats[statKey] ?? 0;
                 const newValue = newStats[statKey] ?? 0;
-    
+
                 if (newValue > oldValue) {
                     const diff = newValue - oldValue;
                     bonuses.push(`+${diff.toFixed(2)} ${statKey}`);
@@ -166,7 +166,7 @@ export const useStats = create<StatsStore>((set) => ({
             }
             addMessage(message);
 
-    
+
             set({ updatedXpBar: true });
             setTimeout(() => set({ updatedXpBar: false }), 150);
         }, 0);

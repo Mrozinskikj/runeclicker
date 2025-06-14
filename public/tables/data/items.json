@@ -729,7 +729,7 @@
         "bonus": {
             "Combat": {
                 "defence": {
-                    "percent": 5
+                    "percent": 10
                 }
             }
         }

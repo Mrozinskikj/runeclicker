@@ -1,23 +1,15 @@
-import React from "react";
+import React, { ReactNode } from 'react';
 import { IMAGE } from "../../config";
-import { Quantity } from "../quantity";
 import { Text } from "../text";
 
-interface TaskIconProps {
-    source: string;
-    quantity?: number;
+/**
+ * Task Icon Component
+ * - Displays an image for a given task.
+ */
+export const TaskIcon: React.FC<{
+    icon: ReactNode;
     chance?: number;
-}
-
-/**
- * Task Icon Component
- * - Displays an image for a given task.
- */
-/**
- * Task Icon Component
- * - Displays an image for a given task.
- */
-export const TaskIcon: React.FC<TaskIconProps> = ({ source, quantity = 1, chance = 1 }) => {
+}> = ({ icon, chance = 1 }) => {
     return (
         <div
             style={{
@@ -31,24 +23,14 @@ export const TaskIcon: React.FC<TaskIconProps> = ({ source, quantity = 1, chance
                 alignItems: "center",
             }}
         >
-            {/* Quantity text */}
-            <Quantity min={quantity} />
-
             {/* Image and overlay */}
-            {source && (
-                <div style={{ position: "relative", top: 2 }}>
-                    <img
-                        src={`${IMAGE}${source}`}
-                        style={{
-                            pointerEvents: "none",
-                            objectFit: "contain"
-                        }}
-                    />
+            {icon && (
+                <div style={{ position: "relative" }}>
+                    {icon}
                     {chance !== 1 && (
                         <div
                             style={{
                                 position: "absolute",
-                                bottom: -2,
                                 left: "50%",
                                 transform: "translateX(-50%)",
                             }}
