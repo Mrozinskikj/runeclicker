@@ -1,0 +1,132 @@
+{
+    "plotLvls": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40
+    ],
+    "cropData": {
+        "102": {
+            "name": "Sageleaf",
+            "actions": 4,
+            "xp": 6,
+            "growthTime": 60,
+            "output": [
+                {
+                    "id": 107,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 102,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 2
+                }
+            ]
+        },
+        "103": {
+            "name": "Nightfern",
+            "actions": 4,
+            "xp": 18,
+            "growthTime": 240,
+            "output": [
+                {
+                    "id": 108,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 103,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 3
+                }
+            ]
+        },
+        "104": {
+            "name": "Felroot",
+            "actions": 4,
+            "xp": 54,
+            "growthTime": 960,
+            "output": [
+                {
+                    "id": 109,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 104,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 4
+                }
+            ]
+        },
+        "105": {
+            "name": "Noxbloom",
+            "actions": 4,
+            "xp": 162,
+            "growthTime": 3840,
+            "output": [
+                {
+                    "id": 110,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 105,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 5
+                }
+            ]
+        },
+        "106": {
+            "name": "Soulfruit",
+            "actions": 4,
+            "xp": 486,
+            "growthTime": 15360,
+            "output": [
+                {
+                    "id": 111,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 1
+                },
+                {
+                    "id": 106,
+                    "quantity": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "probability": 6
+                }
+            ]
+        }
+    }
+}

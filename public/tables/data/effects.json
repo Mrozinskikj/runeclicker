@@ -1,0 +1,206 @@
+[
+    {
+        "name": "Lesser Defence",
+        "duration": 100,
+        "bonus": {
+            "defence": {
+                "percent": 15
+            }
+        },
+        "override": [
+            1,
+            2
+        ]
+    },
+    {
+        "name": "Defence",
+        "duration": 400,
+        "bonus": {
+            "defence": {
+                "percent": 30
+            }
+        },
+        "override": [
+            0,
+            2
+        ]
+    },
+    {
+        "name": "Greater Defence",
+        "duration": 1600,
+        "bonus": {
+            "defence": {
+                "percent": 50
+            }
+        },
+        "override": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Lesser Accuracy",
+        "duration": 100,
+        "bonus": {
+            "accuracy": {
+                "percent": 15
+            }
+        },
+        "override": [
+            4,
+            5
+        ]
+    },
+    {
+        "name": "Accuracy",
+        "duration": 400,
+        "bonus": {
+            "accuracy": {
+                "percent": 30
+            }
+        },
+        "override": [
+            3,
+            5
+        ]
+    },
+    {
+        "name": "Greater Accuracy",
+        "duration": 1600,
+        "bonus": {
+            "accuracy": {
+                "percent": 50
+            }
+        },
+        "override": [
+            3,
+            4
+        ]
+    },
+    {
+        "name": "Lesser Strength",
+        "duration": 100,
+        "bonus": {
+            "strength": {
+                "percent": 15
+            }
+        },
+        "override": [
+            7,
+            8
+        ]
+    },
+    {
+        "name": "Strength",
+        "duration": 400,
+        "bonus": {
+            "strength": {
+                "percent": 30
+            }
+        },
+        "override": [
+            6,
+            8
+        ]
+    },
+    {
+        "name": "Greater Strength",
+        "duration": 1600,
+        "bonus": {
+            "strength": {
+                "percent": 50
+            }
+        },
+        "override": [
+            6,
+            7
+        ]
+    },
+    {
+        "name": "Lesser Weapon Poison",
+        "duration": 100,
+        "sideEffect": 12,
+        "override": [
+            10,
+            11
+        ]
+    },
+    {
+        "name": "Weapon Poison",
+        "duration": 400,
+        "sideEffect": 13,
+        "override": [
+            9,
+            11
+        ]
+    },
+    {
+        "name": "Greater Weapon Poison",
+        "duration": 1600,
+        "sideEffect": 14,
+        "override": [
+            9,
+            10
+        ]
+    },
+    {
+        "name": "Lesser Poison",
+        "duration": 8,
+        "every": 2,
+        "heal": -1
+    },
+    {
+        "name": "Poison",
+        "duration": 16,
+        "every": 2,
+        "heal": -2
+    },
+    {
+        "name": "Greater Poison",
+        "duration": 32,
+        "every": 2,
+        "heal": -3
+    },
+    {
+        "name": "Lesser Regeneration",
+        "duration": 100,
+        "every": 4,
+        "heal": 1,
+        "override": [
+            16,
+            17
+        ]
+    },
+    {
+        "name": "Regeneration",
+        "duration": 400,
+        "every": 3,
+        "heal": 1,
+        "override": [
+            15,
+            17
+        ]
+    },
+    {
+        "name": "Greater Regeneration",
+        "duration": 1600,
+        "every": 2,
+        "heal": 1,
+        "override": [
+            15,
+            16
+        ]
+    },
+    {
+        "name": "Danger",
+        "duration": 1
+    },
+    {
+        "name": "Damage Absorption",
+        "reduction": 1
+    },
+    {
+        "name": "Greater Damage Absorption",
+        "reduction": 3
+    }
+]
