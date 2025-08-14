@@ -1,5 +1,7 @@
 {
   "name": "valrune",
+  "author": "Krzysztof Mrozinski",
+  "description": "Valrune - Incremental RPG",
   "private": true,
   "version": "2.2.0",
   "type": "module",
