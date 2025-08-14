@@ -11,7 +11,6 @@ import { SkillList } from './components/skillList';
 import { MenuButtons } from './components/menuButtons';
 import { Console } from './components/console';
 import { ScaleContext } from './logic/useScale';
-import { Toolbar } from './components/toolbar';
 import { useFarming } from './logic/useFarming';
 
 const BASE_WIDTH = 900;
@@ -82,6 +81,10 @@ export const Game: React.FC = () => {
             *:not(.root)::-webkit-scrollbar-thumb:hover {
                 -webkit-border-image: url('${IMAGE}scrollbar/thumbhover.png') 2 5 2 5 stretch;
                 border-image: url('${IMAGE}scrollbar/thumbhover.png') 2 5 2 5 stretch;
+            }
+
+            html, body, .scrollable {
+              scrollbar-color: #bca795 #9e817b;     /* thumb color | track color */
             }
         `;
     document.head.appendChild(styleElement);
@@ -161,7 +164,6 @@ export const Game: React.FC = () => {
             </div>
           </div>
         </div>
-        {!__IS_ELECTRON__ && <Toolbar />}
       </div>
     </ScaleContext.Provider>
   );

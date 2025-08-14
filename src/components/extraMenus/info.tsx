@@ -16,6 +16,15 @@ export const Info: React.FC<InfoProps> = ({ }) => {
       <Text text={"Changelog:"} type="bold" />
 
       <div style={{ marginBottom: "8px" }}>
+        <Text text={"v2.1: Farming and High-level Combat (2025-08-12)"} type="bold" />
+        <Text text={"- Added farming skill"} type="normal" />
+        <Text text={"- Added potions and combat effects"} type="normal" />
+        <Text text={"- Added new content for combat up to lvl 40"} maxWidth={465} type="normal" />
+        <Text text={"- Added new content for mining and woodcutting up to lvl 50"} type="normal" />
+        <Text text={"- 84 new items"} type="normal" />
+      </div>
+
+      <div style={{ marginBottom: "8px" }}>
         <Text text={"v2.0: Rebuild (2025-06-02)"} type="bold" />
         <Text text={"- Game engine rebuilt from scratch"} type="normal" />
         <Text text={"- Complete graphical overhaul"} type="normal" />

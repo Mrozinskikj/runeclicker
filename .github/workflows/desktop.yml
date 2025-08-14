@@ -1,0 +1,32 @@
+name: Desktop (Electron) builds
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  make:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+        node: [20]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+      - run: npm ci
+
+      - run: npm run make
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: valrune-${{ runner.os }}-${{ github.ref_name || github.run_number }}
+          path: |
+            out/make/**
+          if-no-files-found: error

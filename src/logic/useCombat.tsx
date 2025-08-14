@@ -89,11 +89,11 @@ export const useCombat = create<CombatStore>((set, get) => {
             return;
         };
 
-        useConsole.getState().addMessage(`You drink the potion.`);
-        useItems.getState().removeItems([{ id: potion.id, quantity: 1 }]);
-
         const itemData = useData.getState().gameData.items[potion.id];
         if (itemData.effects == undefined) return;
+
+        useConsole.getState().addMessage(`You use the ${itemData.name}.`);
+        useItems.getState().removeItems([{ id: potion.id, quantity: 1 }]);
 
         let newEffects = get().effects;
         for (const effectId of itemData.effects) {

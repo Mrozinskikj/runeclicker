@@ -223,6 +223,10 @@ export const useFarming = create<FarmingStore>((set, get) => {
             newTimes[plot] = calculatePlotTime(plot);
             return { plotTimes: newTimes, seed: null, fertiliser: null };
         });
+
+        const { addMessage } = useConsole.getState();
+        const items = useData.getState().gameData.items;
+        addMessage(`You plant the ${items[seed?.id!].name}${fertiliser ? ` with ${items[fertiliser?.id!].name}` : ""}.`);
     };
 
     const tick = () => {
