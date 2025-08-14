@@ -45,5 +45,41 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "platforms": [
+            "win32"
+          ],
+          "config": {
+            "name": "valrune"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "platforms": [
+            "linux"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "platforms": [
+            "linux"
+          ]
+        }
+      ]
+    }
   }
 }
