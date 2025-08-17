@@ -23,7 +23,6 @@ export const Category: React.FC<{
             style={{
                 cursor: "pointer",
                 height: 48,
-                width: 490,
                 backgroundImage: `url(${IMAGE}category/top${imgOpen}${imgState}.png)`,
                 backgroundSize: "cover",
                 display: "flex",
@@ -79,7 +78,6 @@ export const Category: React.FC<{
                 style={{
                     cursor: "pointer",
                     height: 15,
-                    width: 490,
                     backgroundImage: `url(${IMAGE}category/bottom${imgState}.png)`,
                     backgroundSize: "cover",
                     display: "flex",
@@ -113,7 +111,6 @@ export const Category: React.FC<{
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "stretch",
-                        width: 490
                     }}
                 >
                     {sideBar}

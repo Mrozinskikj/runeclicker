@@ -82,10 +82,6 @@ export const Game: React.FC = () => {
                 -webkit-border-image: url('${IMAGE}scrollbar/thumbhover.png') 2 5 2 5 stretch;
                 border-image: url('${IMAGE}scrollbar/thumbhover.png') 2 5 2 5 stretch;
             }
-
-            html, body, .scrollable {
-              scrollbar-color: #bca795 #9e817b;     /* thumb color | track color */
-            }
         `;
     document.head.appendChild(styleElement);
 
