@@ -19,7 +19,7 @@ export const useConsole = create<ConsoleStore>((set) => {
     const initialMessages: Message[] = [
         {
             time: getTime(),
-            content: "Welcome to Valrune.",
+            content: "Welcome to Runeclicker.",
             quantity: 1,
         }
     ];

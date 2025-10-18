@@ -391,16 +391,38 @@ function isEquipmentEqual(
     return true;
 }
 
-setTimeout(() => {
-    const prevEquip = { ...usePlayer.getState().player.inventory.equipment };
-    usePlayer.subscribe((state) => {
-        const currentEquip = state.player.inventory.equipment;
+// setTimeout(() => {
+//     const prevEquip = { ...usePlayer.getState().player.inventory.equipment };
+//     usePlayer.subscribe((state) => {
+//         const currentEquip = state.player.inventory.equipment;
+//         const pause = useTask.getState().pause;
+
+//         if (!isEquipmentEqual(prevEquip, currentEquip) && !pause) {
+//             Object.assign(prevEquip, currentEquip);
+//             useTask.getState().stopActionTimer();
+//             useTask.getState().startActionTimer();
+//         }
+//     });
+// }, 0);
+
+export function installTaskEquipmentWatcher() {
+    // Guard just in case
+    if (typeof usePlayer?.getState !== 'function' || typeof useTask?.getState !== 'function') return;
+
+    let prevEquip = { ...usePlayer.getState().player.inventory.equipment };
+
+    // Use selector form so we only react to equipment changes
+    const unsubscribe = usePlayer.subscribe((state) => {
+        const equip = state.player.inventory.equipment;
         const pause = useTask.getState().pause;
 
-        if (!isEquipmentEqual(prevEquip, currentEquip) && !pause) {
-            Object.assign(prevEquip, currentEquip);
-            useTask.getState().stopActionTimer();
-            useTask.getState().startActionTimer();
+        if (!isEquipmentEqual(prevEquip, equip) && !pause) {
+            prevEquip = { ...equip };
+            const t = useTask.getState();
+            t.stopActionTimer();
+            t.startActionTimer();
         }
     });
-}, 100);
+
+    return unsubscribe;
+}

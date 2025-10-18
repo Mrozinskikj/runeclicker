@@ -9,7 +9,7 @@ export const Info: React.FC<InfoProps> = ({ }) => {
   return (
     <div style={{ maxHeight: "327px", overflowY: "scroll", padding: "8px" }}>
       <div style={{ marginBottom: "8px" }}>
-        <Text text={"Valrune v2.1"} type="bold" />
+        <Text text={"Runeclicker v2.1"} type="bold" />
         <Text text={"Code and graphics by Krzysztof Mrozinski"} type="normal" />
       </div>
 

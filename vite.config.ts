@@ -3,8 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',
+  build: { minify: false },
   plugins: [react()],
-  define: {
-    __IS_ELECTRON__: false,
-  }
 })

@@ -40,7 +40,7 @@ export const Game: React.FC = () => {
     let newScale = 1;
     if (settings.resolution === 0) {
       const scaleX = window.innerWidth / BASE_WIDTH;
-      const toolbarHeight = __IS_ELECTRON__ ? 0 : 24;
+      const toolbarHeight = 0;
       const availableHeight = window.innerHeight - toolbarHeight;
       const scaleY = availableHeight / BASE_HEIGHT;
       newScale = Math.min(scaleX, scaleY);
@@ -101,7 +101,7 @@ export const Game: React.FC = () => {
         className="root"
         style={{
           width: '100vw',
-          height: __IS_ELECTRON__ ? "100vh" : 'calc(100vh - 24px)',
+          height: 'calc(100vh)',
           overflow: settings.resolution === 0 ? 'hidden' : 'auto',
           display: 'flex',
           justifyContent: 'center',

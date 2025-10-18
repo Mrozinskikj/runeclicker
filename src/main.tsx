@@ -1,3 +1,4 @@
+import 'hacktimer';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { Game } from './game.tsx';
@@ -7,6 +8,7 @@ import { initPlayer } from './logic/usePlayer.tsx';
 import { initSettings } from './logic/useSettings.tsx';
 import { dataLoader } from './logic/dataLoader.tsx';
 import { loadGame, loadSettings } from './logic/saveManager.tsx';
+import { installTaskEquipmentWatcher } from './logic/useTask';
 import { AppErrorBoundary } from './components/appErrorBoundary';
 import React from 'react';
 
@@ -26,6 +28,7 @@ window.addEventListener('unhandledrejection', (event) => {
 
 function Bootstrap() {
   const [ready, setReady] = React.useState(false);
+  const uninstallRef = React.useRef<null | (() => void)>(null);
 
   React.useEffect(() => {
     (async () => {
@@ -37,6 +40,9 @@ function Bootstrap() {
         initData(statData, gameData);
         initPlayer(save);
         initSettings(settings);
+
+        uninstallRef.current?.(); // precaution if effect re-runs in dev
+        uninstallRef.current = installTaskEquipmentWatcher() || null;
 
         setReady(true);
       } catch (error) {
