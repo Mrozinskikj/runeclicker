@@ -138,7 +138,7 @@
                 "quantity": 2
             }
         ],
-        "lvl": 1,
+        "lvl": 2,
         "actions": 4,
         "xp": 2,
         "category": "Materials"
@@ -160,7 +160,7 @@
                 "quantity": 2
             }
         ],
-        "lvl": 2,
+        "lvl": 3,
         "actions": 16,
         "xp": 5,
         "category": "Wearables"
@@ -182,7 +182,7 @@
                 "quantity": 4
             }
         ],
-        "lvl": 2,
+        "lvl": 3,
         "actions": 16,
         "xp": 10,
         "category": "Wearables"
@@ -204,7 +204,7 @@
                 "quantity": 4
             }
         ],
-        "lvl": 2,
+        "lvl": 3,
         "actions": 16,
         "xp": 10,
         "category": "Wearables"
@@ -330,7 +330,7 @@
                 "quantity": 8
             }
         ],
-        "lvl": 3,
+        "lvl": 4,
         "actions": 64,
         "xp": 20,
         "category": "Wearables"
@@ -352,7 +352,7 @@
                 "quantity": 2
             }
         ],
-        "lvl": 6,
+        "lvl": 7,
         "actions": 8,
         "xp": 4,
         "category": "Materials"
@@ -378,7 +378,7 @@
                 "quantity": 4
             }
         ],
-        "lvl": 7,
+        "lvl": 8,
         "actions": 32,
         "xp": 10,
         "category": "Wearables"
@@ -404,7 +404,7 @@
                 "quantity": 8
             }
         ],
-        "lvl": 7,
+        "lvl": 8,
         "actions": 32,
         "xp": 20,
         "category": "Wearables"
@@ -430,7 +430,7 @@
                 "quantity": 8
             }
         ],
-        "lvl": 7,
+        "lvl": 8,
         "actions": 32,
         "xp": 20,
         "category": "Wearables"
@@ -680,7 +680,7 @@
                 "quantity": 16
             }
         ],
-        "lvl": 8,
+        "lvl": 9,
         "actions": 128,
         "xp": 40,
         "category": "Wearables"

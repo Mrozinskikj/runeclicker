@@ -11,7 +11,7 @@ export function createInitialSave(gameData: GameData): Player {
         task: null,
         xp: { Woodcutting: 0, Mining: 0, Processing: 0, Farming: 0, Merchanting: 0, Stamina: 0, Combat: 0 },
         inventory: {
-            items: Array(15).fill(null),
+            items: Array(20).fill(null),
             equipment: {
                 hand: null,
                 head: null,

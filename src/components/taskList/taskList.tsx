@@ -71,7 +71,7 @@ const TaskListComponent: React.FC<{ skill: string }> = ({ skill }) => {
     const plotLvls = useData((state) => state.gameData.farming.plotLvls);
     const unlockedTasks = useStats((state) => state.unlockedTasks);
 
-    const group = true;
+    const group = false;
 
     type TaskGroups = Record<string, number[]>;
     // Helper function to get the indexes for the task list
