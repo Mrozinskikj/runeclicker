@@ -163,7 +163,7 @@
         "lvl": 3,
         "actions": 16,
         "xp": 5,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -185,7 +185,7 @@
         "lvl": 3,
         "actions": 16,
         "xp": 10,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -207,7 +207,7 @@
         "lvl": 3,
         "actions": 16,
         "xp": 10,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -333,7 +333,7 @@
         "lvl": 4,
         "actions": 64,
         "xp": 20,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -381,7 +381,7 @@
         "lvl": 8,
         "actions": 32,
         "xp": 10,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -407,7 +407,7 @@
         "lvl": 8,
         "actions": 32,
         "xp": 20,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -433,7 +433,7 @@
         "lvl": 8,
         "actions": 32,
         "xp": 20,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -597,7 +597,7 @@
         "lvl": 12,
         "actions": 64,
         "xp": 20,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -627,7 +627,7 @@
         "lvl": 12,
         "actions": 64,
         "xp": 40,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -657,7 +657,7 @@
         "lvl": 12,
         "actions": 64,
         "xp": 40,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -683,7 +683,7 @@
         "lvl": 9,
         "actions": 128,
         "xp": 40,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -735,7 +735,7 @@
         "lvl": 13,
         "actions": 128,
         "xp": 100,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -765,7 +765,7 @@
         "lvl": 15,
         "actions": 512,
         "xp": 900,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -809,7 +809,7 @@
         "lvl": 15,
         "actions": 64,
         "xp": 40,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -835,7 +835,7 @@
         "lvl": 16,
         "actions": 256,
         "xp": 500,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -861,7 +861,7 @@
         "lvl": 16,
         "actions": 256,
         "xp": 500,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1199,7 +1199,7 @@
         "lvl": 22,
         "actions": 128,
         "xp": 80,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1229,7 +1229,7 @@
         "lvl": 22,
         "actions": 128,
         "xp": 160,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1259,7 +1259,7 @@
         "lvl": 22,
         "actions": 128,
         "xp": 160,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1285,7 +1285,7 @@
         "lvl": 20,
         "actions": 256,
         "xp": 160,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1311,7 +1311,7 @@
         "lvl": 30,
         "actions": 512,
         "xp": 640,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1337,7 +1337,7 @@
         "lvl": 40,
         "actions": 1024,
         "xp": 2560,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1363,7 +1363,7 @@
         "lvl": 50,
         "actions": 2048,
         "xp": 10240,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1389,7 +1389,7 @@
         "lvl": 23,
         "actions": 256,
         "xp": 300,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1445,7 +1445,7 @@
         "lvl": 33,
         "actions": 640,
         "xp": 4000,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1475,7 +1475,7 @@
         "lvl": 33,
         "actions": 640,
         "xp": 4000,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1505,7 +1505,7 @@
         "lvl": 39,
         "actions": 768,
         "xp": 5000,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1595,7 +1595,7 @@
         "lvl": 43,
         "actions": 1024,
         "xp": 6000,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1639,7 +1639,7 @@
         "lvl": 25,
         "actions": 128,
         "xp": 160,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1669,7 +1669,7 @@
         "lvl": 26,
         "actions": 512,
         "xp": 2500,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1699,7 +1699,7 @@
         "lvl": 26,
         "actions": 512,
         "xp": 2500,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1729,7 +1729,7 @@
         "lvl": 25,
         "actions": 768,
         "xp": 1800,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1819,7 +1819,7 @@
         "lvl": 54,
         "actions": 4352,
         "xp": 31250,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1953,7 +1953,7 @@
         "lvl": 32,
         "actions": 256,
         "xp": 320,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -1983,7 +1983,7 @@
         "lvl": 32,
         "actions": 256,
         "xp": 640,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2013,7 +2013,7 @@
         "lvl": 32,
         "actions": 256,
         "xp": 640,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2057,7 +2057,7 @@
         "lvl": 35,
         "actions": 256,
         "xp": 640,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2091,7 +2091,7 @@
         "lvl": 36,
         "actions": 1024,
         "xp": 12500,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2125,7 +2125,7 @@
         "lvl": 36,
         "actions": 1024,
         "xp": 12500,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2259,7 +2259,7 @@
         "lvl": 42,
         "actions": 512,
         "xp": 1280,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2289,7 +2289,7 @@
         "lvl": 42,
         "actions": 512,
         "xp": 2560,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2319,7 +2319,7 @@
         "lvl": 42,
         "actions": 512,
         "xp": 2560,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2349,7 +2349,7 @@
         "lvl": 46,
         "actions": 4096,
         "xp": 15000,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2379,7 +2379,7 @@
         "lvl": 46,
         "actions": 4096,
         "xp": 15000,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2513,7 +2513,7 @@
         "lvl": 52,
         "actions": 1024,
         "xp": 5120,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2543,7 +2543,7 @@
         "lvl": 52,
         "actions": 1024,
         "xp": 10240,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
@@ -2573,7 +2573,7 @@
         "lvl": 52,
         "actions": 1024,
         "xp": 10240,
-        "category": "Wearables"
+        "category": "Apparell"
     },
     {
         "output": [
