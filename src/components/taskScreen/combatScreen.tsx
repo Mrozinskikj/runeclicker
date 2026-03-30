@@ -344,10 +344,6 @@ const CombatScreenComponent: React.FC<{
     const enemyEffectiveDamage = calculateAverageDamage(false) * calculateHitChance(false);
     const playerAdvantage = playerEffectiveDamage / enemyEffectiveDamage;
     const enemyAdvantage = enemyEffectiveDamage / playerEffectiveDamage;
-
-    const logAdv = Math.log2(playerAdvantage);
-    const scale = 3;
-    // const advantageBarValue = 50 + 50 * Math.tanh(logAdv / scale);
     const advantageBarValue = (playerAdvantage / (playerAdvantage + 1)) * 100;
 
     const advantageTooltip = enemy && (
