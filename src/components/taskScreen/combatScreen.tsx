@@ -335,8 +335,28 @@ const CombatScreenComponent: React.FC<{
     const enemyDamage = useCombat((state) => state.enemyDamage);
     const calculateDepth = useCombat((state) => state.calculateDepth);
     const record = useCombat((state) => state.record);
+    const calculateHitChance = useCombat((state) => state.calculateHitChance);
+    const calculateAverageDamage = useCombat((state) => state.calculateAverageDamage);
 
     const depth = calculateDepth(step);
+
+    const playerEffectiveDamage = calculateAverageDamage(true) * calculateHitChance(true);
+    const enemyEffectiveDamage = calculateAverageDamage(false) * calculateHitChance(false);
+    const playerAdvantage = playerEffectiveDamage / enemyEffectiveDamage;
+    const enemyAdvantage = enemyEffectiveDamage / playerEffectiveDamage;
+    const advantageBarValue = Math.max(0, Math.min(100, 50 + 25 * Math.log2(playerAdvantage)));
+    const advantageTooltip = enemy && (
+        <>
+            <div style={{ display: "flex", alignItems: "center" }}>
+                <Text text={"Player advantage: "} type="normal" colour="white" />
+                <Text text={`x${playerAdvantage.toFixed(2)}`} type="bold" colour={playerAdvantage >= 1 ? "green2" : "red"} />
+            </div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+                <Text text={"Enemy advantage: "} type="normal" colour="white" />
+                <Text text={`x${enemyAdvantage.toFixed(2)}`} type="bold" colour={enemyAdvantage >= 1 ? "green2" : "red"} />
+            </div>
+        </>
+    );
 
     const taskAction = isRest(step) ? "Rest" : (escape ? "Escape" : (playerTurn ? "Attack" : "Block"));
 
@@ -391,6 +411,32 @@ const CombatScreenComponent: React.FC<{
                     <StatRow icon={`${IMAGE}combat/iconstrength.png`} tooltip={strengthTooltip} playerValue={playerStats.strength} enemyValue={enemy && enemy.strength} />
                     <StatRow icon={`${IMAGE}combat/iconaccuracy.png`} tooltip={accuracyTooltip} playerValue={playerStats.accuracy} enemyValue={enemy && enemy.accuracy} />
                     <StatRow icon={`${IMAGE}combat/icondefence.png`} tooltip={defenceTooltip} playerValue={playerStats.defence} enemyValue={enemy && enemy.defence} />
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            width: "100%",
+                        }}
+                    >
+                        <div style={{ width: "46px", marginTop: 4 }}>
+                            {enemy ? (
+                                <ProgressBar
+                                    value={advantageBarValue}
+                                    image="depth0"
+                                    backgroundImage="depth3"
+                                    fullBorder
+                                    tooltipContent={advantageTooltip}
+                                    showTick={true}
+                                />
+                            ) : (
+                                <ProgressBar
+                                    value={0}
+                                    image="empty"
+                                    fullBorder
+                                />
+                            )}
+                        </div>
+                    </div>
                     {isRest(step) && (
                         <>
                             <EquipmentSlot
@@ -445,7 +491,7 @@ const CombatScreenComponent: React.FC<{
             </div>
 
             <div style={{
-                marginTop: "-2px",
+                marginTop: "-6px",
                 marginLeft: "16px",
                 marginRight: "16px",
                 marginBottom: "16px",

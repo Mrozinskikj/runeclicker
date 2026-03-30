@@ -7,26 +7,28 @@ interface ProgressBarProps {
     value: number;
     text?: string;
     image: string;
+    backgroundImage?: string;
     tooltipContent?: React.ReactNode;
     updated?: boolean;
     updatedValue?: number | null;
     updatedImage?: string;
     bottomBorder?: boolean;
     fullBorder?: boolean;
+    showTick?: boolean;
 }
 
 /**
  * Progress Bar Component
  * - Displays progress bar with tooltip and text value.
  */
-export const ProgressBar: React.FC<ProgressBarProps> = ({ value, text, image, tooltipContent, updated = false, updatedValue = null, updatedImage = "", bottomBorder = true, fullBorder = false }) => {
+export const ProgressBar: React.FC<ProgressBarProps> = ({ value, text, image, backgroundImage, tooltipContent, updated = false, updatedValue = null, updatedImage = "", bottomBorder = true, fullBorder = false, showTick = false }) => {
     return (
         <Tooltip content={tooltipContent}>
             {/* Bar Background */}
             <div style={{
                 position: "relative",
                 height: "10px",
-                backgroundImage: `url(${IMAGE}progress/empty.png)`,
+                backgroundImage: backgroundImage ? `url(${IMAGE}progress/${backgroundImage}.png)` : `url(${IMAGE}progress/empty.png)`,
                 borderTop: "1px solid #000",
                 borderBottom: bottomBorder ? "1px solid #000" : "",
                 borderLeft: fullBorder ? "1px solid #000" : "",
@@ -43,6 +45,18 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ value, text, image, to
                         backgroundImage: `url(${IMAGE}progress/${image}.png)`,
                     }}
                 />
+
+                {showTick && (
+                    <div
+                        style={{
+                            position: "absolute",
+                            left: `calc(${value}% - 3px)`,
+                            top: "-3px",
+                        }}
+                    >
+                        <img src={`${IMAGE}combat/tick.png`} alt="tick" />
+                    </div>
+                )}
 
                 {/* Updated bar (diff from value to updatedValue) */}
                 {updatedValue !== null &&
