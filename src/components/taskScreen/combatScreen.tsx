@@ -344,7 +344,12 @@ const CombatScreenComponent: React.FC<{
     const enemyEffectiveDamage = calculateAverageDamage(false) * calculateHitChance(false);
     const playerAdvantage = playerEffectiveDamage / enemyEffectiveDamage;
     const enemyAdvantage = enemyEffectiveDamage / playerEffectiveDamage;
-    const advantageBarValue = Math.max(0, Math.min(100, 50 + 25 * Math.log2(playerAdvantage)));
+
+    const logAdv = Math.log2(playerAdvantage);
+    const scale = 3;
+    // const advantageBarValue = 50 + 50 * Math.tanh(logAdv / scale);
+    const advantageBarValue = (playerAdvantage / (playerAdvantage + 1)) * 100;
+
     const advantageTooltip = enemy && (
         <>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -418,7 +423,7 @@ const CombatScreenComponent: React.FC<{
                             width: "100%",
                         }}
                     >
-                        <div style={{ width: "46px", marginTop: 4 }}>
+                        <div style={{ width: "128px", marginTop: 4 }}>
                             {enemy ? (
                                 <ProgressBar
                                     value={advantageBarValue}
