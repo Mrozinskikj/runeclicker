@@ -259,6 +259,87 @@ const HealthBarsRow: React.FC<{
     );
 };
 
+export const AdvantageBar: React.FC<{
+    enemy: boolean;
+}> = ({ enemy }) => {
+    const BAR_WIDTH = 128;
+    const BAR_HEIGHT = 10;
+
+    const calculateHitChance = useCombat((state) => state.calculateHitChance);
+    const calculateAverageDamage = useCombat((state) => state.calculateAverageDamage);
+    const playerEffectiveDamage = calculateAverageDamage(true) * calculateHitChance(true);
+    const enemyEffectiveDamage = calculateAverageDamage(false) * calculateHitChance(false);
+    const playerAdvantage = playerEffectiveDamage / enemyEffectiveDamage;
+    const enemyAdvantage = enemyEffectiveDamage / playerEffectiveDamage;
+    const advantageBarValue = (playerAdvantage / (playerAdvantage + 1)) * 100;
+
+    const advantageTooltip = enemy && (
+        <>
+            <div style={{ display: "flex", alignItems: "center" }}>
+                <Text text={"Player advantage: "} type="normal" colour="white" />
+                <Text text={`x${playerAdvantage.toFixed(2)}`} type="bold" colour={playerAdvantage >= 1 ? "green2" : "red"} />
+            </div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+                <Text text={"Enemy advantage: "} type="normal" colour="white" />
+                <Text text={`x${enemyAdvantage.toFixed(2)}`} type="bold" colour={enemyAdvantage >= 1 ? "green2" : "red"} />
+            </div>
+        </>
+    );
+
+    const clampedValue = Math.max(0, Math.min(advantageBarValue, 100));
+    const croppedWidth = (clampedValue / 100) * BAR_WIDTH;
+
+    return (
+        <Tooltip content={advantageTooltip}>
+            <div
+                style={{
+                    position: "relative",
+                    width: `${BAR_WIDTH}px`,
+                    height: `${BAR_HEIGHT}px`,
+                    backgroundImage: `url(${IMAGE}combat/advantageenemy.png)`,
+                    border: "1px solid #000",
+                    overflow: "hidden",
+                }}
+            >
+                <div
+                    style={{
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                        width: `${croppedWidth}px`,
+                        height: `${BAR_HEIGHT}px`,
+                        overflow: "hidden",
+                    }}
+                >
+                    <img
+                        src={enemy ? `${IMAGE}combat/advantageplayer.png` : `${IMAGE}combat/advantageempty.png`}
+                        alt=""
+                        style={{
+                            display: "block",
+                            width: `${BAR_WIDTH}px`,
+                            height: `${BAR_HEIGHT}px`,
+                            maxWidth: "none",
+                            pointerEvents: "none",
+                            userSelect: "none",
+                        }}
+                    />
+                </div>
+            </div>
+            {enemy && (
+                <div
+                    style={{
+                        position: "absolute",
+                        left: `calc(${advantageBarValue}% - 3px)`,
+                        top: "-2px",
+                    }}
+                >
+                    <img src={`${IMAGE}combat/advantagetick.png`} />
+                </div>
+            )}
+        </Tooltip>
+    );
+};
+
 const StatRow: React.FC<{
     icon: string;
     tooltip: JSX.Element;
@@ -335,29 +416,8 @@ const CombatScreenComponent: React.FC<{
     const enemyDamage = useCombat((state) => state.enemyDamage);
     const calculateDepth = useCombat((state) => state.calculateDepth);
     const record = useCombat((state) => state.record);
-    const calculateHitChance = useCombat((state) => state.calculateHitChance);
-    const calculateAverageDamage = useCombat((state) => state.calculateAverageDamage);
 
     const depth = calculateDepth(step);
-
-    const playerEffectiveDamage = calculateAverageDamage(true) * calculateHitChance(true);
-    const enemyEffectiveDamage = calculateAverageDamage(false) * calculateHitChance(false);
-    const playerAdvantage = playerEffectiveDamage / enemyEffectiveDamage;
-    const enemyAdvantage = enemyEffectiveDamage / playerEffectiveDamage;
-    const advantageBarValue = (playerAdvantage / (playerAdvantage + 1)) * 100;
-
-    const advantageTooltip = enemy && (
-        <>
-            <div style={{ display: "flex", alignItems: "center" }}>
-                <Text text={"Player advantage: "} type="normal" colour="white" />
-                <Text text={`x${playerAdvantage.toFixed(2)}`} type="bold" colour={playerAdvantage >= 1 ? "green2" : "red"} />
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-                <Text text={"Enemy advantage: "} type="normal" colour="white" />
-                <Text text={`x${enemyAdvantage.toFixed(2)}`} type="bold" colour={enemyAdvantage >= 1 ? "green2" : "red"} />
-            </div>
-        </>
-    );
 
     const taskAction = isRest(step) ? "Rest" : (escape ? "Escape" : (playerTurn ? "Attack" : "Block"));
 
@@ -420,22 +480,7 @@ const CombatScreenComponent: React.FC<{
                         }}
                     >
                         <div style={{ width: "128px", marginTop: 4 }}>
-                            {enemy ? (
-                                <ProgressBar
-                                    value={advantageBarValue}
-                                    image="depth0"
-                                    backgroundImage="depth3"
-                                    fullBorder
-                                    tooltipContent={advantageTooltip}
-                                    showTick={true}
-                                />
-                            ) : (
-                                <ProgressBar
-                                    value={0}
-                                    image="empty"
-                                    fullBorder
-                                />
-                            )}
+                            <AdvantageBar enemy={enemy != null} />
                         </div>
                     </div>
                     {isRest(step) && (
