@@ -325,15 +325,20 @@ export const AdvantageBar: React.FC<{
                     />
                 </div>
             </div>
+            {/* Progress Text */}
             {enemy && (
                 <div
                     style={{
                         position: "absolute",
-                        left: `calc(${advantageBarValue}% - 3px)`,
-                        top: "-2px",
+                        top: "1px",
+                        width: "100%",
+                        height: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center"
                     }}
                 >
-                    <img src={`${IMAGE}combat/advantagetick.png`} />
+                    <Text text={`x${playerAdvantage.toFixed(2)}`} type="shadow" colour="white" />
                 </div>
             )}
         </Tooltip>
