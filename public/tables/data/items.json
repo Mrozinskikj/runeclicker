@@ -1189,7 +1189,7 @@
         "slot": "fertiliser"
     },
     {
-        "name": "Dwarvern Coin",
+        "name": "Dwarven Coin",
         "value": 600
     },
     {
@@ -1220,15 +1220,15 @@
         }
     },
     {
-        "name": "Dwarvern Handle",
+        "name": "Dwarven Handle",
         "value": 1350
     },
     {
-        "name": "Dwarvern Hammerhead",
+        "name": "Dwarven Hammerhead",
         "value": 1350
     },
     {
-        "name": "Dwarvern Warhammer",
+        "name": "Dwarven Warhammer",
         "value": 4500,
         "slot": "hand",
         "bonus": {

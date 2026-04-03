@@ -416,7 +416,7 @@
         ]
     },
     {
-        "name": "Dwarvern Miner",
+        "name": "Dwarven Miner",
         "health": 32,
         "strength": 10,
         "accuracy": 8,
@@ -476,7 +476,7 @@
         ]
     },
     {
-        "name": "Dwarvern Foreman",
+        "name": "Dwarven Foreman",
         "health": 100,
         "strength": 24,
         "accuracy": 10,
@@ -510,7 +510,7 @@
         ]
     },
     {
-        "name": "Dwarvern Overseer",
+        "name": "Dwarven Overseer",
         "health": 100,
         "strength": 6,
         "accuracy": 22,
