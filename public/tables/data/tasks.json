@@ -482,11 +482,11 @@
             "action": "Train",
             "message": "You train your energy.",
             "actions": 5,
-            "xp": 40,
+            "xp": 60,
             "input": [
                 {
                     "id": 79,
-                    "quantity": 60
+                    "quantity": 80
                 }
             ]
         },
@@ -496,11 +496,11 @@
             "action": "Train",
             "message": "You train your energy.",
             "actions": 5,
-            "xp": 160,
+            "xp": 360,
             "input": [
                 {
                     "id": 79,
-                    "quantity": 360
+                    "quantity": 640
                 }
             ]
         }
