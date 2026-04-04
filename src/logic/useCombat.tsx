@@ -237,7 +237,7 @@ export const useCombat = create<CombatStore>((set, get) => {
                 const enemyData = enemiesData[entry.id];
                 return {
                     id: entry.id,
-                    lvl: enemyData.strength + enemyData.accuracy + enemyData.defence + enemyData.health
+                    lvl: enemyData.health
                 };
             });
 
