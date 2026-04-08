@@ -1116,7 +1116,7 @@
         ],
         "lvl": 21,
         "actions": 64,
-        "xp": 120,
+        "xp": 150,
         "category": "Tools"
     },
     {
@@ -1142,7 +1142,7 @@
         ],
         "lvl": 21,
         "actions": 64,
-        "xp": 120,
+        "xp": 150,
         "category": "Tools"
     },
     {
@@ -1168,7 +1168,7 @@
         ],
         "lvl": 21,
         "actions": 64,
-        "xp": 120,
+        "xp": 150,
         "category": "Tools"
     },
     {
@@ -1198,7 +1198,7 @@
         ],
         "lvl": 22,
         "actions": 128,
-        "xp": 80,
+        "xp": 100,
         "category": "Apparel"
     },
     {
@@ -1228,7 +1228,7 @@
         ],
         "lvl": 22,
         "actions": 128,
-        "xp": 160,
+        "xp": 200,
         "category": "Apparel"
     },
     {
@@ -1258,7 +1258,7 @@
         ],
         "lvl": 22,
         "actions": 128,
-        "xp": 160,
+        "xp": 200,
         "category": "Apparel"
     },
     {
@@ -1870,7 +1870,7 @@
         ],
         "lvl": 31,
         "actions": 128,
-        "xp": 480,
+        "xp": 750,
         "category": "Tools"
     },
     {
@@ -1896,7 +1896,7 @@
         ],
         "lvl": 31,
         "actions": 128,
-        "xp": 480,
+        "xp": 750,
         "category": "Tools"
     },
     {
@@ -1922,7 +1922,7 @@
         ],
         "lvl": 31,
         "actions": 128,
-        "xp": 480,
+        "xp": 750,
         "category": "Tools"
     },
     {
@@ -1952,7 +1952,7 @@
         ],
         "lvl": 32,
         "actions": 256,
-        "xp": 320,
+        "xp": 500,
         "category": "Apparel"
     },
     {
@@ -1982,7 +1982,7 @@
         ],
         "lvl": 32,
         "actions": 256,
-        "xp": 640,
+        "xp": 1000,
         "category": "Apparel"
     },
     {
@@ -2012,7 +2012,7 @@
         ],
         "lvl": 32,
         "actions": 256,
-        "xp": 640,
+        "xp": 1000,
         "category": "Apparel"
     },
     {
@@ -2176,7 +2176,7 @@
         ],
         "lvl": 41,
         "actions": 256,
-        "xp": 1920,
+        "xp": 3750,
         "category": "Tools"
     },
     {
@@ -2202,7 +2202,7 @@
         ],
         "lvl": 41,
         "actions": 256,
-        "xp": 1920,
+        "xp": 3750,
         "category": "Tools"
     },
     {
@@ -2228,7 +2228,7 @@
         ],
         "lvl": 41,
         "actions": 256,
-        "xp": 1920,
+        "xp": 3750,
         "category": "Tools"
     },
     {
@@ -2258,7 +2258,7 @@
         ],
         "lvl": 42,
         "actions": 512,
-        "xp": 1280,
+        "xp": 2500,
         "category": "Apparel"
     },
     {
@@ -2288,7 +2288,7 @@
         ],
         "lvl": 42,
         "actions": 512,
-        "xp": 2560,
+        "xp": 5000,
         "category": "Apparel"
     },
     {
@@ -2318,7 +2318,7 @@
         ],
         "lvl": 42,
         "actions": 512,
-        "xp": 2560,
+        "xp": 5000,
         "category": "Apparel"
     },
     {
@@ -2430,7 +2430,7 @@
         ],
         "lvl": 51,
         "actions": 512,
-        "xp": 7680,
+        "xp": 18750,
         "category": "Tools"
     },
     {
@@ -2456,7 +2456,7 @@
         ],
         "lvl": 51,
         "actions": 512,
-        "xp": 7680,
+        "xp": 18750,
         "category": "Tools"
     },
     {
@@ -2482,7 +2482,7 @@
         ],
         "lvl": 51,
         "actions": 512,
-        "xp": 7680,
+        "xp": 18750,
         "category": "Tools"
     },
     {
@@ -2512,7 +2512,7 @@
         ],
         "lvl": 52,
         "actions": 1024,
-        "xp": 5120,
+        "xp": 12500,
         "category": "Apparel"
     },
     {
@@ -2542,7 +2542,7 @@
         ],
         "lvl": 52,
         "actions": 1024,
-        "xp": 10240,
+        "xp": 25000,
         "category": "Apparel"
     },
     {
@@ -2572,7 +2572,7 @@
         ],
         "lvl": 52,
         "actions": 1024,
-        "xp": 10240,
+        "xp": 25000,
         "category": "Apparel"
     },
     {
