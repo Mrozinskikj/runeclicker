@@ -4,6 +4,7 @@ import { IMAGE } from "../../config";
 import { useTask } from "../../logic/useTask";
 import { usePlayer } from "../../logic/usePlayer";
 import { useFarming } from "../../logic/useFarming";
+import { useCombat } from "../../logic/useCombat";
 
 interface ActionButtonProps {
     taskAction: string;
@@ -27,6 +28,9 @@ const ActionButtonComponent: React.FC<ActionButtonProps> = ({ taskAction }) => {
     const inventory = usePlayer((state) => state.player.inventory);
     const pause = useTask((state) => state.pause);
     const togglePause = useTask((state) => state.togglePause);
+    const startCombat = useCombat((state) => state.startCombat);
+
+    const [retreatButtonState, setRetreatButtonState] = useState<"idle" | "hover" | "down">("idle");
 
     // Determines if the button should be active based on task availability.
     useEffect(() => {
@@ -58,6 +62,11 @@ const ActionButtonComponent: React.FC<ActionButtonProps> = ({ taskAction }) => {
         hover: `${IMAGE}action/pausehover.png`,
         down: `${IMAGE}action/pausedown.png`,
     };
+    const retreatSpriteMap = {
+        idle: `${IMAGE}action/retreatidle.png`,
+        hover: `${IMAGE}action/retreathover.png`,
+        down: `${IMAGE}action/retreatdown.png`,
+    };
 
     return (
         <div style={{
@@ -66,6 +75,25 @@ const ActionButtonComponent: React.FC<ActionButtonProps> = ({ taskAction }) => {
             justifyContent: "space-between",
             flex: 1
         }}>
+            {skill === "Combat" && (
+                <div
+                    onClick={() => startCombat()}
+                    style={{
+                        cursor: "pointer",
+                        backgroundImage: `url(${retreatSpriteMap[retreatButtonState]})`,
+                        backgroundSize: "cover",
+                        height: "36px",
+                        width: "36px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                    onMouseEnter={() => setRetreatButtonState("hover")}
+                    onMouseLeave={() => setRetreatButtonState("idle")}
+                    onMouseDown={() => setRetreatButtonState("down")}
+                    onMouseUp={() => setRetreatButtonState("hover")}
+                />
+            )}
             <div
                 onClick={() => active && manualAction()}
                 style={{
