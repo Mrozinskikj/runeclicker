@@ -833,7 +833,7 @@
         "name": "Demon Overlord",
         "health": 1000,
         "strength": 40,
-        "accuracy": 50,
+        "accuracy": 60,
         "defence": 50,
         "xp": 500,
         "items": [
