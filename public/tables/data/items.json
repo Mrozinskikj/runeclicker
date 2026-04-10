@@ -1502,5 +1502,28 @@
                 }
             }
         }
+    },
+    {
+        "name": "Granite Maul",
+        "value": 20000,
+        "slot": "hand",
+        "bonus": {
+            "Processing": {
+                "speed": {
+                    "percent": 150
+                },
+                "click": {
+                    "absolute": 3
+                }
+            },
+            "Combat": {
+                "strength": {
+                    "absolute": 50
+                },
+                "speed": {
+                    "absolute": -5
+                }
+            }
+        }
     }
 ]

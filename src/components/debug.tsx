@@ -20,11 +20,14 @@ export const Debug: React.FC<DebugProps> = ({ }) => {
             <Text text="Debug:" type="bold" />
             <Text text="Add items:" type="normal" />
             <select value={itemSelected} onChange={(e) => setItemSelected(Number(e.target.value))}>
-                {itemOptions.map((item, index) => (
-                    <option key={index} value={index}>
-                        {item.name}
-                    </option>
-                ))}
+                {itemOptions
+                    .map((item, index) => ({ item, index }))
+                    .sort((a, b) => a.item.name.localeCompare(b.item.name))
+                    .map(({ item, index }) => (
+                        <option key={index} value={index}>
+                            {item.name}
+                        </option>
+                    ))}
             </select>
             <button onClick={() => addItems([{ id: itemSelected, quantity: 1 }])}>Add item</button>
             <Text text="Fast:" type="normal" />
