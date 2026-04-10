@@ -48,7 +48,15 @@ export function loadGame(gameData: GameData): Player {
     const raw = localStorage.getItem(SAVE_KEY);
     if (raw) {
         const saveData = !DEBUG ? LZString.decompressFromBase64(raw) : raw;
-        return JSON.parse(saveData) as Player;
+        const player = JSON.parse(saveData) as Player;
+        const expectedLength = gameData.items.length;
+        if (player.records.items.length < expectedLength) {
+            player.records.items = [
+                ...player.records.items,
+                ...Array(expectedLength - player.records.items.length).fill(0),
+            ];
+        }
+        return player;
     }
     return createInitialSave(gameData);
 }
